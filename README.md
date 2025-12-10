@@ -8,19 +8,9 @@ This website serves as the online presence for Feeling Mindful Technologies, sho
 
 ## Development
 
-The website is built using standard web technologies (HTML, CSS).
+The website is built using [React](https://reactjs.org/) and [Vite](https://vitejs.dev/).
 
-## Deployment
-
-This website is deployed using GitHub Pages.
-
-## Custom Domain
-
-The website is configured to use the custom domain `feelingmindful.com`.
-A `CNAME` file is included in the repository root to facilitate this.
-For the custom domain to work correctly, ensure the appropriate DNS records are configured with the domain registrar, pointing to GitHub Pages.
-
-## Getting Started
+### Getting Started
 
 To run this project locally:
 
@@ -32,4 +22,28 @@ To run this project locally:
     ```bash
     cd feeling-mindful-website
     ```
-3.  Open `index.html` in your web browser.
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+4.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+## Deployment
+
+This website is deployed using GitHub Pages. The deployment is automated using the `gh-pages` npm package.
+
+To deploy the website, run the following command:
+```bash
+npm run deploy
+```
+
+This will build the React app and push the contents of the `dist` directory to the `gh-pages` branch.
+
+## Custom Domain
+
+The website is configured to use the custom domain `feelingmindful.com`.
+A `CNAME` file is included in the `public` directory to facilitate this.
+For the custom domain to work correctly, ensure the appropriate DNS records are configured with the domain registrar, pointing to GitHub Pages, and that the GitHub Pages settings are configured to use the `gh-pages` branch.
