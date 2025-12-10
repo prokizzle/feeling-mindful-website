@@ -1,0 +1,18 @@
+{
+  "name": "feeling-mindful",
+  "version": "1.0.0",
+  "description": "This repository hosts the official website for Feeling Mindful Technologies.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prokizzle/feeling-mindful-website.git"
+  },
+  "homepage": "https://feelingmindful.com",,
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
