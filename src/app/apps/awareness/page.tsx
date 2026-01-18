@@ -64,7 +64,19 @@ export default function AwarenessPage() {
   return (
     <RootLayout>
       {/* Hero */}
-      <Container className="mt-24 sm:mt-32 md:mt-56">
+      <Container className="mt-24 sm:mt-32 md:mt-40">
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-3xl mb-16">
+            <Image
+              src="/images/heroes/awareness-hero.png"
+              alt="Awareness app illustration"
+              width={1280}
+              height={720}
+              className="w-full object-cover"
+              priority
+            />
+          </div>
+        </FadeIn>
         <FadeIn className="max-w-3xl">
           <div className="flex items-center gap-6 mb-8">
             <Image

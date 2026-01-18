@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
@@ -43,7 +44,19 @@ export default function TheCollectivePage() {
   return (
     <RootLayout>
       {/* Hero */}
-      <Container className="mt-24 sm:mt-32 md:mt-56">
+      <Container className="mt-24 sm:mt-32 md:mt-40">
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-3xl mb-16">
+            <Image
+              src="/images/heroes/collective-hero.png"
+              alt="The Collective community illustration"
+              width={1280}
+              height={720}
+              className="w-full object-cover"
+              priority
+            />
+          </div>
+        </FadeIn>
         <FadeIn className="max-w-3xl mx-auto text-center">
           <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 sm:text-5xl">
             The Collective

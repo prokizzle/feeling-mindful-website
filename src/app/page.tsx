@@ -136,6 +136,21 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
+      <Container className="mt-16 sm:mt-24">
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-3xl">
+            <Image
+              src="/images/heroes/homepage-hero.png"
+              alt="Mindful living illustration"
+              width={1280}
+              height={720}
+              className="w-full object-cover"
+              priority
+            />
+          </div>
+        </FadeIn>
+      </Container>
+
       <Apps />
 
       <Testimonial
