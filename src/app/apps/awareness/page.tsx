@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
+import { BetaSignupButton } from '@/components/BetaSignupButton'
 
 const pillars = [
   {
@@ -112,12 +112,9 @@ export default function AwarenessPage() {
             a program anyone can follow.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#"
-              className="inline-flex items-center px-6 py-3 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors"
-            >
+            <BetaSignupButton className="inline-flex items-center px-6 py-3 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors">
               Join the Beta
-            </a>
+            </BetaSignupButton>
             <Link
               href="/the-collective"
               className="inline-flex items-center px-6 py-3 bg-white border border-neutral-200 text-neutral-700 rounded-full font-medium hover:border-neutral-400 transition-colors"
@@ -216,12 +213,9 @@ export default function AwarenessPage() {
             <p className="mt-4 text-neutral-600">
               Join the beta and start your transformational awareness journey today.
             </p>
-            <a
-              href="#"
-              className="mt-8 inline-flex items-center px-8 py-4 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors"
-            >
+            <BetaSignupButton className="mt-8 inline-flex items-center px-8 py-4 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors">
               Join the Beta
-            </a>
+            </BetaSignupButton>
             <p className="mt-6 text-sm text-neutral-400">
               <Link href="/apps/awareness/privacy" className="hover:text-neutral-600">
                 Privacy Policy
