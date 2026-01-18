@@ -1,0 +1,89 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function to check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Beta testers collection - anyone can create, no one can read (admin only via console)
+    match /beta-testers/{testerId} {
+      allow create: if true;
+      allow read, update, delete: if false; // Admin only via Firebase Console
+    }
+
+    // Data deletion requests - anyone can create, no one can read (admin only via console)
+    match /data-deletion-requests/{requestId} {
+      allow create: if true;
+      allow read, update, delete: if false; // Admin only via Firebase Console
+    }
+
+    // Users collection - users can only access their own data
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      // User subcollections (profile, progress)
+      match /data/{document=**} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // Daily plans subcollection
+      match /dailyPlans/{planId} {
+        allow read, write: if isOwner(userId);
+
+        // Nested collections (reflections, sessions)
+        match /{subcollection}/{docId} {
+          allow read, write: if isOwner(userId);
+        }
+      }
+
+      // Reflections subcollection (user's saved reflection entries)
+      match /reflections/{reflectionId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Meditations collection - read-only for authenticated users
+    match /meditations/{meditationId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Admin only via Firebase Console
+
+      // Chunks subcollection
+      match /chunks/{chunkId} {
+        allow read: if isAuthenticated();
+        allow write: if false;
+      }
+    }
+
+    // Courses collection - read-only for authenticated users
+    match /courses/{courseId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Admin only
+    }
+
+    // Mantras collection - read-only for authenticated users
+    match /mantras/{mantraId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Admin only
+    }
+
+    // Reflections collection (templates) - read-only for authenticated users
+    match /reflections/{reflectionId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Admin only
+    }
+
+    // System prompts - read-only for authenticated users
+    match /systemPrompts/{promptId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Admin only
+    }
+  }
+}
