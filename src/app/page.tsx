@@ -81,7 +81,7 @@ function HeroSection() {
               href="/apps/awareness"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-sage-950 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-sage-900"
             >
-              <span className="relative z-10">Explore Awareness</span>
+              <span className="relative z-10">Try Shanks Awareness Training</span>
               <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -231,9 +231,9 @@ function Testimonial() {
             </div>
 
             <blockquote className="font-display text-2xl font-medium leading-relaxed text-white sm:text-3xl lg:text-4xl">
-              The practices in Awareness come from years of clinical work helping
-              people transform their relationship with themselves and the world
-              around them.
+              The practices in Shanks Awareness Training come from years of
+              clinical work helping people transform their relationship with
+              themselves and the world around them.
             </blockquote>
 
             <figcaption className="mt-10">
@@ -247,7 +247,7 @@ function Testimonial() {
                 />
                 <div className="text-left">
                   <div className="font-display text-lg font-semibold text-white">Chris Shanks</div>
-                  <div className="text-sage-300">Creator of Awareness</div>
+                  <div className="text-sage-300">Creator of Shanks Awareness Training</div>
                 </div>
               </div>
             </figcaption>
