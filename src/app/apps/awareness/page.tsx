@@ -204,6 +204,90 @@ export default function AwarenessPage() {
         </Container>
       </section>
 
+      {/* About Chris Shanks */}
+      <section className="relative py-32 sm:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-sand-50/50 to-white" />
+
+        <FloatingOrb className="animate-float-slow absolute -right-32 top-1/4 h-[350px] w-[350px] bg-sand-200/30" />
+
+        <Container className="relative">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            {/* Left: About content */}
+            <FadeIn>
+              <div className="inline-flex items-center gap-3 mb-6">
+                <span className="font-display text-sm font-semibold tracking-widest text-sand-600 uppercase">
+                  The Creator
+                </span>
+              </div>
+              <h2 className="font-display text-4xl font-medium tracking-tight text-sage-950 sm:text-5xl">
+                About Chris Shanks
+              </h2>
+
+              <div className="mt-8 space-y-6 text-lg text-sage-600 leading-relaxed">
+                <p>
+                  Chris Shanks understands addiction firsthand. Hooked on substances from his teenage years,
+                  he led a double life for decades—functional on the surface, struggling underneath. Over 29 years,
+                  his longest period of sobriety was eight months.
+                </p>
+                <p>
+                  On April 7, 2009, everything changed. A drug-dealing investigation led to his arrest and,
+                  eventually, four years in maximum-security prison in Huntsville, Texas. There, with only
+                  Eckhart Tolle&apos;s <em>A New Earth</em> to read, he discovered mindfulness.
+                </p>
+                <p>
+                  &ldquo;These were the most transformative years of my life,&rdquo; Chris says. &ldquo;I was freer
+                  while incarcerated than I had ever been. I found the way out of the prison of my mind.&rdquo;
+                </p>
+              </div>
+            </FadeIn>
+
+            {/* Right: Philosophy and credentials */}
+            <FadeIn>
+              <div className="lg:mt-24 space-y-8">
+                <div className="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-sage-900/5">
+                  <h3 className="font-display text-xl font-semibold text-sage-950">
+                    From Prisoner to Counselor
+                  </h3>
+                  <p className="mt-4 text-sage-600 leading-relaxed">
+                    Released in 2013, Chris started over with only a coffee cup and some dharma books.
+                    He finished college at 47, earned a counseling degree, and spent over four years
+                    at a treatment center outside Austin, working with some of the hardest cases of
+                    chronic relapsers.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-sage-50 p-8">
+                  <h3 className="font-display text-xl font-semibold text-sage-950">
+                    His Philosophy
+                  </h3>
+                  <p className="mt-4 text-sage-600 leading-relaxed">
+                    &ldquo;A different operating system needs to be installed—one that can
+                    <em>see the mind</em> rather than <em>be the mind</em>. This is what committed
+                    meditation and mindfulness can do.&rdquo;
+                  </p>
+                  <p className="mt-4 text-sage-600 leading-relaxed">
+                    His work is informed by Eckhart Tolle, Jack Kornfield, Tara Brach, Sam Harris,
+                    and the neuroscience of addiction and consciousness.
+                  </p>
+                </div>
+
+                <a
+                  href="https://shankscounseling.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-2 text-sage-700 font-medium hover:text-sage-950 transition-colors"
+                >
+                  <span>Learn more at shankscounseling.com</span>
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
       {/* Four Pillars - Spacious cards */}
       <section className="relative py-32 sm:py-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-sage-50/30 to-white" />
