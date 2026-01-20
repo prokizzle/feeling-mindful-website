@@ -5,15 +5,41 @@ import { Dialog, Transition } from '@headlessui/react'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
+export type AppType = 'awareness' | 'simple-rituals'
+
 interface BetaSignupModalProps {
   isOpen: boolean
   onClose: () => void
+  app?: AppType
 }
 
 const platforms = ['iOS', 'Android', 'Both']
 const experienceLevels = ['New to meditation', 'Some experience', 'Regular practice']
 
-export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
+const appConfig: Record<AppType, {
+  title: string
+  description: string
+  successMessage: string
+  showPlatform: boolean
+  showExperience: boolean
+}> = {
+  awareness: {
+    title: 'Join the Awareness Beta',
+    description: 'Get early access to Awareness and help shape the future of mindful living.',
+    successMessage: 'Thanks for signing up for the Awareness beta. We\'ll be in touch soon with access details.',
+    showPlatform: true,
+    showExperience: true,
+  },
+  'simple-rituals': {
+    title: 'Join the Simple Rituals Beta',
+    description: 'Get early access to Simple Rituals and help us build better routines.',
+    successMessage: 'Thanks for signing up for the Simple Rituals beta. We\'ll be in touch soon with access details.',
+    showPlatform: false,
+    showExperience: false,
+  },
+}
+
+export function BetaSignupModal({ isOpen, onClose, app = 'awareness' }: BetaSignupModalProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [platform, setPlatform] = useState('')
@@ -21,6 +47,8 @@ export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState('')
+
+  const config = appConfig[app]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,8 +59,9 @@ export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
       await addDoc(collection(db, 'beta-testers'), {
         name,
         email,
-        platform,
-        experience,
+        platform: config.showPlatform ? platform : 'iOS',
+        experience: config.showExperience ? experience : null,
+        app,
         createdAt: serverTimestamp(),
         invited: false,
         userId: null,
@@ -99,7 +128,7 @@ export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
                       You&apos;re on the list!
                     </Dialog.Title>
                     <p className="mt-2 text-sm text-neutral-600">
-                      Thanks for signing up for the Awareness beta. We&apos;ll be in touch soon with access details.
+                      {config.successMessage}
                     </p>
                     <button
                       type="button"
@@ -112,10 +141,10 @@ export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
                 ) : (
                   <>
                     <Dialog.Title className="text-lg font-semibold text-neutral-950">
-                      Join the Awareness Beta
+                      {config.title}
                     </Dialog.Title>
                     <p className="mt-2 text-sm text-neutral-600">
-                      Get early access to Awareness and help shape the future of mindful living.
+                      {config.description}
                     </p>
 
                     <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -149,41 +178,45 @@ export function BetaSignupModal({ isOpen, onClose }: BetaSignupModalProps) {
                         />
                       </div>
 
-                      <div>
-                        <label htmlFor="platform" className="block text-sm font-medium text-neutral-700">
-                          Platform
-                        </label>
-                        <select
-                          id="platform"
-                          required
-                          value={platform}
-                          onChange={(e) => setPlatform(e.target.value)}
-                          className="mt-1 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-950 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                        >
-                          <option value="">Select platform</option>
-                          {platforms.map((p) => (
-                            <option key={p} value={p}>{p}</option>
-                          ))}
-                        </select>
-                      </div>
+                      {config.showPlatform && (
+                        <div>
+                          <label htmlFor="platform" className="block text-sm font-medium text-neutral-700">
+                            Platform
+                          </label>
+                          <select
+                            id="platform"
+                            required
+                            value={platform}
+                            onChange={(e) => setPlatform(e.target.value)}
+                            className="mt-1 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-950 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                          >
+                            <option value="">Select platform</option>
+                            {platforms.map((p) => (
+                              <option key={p} value={p}>{p}</option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
 
-                      <div>
-                        <label htmlFor="experience" className="block text-sm font-medium text-neutral-700">
-                          Meditation Experience
-                        </label>
-                        <select
-                          id="experience"
-                          required
-                          value={experience}
-                          onChange={(e) => setExperience(e.target.value)}
-                          className="mt-1 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-950 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                        >
-                          <option value="">Select experience level</option>
-                          {experienceLevels.map((level) => (
-                            <option key={level} value={level}>{level}</option>
-                          ))}
-                        </select>
-                      </div>
+                      {config.showExperience && (
+                        <div>
+                          <label htmlFor="experience" className="block text-sm font-medium text-neutral-700">
+                            Meditation Experience
+                          </label>
+                          <select
+                            id="experience"
+                            required
+                            value={experience}
+                            onChange={(e) => setExperience(e.target.value)}
+                            className="mt-1 block w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-950 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                          >
+                            <option value="">Select experience level</option>
+                            {experienceLevels.map((level) => (
+                              <option key={level} value={level}>{level}</option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
 
                       {error && (
                         <p className="text-sm text-red-600">{error}</p>

@@ -1,14 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { BetaSignupModal } from './BetaSignupModal'
+import { BetaSignupModal, type AppType } from './BetaSignupModal'
 
 interface BetaSignupButtonProps {
   className?: string
   children?: React.ReactNode
+  app?: AppType
 }
 
-export function BetaSignupButton({ className, children }: BetaSignupButtonProps) {
+export function BetaSignupButton({ className, children, app = 'awareness' }: BetaSignupButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -20,7 +21,7 @@ export function BetaSignupButton({ className, children }: BetaSignupButtonProps)
       >
         {children || 'Join the Beta'}
       </button>
-      <BetaSignupModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <BetaSignupModal isOpen={isOpen} onClose={() => setIsOpen(false)} app={app} />
     </>
   )
 }
