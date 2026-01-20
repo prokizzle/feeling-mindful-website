@@ -225,18 +225,19 @@ export default function AwarenessPage() {
 
               <div className="mt-8 space-y-6 text-lg text-sage-600 leading-relaxed">
                 <p>
-                  Chris Shanks understands addiction firsthand. Hooked on substances from his teenage years,
-                  he led a double life for decades—functional on the surface, struggling underneath. Over 29 years,
-                  his longest period of sobriety was eight months.
+                  Chris Shanks knows addiction. He used drugs from his teenage years, appearing
+                  functional while struggling in private. In 29 years, he stayed sober eight
+                  months at most.
                 </p>
                 <p>
-                  On April 7, 2009, everything changed. A drug-dealing investigation led to his arrest and,
-                  eventually, four years in maximum-security prison in Huntsville, Texas. There, with only
-                  Eckhart Tolle&apos;s <em>A New Earth</em> to read, he discovered mindfulness.
+                  On April 7, 2009, police arrested him in a drug investigation. He served four
+                  years in maximum-security prison in Huntsville, Texas. There, with only Eckhart
+                  Tolle&apos;s <em>A New Earth</em>, he discovered mindfulness.
                 </p>
                 <p>
-                  &ldquo;These were the most transformative years of my life,&rdquo; Chris says. &ldquo;I was freer
-                  while incarcerated than I had ever been. I found the way out of the prison of my mind.&rdquo;
+                  &ldquo;These were the most transformative years of my life,&rdquo; Chris says.
+                  &ldquo;I was freer in prison than I had ever been. I found the way out of the
+                  prison of my mind.&rdquo;
                 </p>
               </div>
             </FadeIn>
@@ -249,10 +250,9 @@ export default function AwarenessPage() {
                     From Prisoner to Counselor
                   </h3>
                   <p className="mt-4 text-sage-600 leading-relaxed">
-                    Released in 2013, Chris started over with only a coffee cup and some dharma books.
-                    He finished college at 47, earned a counseling degree, and spent over four years
-                    at a treatment center outside Austin, working with some of the hardest cases of
-                    chronic relapsers.
+                    Chris left prison in 2013 with a coffee cup and some dharma books. He finished
+                    college at 47, earned a counseling degree, and spent four years at a treatment
+                    center outside Austin. He worked with chronic relapsers, the hardest cases.
                   </p>
                 </div>
 
@@ -261,13 +261,12 @@ export default function AwarenessPage() {
                     His Philosophy
                   </h3>
                   <p className="mt-4 text-sage-600 leading-relaxed">
-                    &ldquo;A different operating system needs to be installed—one that can
-                    <em>see the mind</em> rather than <em>be the mind</em>. This is what committed
-                    meditation and mindfulness can do.&rdquo;
+                    &ldquo;Recovery requires a new operating system: one that <em>sees</em> the
+                    mind rather than <em>is</em> the mind. Committed meditation installs it.&rdquo;
                   </p>
                   <p className="mt-4 text-sage-600 leading-relaxed">
-                    His work is informed by Eckhart Tolle, Jack Kornfield, Tara Brach, Sam Harris,
-                    and the neuroscience of addiction and consciousness.
+                    He draws on Eckhart Tolle, Jack Kornfield, Tara Brach, Sam Harris, and the
+                    neuroscience of addiction.
                   </p>
                 </div>
 
