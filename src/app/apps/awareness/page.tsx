@@ -11,22 +11,22 @@ import { BetaSignupButton } from '@/components/BetaSignupButton'
 const pillars = [
   {
     name: 'Audio Guidance',
-    description: 'Start your day with guided sessions to set your intention and build awareness.',
+    description: 'Wake to guided intention-setting that anchors your day.',
     icon: '🎧',
   },
   {
     name: 'Journaling',
-    description: 'Use prompts to explore your thoughts and track your progress over time.',
+    description: 'Write through targeted prompts that reveal patterns.',
     icon: '📓',
   },
   {
     name: 'Exercise',
-    description: 'Integrate physical movement as part of your awareness practice.',
+    description: 'Move with purpose as embodied practice.',
     icon: '🏃',
   },
   {
     name: 'Nutrition',
-    description: 'Plan meals with intention, connecting nutrition to your overall wellbeing.',
+    description: 'Eat with attention, connecting food to feeling.',
     icon: '🥗',
   },
 ]
@@ -34,30 +34,30 @@ const pillars = [
 const steps = [
   {
     number: '1',
-    title: 'Start with guidance',
-    description: 'Begin your day with a guided audio session to set your intention and build awareness.',
+    title: 'Listen',
+    description: 'Begin with guided audio that sets your intention.',
   },
   {
     number: '2',
-    title: 'Reflect and journal',
-    description: 'Use prompts to explore your thoughts and track your progress over time.',
+    title: 'Write',
+    description: 'Journal through prompts that surface insight.',
   },
   {
     number: '3',
-    title: 'Move your body',
-    description: 'Integrate physical exercise as part of your awareness practice.',
+    title: 'Move',
+    description: 'Exercise as practice, not punishment.',
   },
   {
     number: '4',
-    title: 'Nourish mindfully',
-    description: 'Plan meals with intention, connecting nutrition to your overall wellbeing.',
+    title: 'Nourish',
+    description: 'Eat mindfully, linking nutrition to awareness.',
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Shanks Awareness Training - A daily plan for transformational awareness',
+  title: 'Shanks Awareness Training - Daily practice for lasting change',
   description:
-    'More than meditation. A complete blueprint for becoming more aware through audio guidance, journaling, exercise, and mindful nutrition.',
+    'Four disciplines that transform how you relate to yourself and the world: audio guidance, journaling, exercise, and mindful nutrition.',
 }
 
 export default function AwarenessPage() {
@@ -69,7 +69,7 @@ export default function AwarenessPage() {
           <div className="relative overflow-hidden rounded-3xl mb-16">
             <Image
               src="/images/heroes/awareness-hero.png"
-              alt="Awareness app illustration"
+              alt="Shanks Awareness Training"
               width={1280}
               height={720}
               className="w-full object-cover"
@@ -107,9 +107,9 @@ export default function AwarenessPage() {
             </a>
           </p>
           <p className="mt-4 text-xl text-neutral-600">
-            More than meditation. A complete daily blueprint for transformational
-            awareness—combining the practices that work in clinical settings into
-            a program anyone can follow.
+            Four disciplines that transform how you relate to yourself and the
+            world: audio guidance, journaling, exercise, and mindful nutrition.
+            Clinical practice, distilled into daily action.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <BetaSignupButton className="inline-flex items-center px-6 py-3 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors">
@@ -130,16 +130,16 @@ export default function AwarenessPage() {
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
-              More than meditation
+              Beyond meditation
             </h2>
             <p className="mt-6 text-lg text-neutral-400 max-w-2xl">
-              Awareness isn't just another meditation app. It's a complete daily blueprint
-              for transformational awareness—combining the practices that work in clinical
-              settings into a program anyone can follow.
+              Meditation alone changes little. Real transformation requires
+              integrated practice—mind, body, and daily habit working together.
+              This app delivers that integration.
             </p>
             <p className="mt-4 text-lg text-neutral-400 max-w-2xl">
-              Developed by Chris Shanks, this app brings the methodology from his
-              counseling practice to the general public.
+              Chris Shanks developed these methods through years of clinical
+              work. Now anyone can follow them.
             </p>
           </FadeIn>
         </Container>
@@ -147,12 +147,12 @@ export default function AwarenessPage() {
 
       {/* Four Pillars */}
       <SectionIntro
-        title="The Four Pillars"
+        title="Four Pillars"
         className="mt-24 sm:mt-32"
       >
         <p>
-          Each day guides you through four interconnected practices designed to
-          build lasting awareness and positive change.
+          Each day guides you through four practices. Together, they build
+          lasting awareness.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -181,8 +181,7 @@ export default function AwarenessPage() {
         className="mt-24 sm:mt-32"
       >
         <p>
-          Follow a simple four-step process each day to build awareness and
-          create lasting positive change.
+          Four steps. Every day. Simple to follow, difficult to master.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -208,10 +207,10 @@ export default function AwarenessPage() {
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-display text-3xl font-medium tracking-tight text-neutral-950">
-              Ready to begin?
+              Start now
             </h2>
             <p className="mt-4 text-neutral-600">
-              Join the beta and start your transformational awareness journey today.
+              Join the beta and begin your practice today.
             </p>
             <BetaSignupButton className="mt-8 inline-flex items-center px-8 py-4 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors">
               Join the Beta
