@@ -29,6 +29,55 @@
 
   --radius-4xl: 2.5rem;
 
+  /* Mindfulness color palette - warm, serene earth tones */
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e8ebe3;
+  --color-sage-200: #d4dac9;
+  --color-sage-300: #b5c0a5;
+  --color-sage-400: #93a27e;
+  --color-sage-500: #748660;
+  --color-sage-600: #5c6b4c;
+  --color-sage-700: #49553e;
+  --color-sage-800: #3c4534;
+  --color-sage-900: #333b2d;
+  --color-sage-950: #1a1f16;
+
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f3efe8;
+  --color-sand-200: #e6ddd0;
+  --color-sand-300: #d5c6b1;
+  --color-sand-400: #c2aa8e;
+  --color-sand-500: #b39574;
+  --color-sand-600: #a68265;
+  --color-sand-700: #8a6a53;
+  --color-sand-800: #715847;
+  --color-sand-900: #5d493c;
+  --color-sand-950: #31261f;
+
+  --color-dawn-50: #fdf8f6;
+  --color-dawn-100: #fbeee9;
+  --color-dawn-200: #f8ddd4;
+  --color-dawn-300: #f2c4b4;
+  --color-dawn-400: #e9a089;
+  --color-dawn-500: #dc7b62;
+  --color-dawn-600: #c85f45;
+  --color-dawn-700: #a84d38;
+  --color-dawn-800: #8b4232;
+  --color-dawn-900: #743b2e;
+  --color-dawn-950: #3e1c15;
+
+  --color-dusk-50: #f7f6f9;
+  --color-dusk-100: #efedf3;
+  --color-dusk-200: #dcd8e5;
+  --color-dusk-300: #c0b8cf;
+  --color-dusk-400: #9f92b4;
+  --color-dusk-500: #85759c;
+  --color-dusk-600: #716083;
+  --color-dusk-700: #5e4f6b;
+  --color-dusk-800: #50445a;
+  --color-dusk-900: #443b4c;
+  --color-dusk-950: #2a242f;
+
   --font-sans:
     Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -40,4 +89,76 @@
   --font-display--font-variation-settings: 'wdth' 125;
 
   --font-display-length: 2;
+}
+
+/* Custom utilities for mindfulness aesthetic */
+@layer utilities {
+  .text-gradient-sage {
+    background: linear-gradient(135deg, var(--color-sage-700) 0%, var(--color-sage-500) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-warm {
+    background: linear-gradient(135deg, var(--color-sand-700) 0%, var(--color-dawn-600) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-serene {
+    background: linear-gradient(180deg, var(--color-sage-50) 0%, var(--color-sand-50) 50%, white 100%);
+  }
+
+  .bg-gradient-dawn {
+    background: linear-gradient(135deg, var(--color-dawn-50) 0%, var(--color-sand-100) 50%, var(--color-sage-50) 100%);
+  }
+
+  .bg-gradient-dusk {
+    background: linear-gradient(180deg, var(--color-dusk-950) 0%, var(--color-sage-950) 100%);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .glow-sage {
+    box-shadow: 0 0 60px -15px var(--color-sage-300);
+  }
+
+  .glow-dawn {
+    box-shadow: 0 0 60px -15px var(--color-dawn-300);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
 }

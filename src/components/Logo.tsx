@@ -35,7 +35,7 @@ export function Logo({
       <span
         className={clsx(
           'font-display text-xl font-semibold tracking-tight',
-          invert ? 'text-white' : 'text-neutral-950',
+          invert ? 'text-white' : 'text-sage-950',
         )}
       >
         Feeling Mindful

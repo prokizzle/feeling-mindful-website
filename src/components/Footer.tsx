@@ -35,15 +35,15 @@ function Navigation() {
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+            <div className="font-display text-sm font-semibold tracking-wider text-sage-950">
               {section.title}
             </div>
-            <ul role="list" className="mt-4 text-sm text-neutral-700">
+            <ul role="list" className="mt-4 text-sm text-sage-600">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-neutral-950"
+                    className="transition hover:text-sage-800"
                   >
                     {link.title}
                   </Link>
@@ -73,10 +73,10 @@ function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function NewsletterForm() {
   return (
     <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-sage-950">
         Stay in the loop
       </h2>
-      <p className="mt-4 text-sm text-neutral-700">
+      <p className="mt-4 text-sm text-sage-600">
         Subscribe to get updates on our apps and new releases.
       </p>
       <div className="relative mt-6">
@@ -85,13 +85,13 @@ function NewsletterForm() {
           placeholder="Email address"
           autoComplete="email"
           aria-label="Email address"
-          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pr-20 pl-6 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
+          className="block w-full rounded-2xl border border-sage-200 bg-white py-4 pr-20 pl-6 text-base/6 text-sage-950 ring-4 ring-transparent transition placeholder:text-sage-400 focus:border-sage-400 focus:ring-sage-100 focus:outline-hidden"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
           <button
             type="submit"
             aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-sage-950 text-white transition hover:bg-sage-800"
           >
             <ArrowIcon className="w-4" />
           </button>
@@ -111,11 +111,11 @@ export function Footer() {
             <NewsletterForm />
           </div>
         </div>
-        <div className="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
+        <div className="mt-24 mb-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-sage-200 pt-12">
           <Link href="/" aria-label="Home">
             <Logo className="h-8" fillOnHover />
           </Link>
-          <p className="text-sm text-neutral-700">
+          <p className="text-sm text-sage-600">
             © Feeling Mindful Labs {new Date().getFullYear()}
           </p>
         </div>
