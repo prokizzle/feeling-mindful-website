@@ -12,44 +12,28 @@ const pillars = [
     name: 'Audio Guidance',
     description: 'Wake to guided intention-setting that anchors your day.',
     longDescription: 'Each morning begins with a carefully crafted audio session. Set your intention, ground yourself in the present, and prepare your mind for the day ahead.',
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-      </svg>
-    ),
+    image: '/images/pillar-audio-guidance.png',
     gradient: 'from-sage-400 to-sage-600',
   },
   {
     name: 'Journaling',
     description: 'Write through targeted prompts that reveal patterns.',
     longDescription: 'Structured prompts guide you through self-reflection. Over time, patterns emerge—insights that would remain hidden without the discipline of daily writing.',
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    ),
+    image: '/images/pillar-journaling.png',
     gradient: 'from-sand-400 to-sand-600',
   },
   {
     name: 'Exercise',
     description: 'Move with purpose as embodied practice.',
     longDescription: 'Movement becomes meditation. Whether walking, stretching, or training—approach your body with the same attention you give your mind.',
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
+    image: '/images/pillar-exercise.png',
     gradient: 'from-dawn-400 to-dawn-600',
   },
   {
     name: 'Nutrition',
     description: 'Eat with attention, connecting food to feeling.',
     longDescription: 'What you eat shapes how you feel. Plan meals with intention, notice how foods affect your energy and mood, and build a mindful relationship with nourishment.',
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
-      </svg>
-    ),
+    image: '/images/pillar-nutrition.png',
     gradient: 'from-dusk-400 to-dusk-600',
   },
 ]
@@ -249,23 +233,26 @@ export default function AwarenessPage() {
               <FadeIn key={pillar.name}>
                 <div className="group relative h-full">
                   {/* Card */}
-                  <div className="relative h-full overflow-hidden rounded-3xl bg-white p-10 shadow-xl shadow-sage-900/5 ring-1 ring-sage-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-sage-900/10">
-                    {/* Background glow on hover */}
-                    <div className={`absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gradient-to-br ${pillar.gradient} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20`} />
-
-                    <div className="relative">
-                      {/* Number */}
-                      <div className="absolute -top-2 -left-2 font-display text-8xl font-bold text-sage-100 select-none">
+                  <div className="relative h-full overflow-hidden rounded-3xl bg-white shadow-xl shadow-sage-900/5 ring-1 ring-sage-900/5 transition-all duration-500 hover:shadow-2xl hover:shadow-sage-900/10">
+                    {/* Image */}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={pillar.image}
+                        alt={pillar.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* Gradient overlay */}
+                      <div className={`absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent`} />
+                      {/* Number badge */}
+                      <div className={`absolute top-6 left-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${pillar.gradient} text-white font-display text-xl font-bold shadow-lg`}>
                         {index + 1}
                       </div>
+                    </div>
 
-                      {/* Icon */}
-                      <div className={`relative inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${pillar.gradient} text-white shadow-lg`}>
-                        {pillar.icon}
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="mt-8 font-display text-2xl font-semibold text-sage-950">
+                    {/* Content */}
+                    <div className="relative p-8 pt-4">
+                      <h3 className="font-display text-2xl font-semibold text-sage-950">
                         {pillar.name}
                       </h3>
                       <p className="mt-4 text-lg leading-relaxed text-sage-600">
