@@ -8,7 +8,7 @@ const navigation = [
   {
     title: 'Apps',
     links: [
-      { title: 'Awareness', href: '/apps/awareness' },
+      { title: 'Shanks Awareness Training', href: '/apps/awareness' },
       { title: 'Good Parts', href: '/apps/good-parts' },
     ],
   },

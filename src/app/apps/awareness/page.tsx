@@ -55,7 +55,7 @@ const steps = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Awareness - A daily plan for transformational awareness',
+  title: 'Shanks Awareness Training - A daily plan for transformational awareness',
   description:
     'More than meditation. A complete blueprint for becoming more aware through audio guidance, journaling, exercise, and mindful nutrition.',
 }
@@ -81,7 +81,7 @@ export default function AwarenessPage() {
           <div className="flex items-center gap-6 mb-8">
             <Image
               src="/icons/awareness-icon.png"
-              alt="Awareness"
+              alt="Shanks Awareness Training"
               width={96}
               height={96}
               className="rounded-2xl"
@@ -91,7 +91,7 @@ export default function AwarenessPage() {
                 Beta
               </span>
               <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 sm:text-5xl">
-                Awareness
+                Shanks Awareness Training
               </h1>
             </div>
           </div>

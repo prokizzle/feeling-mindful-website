@@ -9,7 +9,7 @@ import { RootLayout } from '@/components/RootLayout'
 
 const apps = [
   {
-    name: 'Awareness',
+    name: 'Shanks Awareness Training',
     slug: 'awareness',
     description: 'A daily plan for transformational awareness through meditation, journaling, exercise, and mindful nutrition.',
     status: 'Beta',
