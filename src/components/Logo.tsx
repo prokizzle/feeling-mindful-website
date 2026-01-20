@@ -30,11 +30,11 @@ export function Logo({
   fillOnHover?: boolean
 }) {
   return (
-    <div className={clsx('flex items-center gap-x-2', className)}>
-      <Logomark className="h-8 w-8" invert={invert} />
+    <div className={clsx('flex items-center gap-x-3', className)}>
+      <Logomark className="h-10 w-10" invert={invert} />
       <span
         className={clsx(
-          'font-display text-xl font-semibold tracking-tight',
+          'font-display text-2xl font-semibold tracking-tight',
           invert ? 'text-white' : 'text-sage-950',
         )}
       >
