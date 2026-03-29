@@ -11,7 +11,7 @@ export function Logomark({
 }) {
   return (
     <Image
-      src={invert ? '/images/logos/logomark-dark.png' : '/images/logos/logomark-light.png'}
+      src="/images/logos/fm-logomark.png"
       alt="Feeling Mindful"
       width={32}
       height={32}

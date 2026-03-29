@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     default: 'Feeling Mindful Labs - Apps for mindful living and fitness',
   },
   description: 'Feeling Mindful Labs builds apps for mindful living and intelligent fitness. IFS journaling, meditation, adaptive fat loss, and HR zone training.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
