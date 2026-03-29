@@ -9,21 +9,16 @@ export interface AppInfo {
   icon: string
   gradient: string
   bgGlow: string
-  linearTeamKey: string
   externalUrl?: string
   appStoreUrl?: string
 }
 
-export const LINEAR_WORKSPACE = 'feelingmindful'
+export const LINEAR_INTAKE_EMAIL = 'ce13d96e6d89@intake.linear.app'
 
-export function linearNewIssueUrl(teamKey: string, opts?: { labels?: string; template?: string; title?: string }) {
-  const base = `https://linear.app/${LINEAR_WORKSPACE}/team/${teamKey}/new`
-  const params = new URLSearchParams()
-  if (opts?.labels) params.set('labels', opts.labels)
-  if (opts?.template) params.set('template', opts.template)
-  if (opts?.title) params.set('title', opts.title)
-  const qs = params.toString()
-  return qs ? `${base}?${qs}` : base
+export function linearAskUrl(appName: string, opts?: { category?: string; subject?: string }) {
+  const subject = opts?.subject ?? `[${appName}] ${opts?.category ?? 'Feedback'}`
+  const body = `App: ${appName}\nCategory: ${opts?.category ?? 'General'}\n\nDescribe your issue or feedback below:\n\n`
+  return `mailto:${LINEAR_INTAKE_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
 export const apps: AppInfo[] = [
@@ -37,7 +32,6 @@ export const apps: AppInfo[] = [
     icon: '/icons/good-parts-icon.png',
     gradient: 'from-dusk-400 to-dusk-600',
     bgGlow: 'bg-dusk-400/20',
-    linearTeamKey: 'GOO',
   },
   {
     name: 'Becoming One',
@@ -48,7 +42,6 @@ export const apps: AppInfo[] = [
     icon: '/icons/becoming-one-icon.png',
     gradient: 'from-sand-400 to-sand-600',
     bgGlow: 'bg-sand-400/20',
-    linearTeamKey: 'BOI',
   },
   {
     name: 'Simple Rituals',
@@ -59,7 +52,6 @@ export const apps: AppInfo[] = [
     icon: '/icons/simple-rituals-icon.png',
     gradient: 'from-sage-400 to-sage-600',
     bgGlow: 'bg-sage-400/20',
-    linearTeamKey: 'FMA',
   },
   // Fitness suite
   {
@@ -71,7 +63,6 @@ export const apps: AppInfo[] = [
     icon: '/icons/cutengine-icon.png',
     gradient: 'from-dawn-400 to-dawn-600',
     bgGlow: 'bg-dawn-400/20',
-    linearTeamKey: 'FMA',
     externalUrl: 'https://cutengine.app',
   },
   {
@@ -83,7 +74,6 @@ export const apps: AppInfo[] = [
     icon: '/icons/cardioengine-icon.png',
     gradient: 'from-dawn-500 to-dawn-700',
     bgGlow: 'bg-dawn-500/20',
-    linearTeamKey: 'FMA',
   },
 ]
 

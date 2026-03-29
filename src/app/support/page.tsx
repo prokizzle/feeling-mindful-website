@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
-import { apps, linearNewIssueUrl } from '@/lib/apps'
+import { apps, linearAskUrl } from '@/lib/apps'
 
 const supportActions = [
   {
@@ -72,9 +72,7 @@ export default function SupportPage() {
                   {supportActions.map((action) => (
                     <FadeIn key={action.title}>
                       <Link
-                        href={linearNewIssueUrl(app.linearTeamKey, { labels: action.labels })}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={linearAskUrl(app.name, { category: action.title })}
                         className="group block h-full rounded-2xl bg-white p-6 shadow-sm ring-1 ring-sage-900/5 transition-all hover:shadow-md hover:ring-sage-200"
                       >
                         <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-sage-100 text-sage-600 transition-colors group-hover:bg-sage-200">

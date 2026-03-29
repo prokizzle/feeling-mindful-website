@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { linearNewIssueUrl } from '@/lib/apps'
+import { linearAskUrl } from '@/lib/apps'
 
 const features = [
   'HR zone-based workout coaching with real-time guidance',
@@ -50,9 +50,7 @@ export default function CardioEnginePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href={linearNewIssueUrl('FMA', { labels: 'beta-signup', title: 'CardioEngine beta signup request' })}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={linearAskUrl('CardioEngine', { category: 'Beta Signup', subject: 'CardioEngine beta signup request' })}
               className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
             >
               Request Early Access

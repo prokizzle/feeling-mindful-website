@@ -7,7 +7,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { linearNewIssueUrl } from '@/lib/apps'
+import { linearAskUrl } from '@/lib/apps'
 
 const features = [
   'IFS-specific guided meditations (parts work, unblending, Self energy)',
@@ -58,9 +58,7 @@ export default function BecomingOnePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href={linearNewIssueUrl('BOI', { labels: 'beta-signup', title: 'Beta signup request' })}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={linearAskUrl('Becoming One', { category: 'Beta Signup', subject: 'Becoming One beta signup request' })}
               className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
             >
               Request Early Access
