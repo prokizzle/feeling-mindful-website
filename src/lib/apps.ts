@@ -13,13 +13,7 @@ export interface AppInfo {
   appStoreUrl?: string
 }
 
-export const LINEAR_INTAKE_EMAIL = 'ce13d96e6d89@intake.linear.app'
-
-export function linearAskUrl(appName: string, opts?: { category?: string; subject?: string }) {
-  const subject = opts?.subject ?? `[${appName}] ${opts?.category ?? 'Feedback'}`
-  const body = `App: ${appName}\nCategory: ${opts?.category ?? 'General'}\n\nDescribe your issue or feedback below:\n\n`
-  return `mailto:${LINEAR_INTAKE_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-}
+export const SUPPORT_URL = 'https://support.feelingmindful.com'
 
 export const apps: AppInfo[] = [
   // Mindfulness suite

@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { linearAskUrl } from '@/lib/apps'
+import { SUPPORT_URL } from '@/lib/apps'
 
 const highlights = [
   { label: 'ML-Adaptive', description: 'Daily calorie targets that learn YOUR metabolic response, not population averages.' },
@@ -49,13 +49,13 @@ export default function CutEnginePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href={linearAskUrl('CutEngine', { category: 'Beta Signup', subject: 'CutEngine beta signup request' })}
+              href={SUPPORT_URL}
               className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
             >
               Request Beta Access
             </Link>
             <Link
-              href="/support"
+              href={SUPPORT_URL}
               className="inline-flex items-center px-6 py-3 bg-white border border-sage-200 text-sage-700 rounded-full font-medium hover:border-sage-400 transition-colors"
             >
               Give Feedback

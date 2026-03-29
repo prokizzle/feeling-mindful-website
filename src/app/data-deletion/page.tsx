@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
-import { apps, linearAskUrl } from '@/lib/apps'
+import { apps, SUPPORT_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
   title: 'Request Data Deletion - Feeling Mindful Labs',
@@ -33,10 +33,7 @@ export default function DataDeletionPage() {
             {apps.map((app) => (
               <Link
                 key={app.slug}
-                href={linearAskUrl(app.name, {
-                  category: 'Data Deletion',
-                  subject: `Data deletion request — ${app.name}`,
-                })}
+                href={SUPPORT_URL}
                 className="group flex items-center justify-between rounded-2xl bg-sage-50 p-5 ring-1 ring-sage-900/5 transition-all hover:bg-sage-100 hover:ring-sage-200"
               >
                 <div>

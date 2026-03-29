@@ -48,7 +48,7 @@ const navLinks = [
   { href: '/apps/becoming-one', label: 'Becoming One' },
   { href: '/apps/cutengine', label: 'CutEngine' },
   { href: '/services/refactor', label: 'Refactor' },
-  { href: '/support', label: 'Support' },
+  { href: 'https://support.feelingmindful.com', label: 'Support' },
 ]
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
