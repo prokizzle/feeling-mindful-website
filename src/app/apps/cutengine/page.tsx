@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
 import { SUPPORT_URL } from '@/lib/apps'
+import { ProductlaneButton } from '@/components/ProductlaneWidget'
 
 const highlights = [
   { label: 'ML-Adaptive', description: 'Daily calorie targets that learn YOUR metabolic response, not population averages.' },
@@ -48,18 +49,16 @@ export default function CutEnginePage() {
             calorie and macro targets — with safety rails that protect your recovery.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href={SUPPORT_URL}
+            <ProductlaneButton
               className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
             >
               Request Beta Access
-            </Link>
-            <Link
-              href={SUPPORT_URL}
+            </ProductlaneButton>
+            <ProductlaneButton
               className="inline-flex items-center px-6 py-3 bg-white border border-sage-200 text-sage-700 rounded-full font-medium hover:border-sage-400 transition-colors"
             >
               Give Feedback
-            </Link>
+            </ProductlaneButton>
           </div>
         </FadeIn>
       </Container>

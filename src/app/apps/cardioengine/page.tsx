@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
 import { SUPPORT_URL } from '@/lib/apps'
+import { ProductlaneButton } from '@/components/ProductlaneWidget'
 
 const features = [
   'HR zone-based workout coaching with real-time guidance',
@@ -49,18 +50,16 @@ export default function CardioEnginePage() {
             Connect your Bluetooth heart rate monitor or Apple Watch and train smarter.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href={SUPPORT_URL}
+            <ProductlaneButton
               className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
             >
               Request Early Access
-            </Link>
-            <Link
-              href={SUPPORT_URL}
+            </ProductlaneButton>
+            <ProductlaneButton
               className="inline-flex items-center px-6 py-3 bg-white border border-sage-200 text-sage-700 rounded-full font-medium hover:border-sage-400 transition-colors"
             >
               Give Feedback
-            </Link>
+            </ProductlaneButton>
           </div>
         </FadeIn>
       </Container>
