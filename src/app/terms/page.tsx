@@ -20,7 +20,7 @@ export default function TermsPage() {
               <strong>Last updated: January 17, 2026</strong>
             </p>
             <p>
-              Please read these Terms of Service ("Terms") carefully before using
+              Please read these Terms of Service (&quot;Terms&quot;) carefully before using
               services operated by Feeling Mindful Labs LLC.
             </p>
 

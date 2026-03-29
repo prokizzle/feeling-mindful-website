@@ -6,15 +6,24 @@ import { Logo } from '@/components/Logo'
 
 const navigation = [
   {
-    title: 'Apps',
+    title: 'Mindfulness',
     links: [
-      { title: 'Shanks Awareness Training', href: '/apps/awareness' },
       { title: 'Good Parts', href: '/apps/good-parts' },
+      { title: 'Becoming One', href: '/apps/becoming-one' },
+      { title: 'Simple Rituals', href: '/apps/simple-rituals' },
+    ],
+  },
+  {
+    title: 'Fitness',
+    links: [
+      { title: 'CutEngine', href: '/apps/cutengine' },
+      { title: 'CardioEngine', href: '/apps/cardioengine' },
     ],
   },
   {
     title: 'Company',
     links: [
+      { title: 'Refactor Service', href: '/services/refactor' },
       { title: 'The Collective', href: '/the-collective' },
       { title: 'Contact', href: '/contact' },
     ],

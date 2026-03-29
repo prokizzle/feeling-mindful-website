@@ -44,9 +44,11 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 const navLinks = [
-  { href: '/apps/awareness', label: 'Awareness' },
   { href: '/apps/good-parts', label: 'Good Parts' },
-  { href: '/the-collective', label: 'Collective' },
+  { href: '/apps/becoming-one', label: 'Becoming One' },
+  { href: '/apps/cutengine', label: 'CutEngine' },
+  { href: '/services/refactor', label: 'Refactor' },
+  { href: '/support', label: 'Support' },
 ]
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -86,7 +88,7 @@ function Header({
   toggleRef: React.RefObject<HTMLButtonElement | null>
   invert?: boolean
 }) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+  const { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
   const content = (
     <div className="flex items-center justify-between">
@@ -196,11 +198,15 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
       <NavigationRow>
-        <NavigationItem href="/apps/awareness">Shanks Awareness Training</NavigationItem>
         <NavigationItem href="/apps/good-parts">Good Parts</NavigationItem>
+        <NavigationItem href="/apps/becoming-one">Becoming One</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/the-collective">The Collective</NavigationItem>
+        <NavigationItem href="/apps/cutengine">CutEngine</NavigationItem>
+        <NavigationItem href="/apps/cardioengine">CardioEngine</NavigationItem>
+      </NavigationRow>
+      <NavigationRow>
+        <NavigationItem href="/services/refactor">Refactor Service</NavigationItem>
         <NavigationItem href="/contact">Contact</NavigationItem>
       </NavigationRow>
     </nav>
@@ -208,13 +214,13 @@ function Navigation() {
 }
 
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
-  let panelId = useId()
-  let [expanded, setExpanded] = useState(false)
-  let [isTransitioning, setIsTransitioning] = useState(false)
-  let openRef = useRef<React.ElementRef<'button'>>(null)
-  let closeRef = useRef<React.ElementRef<'button'>>(null)
-  let navRef = useRef<React.ElementRef<'div'>>(null)
-  let shouldReduceMotion = useReducedMotion()
+  const panelId = useId()
+  const [expanded, setExpanded] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const openRef = useRef<React.ElementRef<'button'>>(null)
+  const closeRef = useRef<React.ElementRef<'button'>>(null)
+  const navRef = useRef<React.ElementRef<'div'>>(null)
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -343,8 +349,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 }
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
-  let pathname = usePathname()
-  let [logoHovered, setLogoHovered] = useState(false)
+  const pathname = usePathname()
+  const [logoHovered, setLogoHovered] = useState(false)
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>

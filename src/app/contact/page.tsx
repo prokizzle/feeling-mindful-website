@@ -13,7 +13,7 @@ function TextInput({
   label,
   ...props
 }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-  let id = useId()
+  const id = useId()
 
   return (
     <div className="group relative z-0 transition-all focus-within:z-10">
@@ -38,7 +38,7 @@ function TextAreaInput({
   label,
   ...props
 }: React.ComponentPropsWithoutRef<'textarea'> & { label: string }) {
-  let id = useId()
+  const id = useId()
 
   return (
     <div className="group relative z-0 transition-all focus-within:z-10">
@@ -91,7 +91,7 @@ function ContactDetails() {
         Get in touch
       </h2>
       <p className="mt-6 text-base text-neutral-600">
-        We'd love to hear from you. Whether you have a question about our apps,
+        We&apos;d love to hear from you. Whether you have a question about our apps,
         need support, or just want to say hello.
       </p>
 
@@ -131,7 +131,7 @@ export default function Contact() {
   return (
     <RootLayout>
       <PageIntro eyebrow="Contact us" title="Let's connect">
-        <p>We'd love to hear from you.</p>
+        <p>We&apos;d love to hear from you.</p>
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">

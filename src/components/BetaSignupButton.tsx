@@ -9,7 +9,7 @@ interface BetaSignupButtonProps {
   app?: AppType
 }
 
-export function BetaSignupButton({ className, children, app = 'awareness' }: BetaSignupButtonProps) {
+export function BetaSignupButton({ className, children, app = 'good-parts' }: BetaSignupButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

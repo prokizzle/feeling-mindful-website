@@ -20,7 +20,7 @@ export default function PrivacyPage() {
               <strong>Last updated: January 17, 2026</strong>
             </p>
             <p>
-              Feeling Mindful Labs LLC ("we", "us", or "our") operates the Feeling
+              Feeling Mindful Labs LLC (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the Feeling
               Mindful Labs website and mobile applications.
             </p>
             <p>

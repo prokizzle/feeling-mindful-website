@@ -5,7 +5,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
-export type AppType = 'awareness' | 'simple-rituals'
+export type AppType = 'good-parts' | 'becoming-one' | 'simple-rituals'
 
 interface BetaSignupModalProps {
   isOpen: boolean
@@ -23,10 +23,17 @@ const appConfig: Record<AppType, {
   showPlatform: boolean
   showExperience: boolean
 }> = {
-  awareness: {
-    title: 'Join the Awareness Beta',
-    description: 'Get early access to Awareness and help shape the future of mindful living.',
-    successMessage: 'Thanks for signing up for the Awareness beta. We\'ll be in touch soon with access details.',
+  'good-parts': {
+    title: 'Join the Good Parts Beta',
+    description: 'Get early access to Good Parts and help shape the future of IFS journaling.',
+    successMessage: 'Thanks for signing up for the Good Parts beta. We\'ll be in touch soon with access details.',
+    showPlatform: true,
+    showExperience: false,
+  },
+  'becoming-one': {
+    title: 'Join the Becoming One Beta',
+    description: 'Get early access to Becoming One and help shape the future of IFS meditation.',
+    successMessage: 'Thanks for signing up for the Becoming One beta. We\'ll be in touch soon with access details.',
     showPlatform: true,
     showExperience: true,
   },
@@ -39,7 +46,7 @@ const appConfig: Record<AppType, {
   },
 }
 
-export function BetaSignupModal({ isOpen, onClose, app = 'awareness' }: BetaSignupModalProps) {
+export function BetaSignupModal({ isOpen, onClose, app = 'good-parts' }: BetaSignupModalProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [platform, setPlatform] = useState('')

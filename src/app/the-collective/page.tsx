@@ -98,7 +98,7 @@ export default function TheCollectivePage() {
               Where your support goes
             </h2>
             <p className="text-neutral-600 mb-8">
-              We believe in transparency. Here's what Collective contributions fund:
+              We believe in transparency. Here&apos;s what Collective contributions fund:
             </p>
             <ul className="space-y-4 text-left max-w-md mx-auto">
               {funding.map((item) => (
@@ -123,13 +123,13 @@ export default function TheCollectivePage() {
                 Ready to join?
               </h2>
               <p className="text-neutral-400 mb-8">
-                The Collective membership is available inside the Awareness app.
+                Support the development of mindful technology.
               </p>
               <Link
-                href="/apps/awareness"
+                href="/contact"
                 className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 rounded-full font-medium hover:bg-neutral-100 transition-colors"
               >
-                Get the App
+                Get in Touch
               </Link>
             </div>
           </FadeIn>

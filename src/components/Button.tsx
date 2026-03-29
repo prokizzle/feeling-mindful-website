@@ -22,7 +22,7 @@ export function Button({
       : 'bg-sage-950 text-white hover:bg-sage-800 hover:shadow-lg hover:shadow-sage-950/20',
   )
 
-  let inner = <span className="relative top-px">{children}</span>
+  const inner = <span className="relative top-px">{children}</span>
 
   if (typeof props.href === 'undefined') {
     return (

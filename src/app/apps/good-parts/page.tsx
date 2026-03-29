@@ -72,7 +72,7 @@ export default function GoodPartsPage() {
             <p className="mt-6 text-lg text-neutral-400 max-w-2xl">
               Good Parts uses the Internal Family Systems (IFS) framework to help you
               understand the different parts of yourself. By speaking your thoughts
-              aloud, you'll discover patterns in how your parts interact and learn
+              aloud, you&apos;ll discover patterns in how your parts interact and learn
               to work with them more effectively.
             </p>
             <p className="mt-4 text-lg text-neutral-400 max-w-2xl">
@@ -90,7 +90,7 @@ export default function GoodPartsPage() {
         className="mt-24 sm:mt-32"
       >
         <p>
-          Good Parts is currently in development. Here's what we're building.
+          Good Parts is currently in development. Here&apos;s what we&apos;re building.
         </p>
       </SectionIntro>
       <Container className="mt-16">
