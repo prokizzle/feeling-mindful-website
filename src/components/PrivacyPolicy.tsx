@@ -27,11 +27,11 @@ export function PrivacyPolicy({
   return (
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-40 mb-24">
-        <FadeIn className="prose prose-sage mx-auto max-w-3xl">
-          <h1 className="font-display text-3xl font-medium tracking-tight text-sage-950 sm:text-4xl">
+        <FadeIn className="prose prose-invert mx-auto max-w-3xl">
+          <h1 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
             Privacy Policy — {appName}
           </h1>
-          <p className="text-sm text-sage-500">Last updated: {LAST_UPDATED}</p>
+          <p className="text-sm text-zinc-500">Last updated: {LAST_UPDATED}</p>
 
           <p>
             {COMPANY_NAME} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy.
@@ -142,8 +142,8 @@ export function PrivacyPolicy({
           </ul>
           <p>
             To exercise any of these rights, contact us at{' '}
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or use our{' '}
-            <a href="/data-deletion">data deletion request page</a>.
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-zinc-300 hover:text-white">{CONTACT_EMAIL}</a> or use our{' '}
+            <a href="/data-deletion" className="text-zinc-300 hover:text-white">data deletion request page</a>.
           </p>
 
           <h2>Children&apos;s Privacy</h2>
@@ -183,7 +183,7 @@ export function PrivacyPolicy({
           <h2>Contact Us</h2>
           <p>
             If you have questions about this Privacy Policy, contact us at:{' '}
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-zinc-300 hover:text-white">{CONTACT_EMAIL}</a>
           </p>
         </FadeIn>
       </Container>

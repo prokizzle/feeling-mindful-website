@@ -47,15 +47,15 @@ export default function GoodPartsPage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium mb-2">
+              <span className="inline-block px-3 py-1 border border-zinc-700 bg-zinc-800/50 text-zinc-400 rounded-full text-sm font-medium mb-2">
                 Coming Soon
               </span>
-              <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 sm:text-5xl">
+              <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
                 Good Parts
               </h1>
             </div>
           </div>
-          <p className="mt-4 text-xl text-neutral-600">
+          <p className="mt-4 text-xl text-zinc-400">
             IFS-aware voice journaling. Record your thoughts, discover your parts,
             and track patterns over time with AI-powered Internal Family Systems awareness.
           </p>
@@ -63,19 +63,19 @@ export default function GoodPartsPage() {
       </Container>
 
       {/* What it is */}
-      <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl bg-zinc-900 border border-zinc-800 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
               Understanding your inner world
             </h2>
-            <p className="mt-6 text-lg text-neutral-400 max-w-2xl">
+            <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
               Good Parts uses the Internal Family Systems (IFS) framework to help you
               understand the different parts of yourself. By speaking your thoughts
               aloud, you&apos;ll discover patterns in how your parts interact and learn
               to work with them more effectively.
             </p>
-            <p className="mt-4 text-lg text-neutral-400 max-w-2xl">
+            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
               Our AI analyzes your voice journals to identify which parts are speaking,
               track their frequency over time, and surface insights about your inner
               landscape.
@@ -99,7 +99,7 @@ export default function GoodPartsPage() {
             {features.map((feature) => (
               <li key={feature} className="flex items-start gap-3">
                 <span className="text-amber-500 mt-0.5">✓</span>
-                <span className="text-neutral-600">{feature}</span>
+                <span className="text-zinc-400">{feature}</span>
               </li>
             ))}
           </ul>
@@ -110,10 +110,10 @@ export default function GoodPartsPage() {
       <Container className="mt-24 sm:mt-32 mb-24">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-display text-3xl font-medium tracking-tight text-neutral-950">
+            <h2 className="font-display text-3xl font-medium tracking-tight text-white">
               Get notified when Good Parts launches
             </h2>
-            <p className="mt-4 text-neutral-600">
+            <p className="mt-4 text-zinc-400">
               Join our mailing list to be the first to know when Good Parts is ready.
             </p>
           </div>

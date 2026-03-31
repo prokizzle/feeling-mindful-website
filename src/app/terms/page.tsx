@@ -14,7 +14,7 @@ export default function TermsPage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
-          <article className="prose prose-neutral max-w-3xl mx-auto">
+          <article className="prose prose-invert prose-zinc max-w-3xl mx-auto">
             <h1>Terms of Service</h1>
             <p className="lead">
               <strong>Last updated: January 17, 2026</strong>
@@ -59,7 +59,7 @@ export default function TermsPage() {
             </ul>
 
             <hr />
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-zinc-500">
               <em>
                 Individual apps may have additional terms. See app-specific terms
                 of service for details.

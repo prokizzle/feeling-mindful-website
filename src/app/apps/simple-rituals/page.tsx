@@ -82,28 +82,28 @@ export default function SimpleRitualsPage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-2">
+              <span className="inline-block px-3 py-1 border border-zinc-700 bg-zinc-800/50 text-zinc-400 rounded-full text-sm font-medium mb-2">
                 Beta
               </span>
-              <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 sm:text-5xl">
+              <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
                 Simple Rituals
               </h1>
             </div>
           </div>
-          <p className="mt-4 text-xl text-neutral-600">
+          <p className="mt-4 text-xl text-zinc-400">
             Build powerful morning and evening routines. Track your habits and
             create lasting change—one ritual at a time.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <BetaSignupButton
               app="simple-rituals"
-              className="inline-flex items-center px-6 py-3 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-colors"
             >
               Join the Beta
             </BetaSignupButton>
             <Link
               href="/the-collective"
-              className="inline-flex items-center px-6 py-3 bg-white border border-neutral-200 text-neutral-700 rounded-full font-medium hover:border-neutral-400 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-zinc-900/50 border border-zinc-700 text-zinc-300 rounded-full font-medium hover:border-zinc-500 transition-colors"
             >
               Support Development
             </Link>
@@ -112,17 +112,17 @@ export default function SimpleRitualsPage() {
       </Container>
 
       {/* What it is */}
-      <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl bg-zinc-900 border border-zinc-800 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
               Routines that stick
             </h2>
-            <p className="mt-6 text-lg text-neutral-400 max-w-2xl">
+            <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
               Build morning and evening routines that last. Add your habits,
               track progress, and grow your streaks.
             </p>
-            <p className="mt-4 text-lg text-neutral-400 max-w-2xl">
+            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
               Simple Rituals keeps you focused with a clean interface—whether
               you&apos;re starting a morning meditation or winding down at night.
             </p>
@@ -142,13 +142,13 @@ export default function SimpleRitualsPage() {
             {features.map((feature) => (
               <div
                 key={feature.name}
-                className="text-center p-6 bg-neutral-50 rounded-2xl"
+                className="text-center p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl"
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-emerald-100 flex items-center justify-center text-xl">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-zinc-800/50 border border-zinc-700 flex items-center justify-center text-xl">
                   {feature.icon}
                 </div>
-                <h3 className="font-medium text-neutral-950">{feature.name}</h3>
-                <p className="mt-2 text-sm text-neutral-600">
+                <h3 className="font-medium text-white">{feature.name}</h3>
+                <p className="mt-2 text-sm text-zinc-400">
                   {feature.description}
                 </p>
               </div>
@@ -173,18 +173,18 @@ export default function SimpleRitualsPage() {
           <div className="space-y-6 max-w-2xl mx-auto">
             {priorities.map((priority, index) => (
               <div key={priority.tier} className="flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm font-medium shrink-0">
+                <div className="w-8 h-8 rounded-full bg-zinc-700 text-white flex items-center justify-center text-sm font-medium shrink-0">
                   {index + 1}
                 </div>
                 <div>
-                  <h3 className="font-medium text-neutral-950 mb-1">
+                  <h3 className="font-medium text-white mb-1">
                     {priority.tier}
                   </h3>
-                  <p className="text-neutral-600 text-sm">
+                  <p className="text-zinc-400 text-sm">
                     {priority.description}
                   </p>
                   {priority.unlockText && (
-                    <p className="text-emerald-600 text-xs mt-1">
+                    <p className="text-zinc-500 text-xs mt-1">
                       {priority.unlockText}
                     </p>
                   )}
@@ -192,7 +192,7 @@ export default function SimpleRitualsPage() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-neutral-500">
+          <p className="mt-8 text-center text-sm text-zinc-500">
             &quot;Won&apos;t Do&quot; holds deprioritized items until you&apos;re ready for them.
           </p>
         </FadeIn>
@@ -202,29 +202,29 @@ export default function SimpleRitualsPage() {
       <Container className="mt-24 sm:mt-32 mb-24">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-display text-3xl font-medium tracking-tight text-neutral-950">
+            <h2 className="font-display text-3xl font-medium tracking-tight text-white">
               Ready to build better routines?
             </h2>
-            <p className="mt-4 text-neutral-600">
+            <p className="mt-4 text-zinc-400">
               Join the beta and start your practice today.
             </p>
             <BetaSignupButton
               app="simple-rituals"
-              className="mt-8 inline-flex items-center px-8 py-4 bg-neutral-950 text-white rounded-full font-medium hover:bg-neutral-800 transition-colors"
+              className="mt-8 inline-flex items-center px-8 py-4 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-colors"
             >
               Join the Beta
             </BetaSignupButton>
-            <p className="mt-6 text-sm text-neutral-400">
+            <p className="mt-6 text-sm text-zinc-500">
               <Link
                 href="/apps/simple-rituals/privacy"
-                className="hover:text-neutral-600"
+                className="hover:text-zinc-400"
               >
                 Privacy Policy
               </Link>
               <span className="mx-2">·</span>
               <Link
                 href="/apps/simple-rituals/terms"
-                className="hover:text-neutral-600"
+                className="hover:text-zinc-400"
               >
                 Terms of Service
               </Link>

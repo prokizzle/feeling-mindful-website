@@ -58,31 +58,31 @@ export default function TheCollectivePage() {
           </div>
         </FadeIn>
         <FadeIn className="max-w-3xl mx-auto text-center">
-          <h1 className="font-display text-4xl font-medium tracking-tight text-neutral-950 sm:text-5xl">
+          <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
             The Collective
           </h1>
-          <p className="mt-6 text-xl text-neutral-600">
+          <p className="mt-6 text-xl text-zinc-400">
             A community of supporters helping make mindful technology a reality.
           </p>
         </FadeIn>
       </Container>
 
       {/* Benefits */}
-      <div className="mt-24 rounded-4xl bg-neutral-50 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl bg-zinc-900/50 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
-            <h2 className="font-display text-2xl font-medium tracking-tight text-neutral-950 text-center mb-12">
+            <h2 className="font-display text-2xl font-medium tracking-tight text-white text-center mb-12">
               What members get
             </h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
               {benefits.map((benefit) => (
                 <div
                   key={benefit.title}
-                  className="bg-white p-6 rounded-2xl ring-1 ring-neutral-950/5"
+                  className="bg-zinc-800/50 p-6 rounded-2xl border border-zinc-800"
                 >
                   <div className="text-2xl mb-3">{benefit.icon}</div>
-                  <h3 className="font-medium text-neutral-950 mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-neutral-600">{benefit.description}</p>
+                  <h3 className="font-medium text-white mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-zinc-400">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -94,18 +94,18 @@ export default function TheCollectivePage() {
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-display text-2xl font-medium tracking-tight text-neutral-950 mb-6">
+            <h2 className="font-display text-2xl font-medium tracking-tight text-white mb-6">
               Where your support goes
             </h2>
-            <p className="text-neutral-600 mb-8">
+            <p className="text-zinc-400 mb-8">
               We believe in transparency. Here&apos;s what Collective contributions fund:
             </p>
             <ul className="space-y-4 text-left max-w-md mx-auto">
               {funding.map((item) => (
                 <li key={item.label} className="flex items-start gap-3">
-                  <span className="text-emerald-500">•</span>
-                  <span className="text-neutral-600">
-                    <strong>{item.label}</strong> – {item.description}
+                  <span className="text-sage-500">•</span>
+                  <span className="text-zinc-400">
+                    <strong className="text-zinc-200">{item.label}</strong> – {item.description}
                   </span>
                 </li>
               ))}
@@ -115,19 +115,19 @@ export default function TheCollectivePage() {
       </Container>
 
       {/* CTA */}
-      <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 mb-24">
+      <div className="mt-24 rounded-2xl bg-zinc-900 py-20 sm:mt-32 sm:py-32 mb-24">
         <Container>
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="font-display text-2xl font-medium tracking-tight text-white mb-4">
                 Ready to join?
               </h2>
-              <p className="text-neutral-400 mb-8">
+              <p className="text-zinc-400 mb-8">
                 Support the development of mindful technology.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-neutral-950 rounded-full font-medium hover:bg-neutral-100 transition-colors"
+                className="inline-flex items-center px-8 py-4 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-colors"
               >
                 Get in Touch
               </Link>

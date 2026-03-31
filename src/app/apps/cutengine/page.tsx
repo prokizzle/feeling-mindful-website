@@ -6,7 +6,6 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { SUPPORT_URL } from '@/lib/apps'
 import { ProductlaneButton } from '@/components/ProductlaneWidget'
 
 const highlights = [
@@ -36,26 +35,26 @@ export default function CutEnginePage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="inline-block rounded-full bg-dawn-100 px-3 py-1 text-sm font-medium text-dawn-700 mb-2">
+              <span className="inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1 text-sm font-medium text-zinc-400 mb-2">
                 Beta
               </span>
-              <h1 className="font-display text-4xl font-medium tracking-tight text-sage-950 sm:text-5xl">
+              <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
                 CutEngine
               </h1>
             </div>
           </div>
-          <p className="mt-4 text-xl text-sage-600">
+          <p className="mt-4 text-xl text-zinc-400">
             ML-driven fat loss that adapts daily. Your Apple Watch data becomes personalized
             calorie and macro targets — with safety rails that protect your recovery.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <ProductlaneButton
-              className="inline-flex items-center px-6 py-3 bg-sage-950 text-white rounded-full font-medium hover:bg-sage-800 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-colors"
             >
               Request Beta Access
             </ProductlaneButton>
             <ProductlaneButton
-              className="inline-flex items-center px-6 py-3 bg-white border border-sage-200 text-sage-700 rounded-full font-medium hover:border-sage-400 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-zinc-900/50 border border-zinc-700 text-zinc-300 rounded-full font-medium hover:border-zinc-500 transition-colors"
             >
               Give Feedback
             </ProductlaneButton>
@@ -63,17 +62,17 @@ export default function CutEnginePage() {
         </FadeIn>
       </Container>
 
-      <div className="mt-24 rounded-4xl bg-sage-950 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl bg-zinc-900 border border-zinc-800 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
               Your data. Your cut. Adapted daily.
             </h2>
-            <p className="mt-6 text-lg text-sage-300 max-w-2xl">
+            <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
               Static calorie calculators give you a number on day one and never adjust. As your body
               adapts, that number becomes wrong — leading to plateaus, muscle loss, or unnecessary suffering.
             </p>
-            <p className="mt-4 text-lg text-sage-300 max-w-2xl">
+            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
               CutEngine analyzes your weight trends, activity, recovery metrics, and biofeedback signals
               to calculate personalized, daily-adjusted targets. The ML model learns your response, not
               population averages.
@@ -86,9 +85,9 @@ export default function CutEnginePage() {
         <FadeIn>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {highlights.map((item) => (
-              <div key={item.label} className="rounded-2xl bg-dawn-50 p-6">
-                <h3 className="font-display text-lg font-semibold text-sage-950">{item.label}</h3>
-                <p className="mt-2 text-sm text-sage-600">{item.description}</p>
+              <div key={item.label} className="rounded-2xl bg-zinc-900/50 border border-zinc-800 p-6">
+                <h3 className="font-display text-lg font-semibold text-white">{item.label}</h3>
+                <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
               </div>
             ))}
           </div>
@@ -98,12 +97,12 @@ export default function CutEnginePage() {
       <Container className="mt-24 sm:mt-32 mb-24">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="font-display text-3xl font-medium tracking-tight text-sage-950">
+            <h2 className="font-display text-3xl font-medium tracking-tight text-white">
               Part of the BodyEngine suite
             </h2>
-            <p className="mt-4 text-sage-600">
+            <p className="mt-4 text-zinc-400">
               CutEngine works alongside{' '}
-              <Link href="/apps/cardioengine" className="text-sage-800 underline hover:text-sage-950">CardioEngine</Link>
+              <Link href="/apps/cardioengine" className="text-zinc-200 underline hover:text-white">CardioEngine</Link>
               {' '}for HR zone training. Together they share user data via App Groups for a complete picture of your fitness.
             </p>
           </div>
