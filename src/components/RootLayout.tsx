@@ -61,13 +61,13 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
       className={clsx(
         'relative py-2 text-sm font-medium transition-colors duration-200',
         isActive
-          ? 'text-sage-950'
-          : 'text-sage-600 hover:text-sage-900',
+          ? 'text-white'
+          : 'text-zinc-400 hover:text-white',
       )}
     >
       {children}
       {isActive && (
-        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-sage-500 to-sage-400" />
+        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-sage-400 to-dawn-400" />
       )}
     </Link>
   )
@@ -137,7 +137,7 @@ function Header({
             'group relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200',
             invert
               ? 'hover:bg-white/10'
-              : 'bg-sage-100/80 hover:bg-sage-200/80',
+              : 'bg-zinc-800 hover:bg-zinc-700',
           )}
           aria-label="Toggle navigation"
         >
@@ -145,8 +145,8 @@ function Header({
             className={clsx(
               'h-5 w-5 transition-colors',
               invert
-                ? 'fill-white group-hover:fill-sage-200'
-                : 'fill-sage-700 group-hover:fill-sage-900',
+                ? 'fill-white group-hover:fill-zinc-200'
+                : 'fill-zinc-400 group-hover:fill-white',
             )}
           />
         </button>
@@ -165,7 +165,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-sage-950">
+    <div className="even:mt-px sm:bg-zinc-950">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -183,13 +183,13 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-sage-950 px-6 py-8 even:mt-px sm:mx-0 sm:px-0 sm:py-12 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-sage-800/30 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-zinc-950 px-6 py-8 even:mt-px sm:mx-0 sm:px-0 sm:py-12 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-zinc-800/30 sm:even:pl-16"
     >
       <span className="relative">
         {children}
-        <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-gradient-to-r from-sage-400 to-transparent transition-all duration-300 group-hover:w-full" />
+        <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-gradient-to-r from-sage-400 to-dawn-400 transition-all duration-300 group-hover:w-full" />
       </span>
-      <span className="absolute inset-y-0 -z-10 w-screen bg-sage-900/50 opacity-0 transition-opacity duration-300 group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen bg-zinc-900/50 opacity-0 transition-opacity duration-300 group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
     </Link>
   )
 }
@@ -254,7 +254,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           inert={expanded ? true : undefined}
         >
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-2xl bg-white/80 px-4 py-3 shadow-lg shadow-sage-900/5 ring-1 ring-sage-900/5 backdrop-blur-xl sm:px-6 sm:py-4">
+            <div className="rounded-2xl bg-zinc-900/80 px-4 py-3 ring-1 ring-zinc-800 backdrop-blur-xl sm:px-6 sm:py-4">
               <Header
                 panelId={panelId}
                 icon={MenuIcon}
@@ -277,12 +277,12 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           id={panelId}
           style={{ height: expanded ? 'auto' : '0.5rem' }}
-          className="relative z-50 overflow-hidden bg-gradient-to-b from-sage-950 to-sage-900 pt-2"
+          className="relative z-50 overflow-hidden bg-gradient-to-b from-zinc-950 to-zinc-900 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
           inert={expanded ? undefined : true}
         >
-          <motion.div layout className="bg-sage-900/30">
-            <div ref={navRef} className="bg-sage-950 pt-14 pb-12 sm:pt-16 sm:pb-14">
+          <motion.div layout className="bg-zinc-900/30">
+            <div ref={navRef} className="bg-zinc-950 pt-14 pb-12 sm:pt-16 sm:pb-14">
               <Header
                 invert
                 panelId={panelId}
@@ -299,11 +299,11 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
               />
             </div>
             <Navigation />
-            <div className="relative bg-sage-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-sage-800/30">
+            <div className="relative bg-zinc-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-zinc-800/30">
               <Container>
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-14">
                   <div>
-                    <h2 className="font-display text-xs font-semibold tracking-widest text-sage-500 uppercase">
+                    <h2 className="font-display text-xs font-semibold tracking-widest text-zinc-500 uppercase">
                       Location
                     </h2>
                     <Offices
@@ -311,8 +311,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                       className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2"
                     />
                   </div>
-                  <div className="sm:border-l sm:border-sage-800/20 sm:pl-16">
-                    <h2 className="font-display text-xs font-semibold tracking-widest text-sage-500 uppercase">
+                  <div className="sm:border-l sm:border-zinc-800/20 sm:pl-16">
+                    <h2 className="font-display text-xs font-semibold tracking-widest text-zinc-500 uppercase">
                       Connect
                     </h2>
                     <SocialMedia className="mt-4" invert />
@@ -326,18 +326,12 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
       <motion.div
         layout
-        style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-white pt-20 sm:pt-24"
+        className="relative flex flex-auto overflow-hidden bg-zinc-950 pt-20 sm:pt-24"
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-4"
         >
-          <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-sage-50 stroke-sage-900/5"
-            yOffset={-96}
-            interactive
-          />
 
           <main className="w-full flex-auto">{children}</main>
 

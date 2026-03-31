@@ -26,10 +26,27 @@
   --text-6xl--line-height: 3.5rem;
   --text-7xl: 4rem;
   --text-7xl--line-height: 4.5rem;
+  --text-8xl: 5rem;
+  --text-8xl--line-height: 5.5rem;
 
   --radius-4xl: 2.5rem;
 
-  /* Mindfulness color palette - warm, serene earth tones */
+  /* Dark Studio palette — zinc foundation with warm accents */
+
+  /* Zinc base (dark foundation) */
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  /* Sage accent (mindfulness — green, grounded) */
   --color-sage-50: #f6f7f4;
   --color-sage-100: #e8ebe3;
   --color-sage-200: #d4dac9;
@@ -42,18 +59,7 @@
   --color-sage-900: #333b2d;
   --color-sage-950: #1a1f16;
 
-  --color-sand-50: #faf8f5;
-  --color-sand-100: #f3efe8;
-  --color-sand-200: #e6ddd0;
-  --color-sand-300: #d5c6b1;
-  --color-sand-400: #c2aa8e;
-  --color-sand-500: #b39574;
-  --color-sand-600: #a68265;
-  --color-sand-700: #8a6a53;
-  --color-sand-800: #715847;
-  --color-sand-900: #5d493c;
-  --color-sand-950: #31261f;
-
+  /* Dawn accent (fitness — warm orange/red, energy) */
   --color-dawn-50: #fdf8f6;
   --color-dawn-100: #fbeee9;
   --color-dawn-200: #f8ddd4;
@@ -66,6 +72,20 @@
   --color-dawn-900: #743b2e;
   --color-dawn-950: #3e1c15;
 
+  /* Sand (warm neutral — bridges both worlds) */
+  --color-sand-50: #faf8f5;
+  --color-sand-100: #f3efe8;
+  --color-sand-200: #e6ddd0;
+  --color-sand-300: #d5c6b1;
+  --color-sand-400: #c2aa8e;
+  --color-sand-500: #b39574;
+  --color-sand-600: #a68265;
+  --color-sand-700: #8a6a53;
+  --color-sand-800: #715847;
+  --color-sand-900: #5d493c;
+  --color-sand-950: #31261f;
+
+  /* Dusk (IFS/therapy — purple, introspective) */
   --color-dusk-50: #f7f6f9;
   --color-dusk-100: #efedf3;
   --color-dusk-200: #dcd8e5;
@@ -78,87 +98,44 @@
   --color-dusk-900: #443b4c;
   --color-dusk-950: #2a242f;
 
-  --font-sans:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
-  --font-display:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
-  --font-display--font-variation-settings: 'wdth' 125;
-
-  --font-display-length: 2;
+  /* Font stack — loaded via next/font in layout.tsx */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-/* Custom utilities for mindfulness aesthetic */
+/* Dark studio utilities */
 @layer utilities {
+  .text-gradient-brand {
+    background: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-dawn-400) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .text-gradient-sage {
-    background: linear-gradient(135deg, var(--color-sage-700) 0%, var(--color-sage-500) 100%);
+    background: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-300) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .text-gradient-warm {
-    background: linear-gradient(135deg, var(--color-sand-700) 0%, var(--color-dawn-600) 100%);
+  .text-gradient-dawn {
+    background: linear-gradient(135deg, var(--color-dawn-400) 0%, var(--color-dawn-300) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .bg-gradient-serene {
-    background: linear-gradient(180deg, var(--color-sage-50) 0%, var(--color-sand-50) 50%, white 100%);
-  }
-
-  .bg-gradient-dawn {
-    background: linear-gradient(135deg, var(--color-dawn-50) 0%, var(--color-sand-100) 50%, var(--color-sage-50) 100%);
-  }
-
-  .bg-gradient-dusk {
-    background: linear-gradient(180deg, var(--color-dusk-950) 0%, var(--color-sage-950) 100%);
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-float-slow {
-    animation: float 8s ease-in-out infinite;
-  }
-
-  .animate-float-delayed {
-    animation: float 6s ease-in-out 2s infinite;
-  }
-
-  .animate-breathe {
-    animation: breathe 4s ease-in-out infinite;
-  }
-
-  .animate-pulse-soft {
-    animation: pulse-soft 3s ease-in-out infinite;
   }
 
   .glow-sage {
-    box-shadow: 0 0 60px -15px var(--color-sage-300);
+    box-shadow: 0 0 80px -20px var(--color-sage-500);
   }
 
   .glow-dawn {
-    box-shadow: 0 0 60px -15px var(--color-dawn-300);
+    box-shadow: 0 0 80px -20px var(--color-dawn-500);
   }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
+  .glow-dusk {
+    box-shadow: 0 0 80px -20px var(--color-dusk-500);
+  }
 }
