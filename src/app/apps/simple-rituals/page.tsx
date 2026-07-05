@@ -34,7 +34,7 @@ const features = [
 const priorities = [
   {
     tier: 'Must Do',
-    description: 'Start with your essential rituals—the non-negotiables.',
+    description: 'Start with your essential rituals — the non-negotiables.',
     unlockText: null,
   },
   {
@@ -52,7 +52,7 @@ const priorities = [
 export const metadata: Metadata = {
   title: 'Simple Rituals - Build morning and evening routines that stick',
   description:
-    'Build powerful morning and evening routines. Track your habits and create lasting change—one ritual at a time.',
+    'Build powerful morning and evening routines. Track your habits and create lasting change — one ritual at a time.',
 }
 
 export default function SimpleRitualsPage() {
@@ -91,7 +91,7 @@ export default function SimpleRitualsPage() {
           </div>
           <p className="mt-4 text-xl text-ink-muted">
             Build powerful morning and evening routines. Track your habits and
-            create lasting change—one ritual at a time.
+            create lasting change — one ritual at a time.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <BetaSignupButton
@@ -120,7 +120,7 @@ export default function SimpleRitualsPage() {
               track progress, and grow your streaks.
             </p>
             <p className="mt-4 text-lg text-ink-muted max-w-2xl">
-              Simple Rituals keeps you focused with a clean interface—whether
+              Simple Rituals keeps you focused with a clean interface — whether
               you&apos;re starting a morning meditation or winding down at night.
             </p>
           </FadeIn>

@@ -14,7 +14,7 @@ const steps = [
   { number: '01', title: 'Submit your app', description: 'Send us a link to your repo, TestFlight, or APK. Tell us what\'s bugging you.', detail: 'Takes 2 minutes' },
   { number: '02', title: 'Get your free audit', description: 'We review your code and send back a detailed report: what\'s good, what\'s not, and what it\'ll take to fix.', detail: 'Within 48 hours' },
   { number: '03', title: 'We refactor', description: 'Pick a package. We refactor your app while you keep building your business. You own every line of code.', detail: '1\u20134 weeks' },
-  { number: '04', title: 'Ship with confidence', description: 'Launch a production-quality app that looks, feels, and performs like it was built by a funded startup.', detail: 'App Store ready' },
+  { number: '04', title: 'Ship with confidence', description: 'Launch a production-quality app that holds up in App Store review and in front of investors.', detail: 'App Store ready' },
 ]
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function RefactorServicePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <span className="text-sm text-ink-faint">No commitment. No credit card. Just honest feedback.</span>
+            <span className="text-sm text-ink-faint">No commitment, no credit card. You get an honest report either way.</span>
           </div>
         </FadeIn>
       </Container>
