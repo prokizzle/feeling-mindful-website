@@ -3,7 +3,8 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { PricingTiers, StepsGrid, type ServiceTier } from '@/components/ServiceSections'
+import { PricingTiers, StepsGrid } from '@/components/ServiceSections'
+import { hermesTiers } from '@/lib/services'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
 
@@ -46,49 +47,6 @@ const steps = [
   },
 ]
 
-const tiers: ServiceTier[] = [
-  {
-    name: 'Quick Start',
-    price: '$750',
-    description: 'One agent, one workflow, working in 48 hours',
-    features: [
-      '1 AI agent in your Slack',
-      '1 workflow — email triage, CRM enrichment, or customer FAQ',
-      '48-hour setup',
-      '1-hour training session',
-      '2 weeks of Slack support',
-    ],
-    highlighted: false,
-  },
-  {
-    name: 'Business Ops',
-    price: '$2,000',
-    description: 'A small team of agents running your daily ops',
-    features: [
-      '2–3 specialized agents',
-      'Dedicated Slack channels',
-      'Scheduled jobs (reports, follow-ups, alerts)',
-      '2 custom skills for your business',
-      '2-hour training session',
-      '30 days of Slack support + 1 skill iteration',
-    ],
-    highlighted: true,
-  },
-  {
-    name: 'Full Stack',
-    price: '$4,500',
-    description: 'Multi-agent automation across your whole operation',
-    features: [
-      'Multi-agent setup',
-      'Custom integrations — CRM, email, calendar',
-      'SOP automation & dashboards',
-      'Full team training',
-      '60 days of support',
-      'Quarterly health checks',
-    ],
-    highlighted: false,
-  },
-]
 
 export const metadata: Metadata = {
   title: 'Hermes AI Consulting - AI Agents for Small Business',
@@ -189,7 +147,7 @@ export default function HermesConsultingPage() {
             </p>
           </FadeIn>
 
-          <PricingTiers tiers={tiers} />
+          <PricingTiers tiers={hermesTiers} />
 
           <FadeIn>
             <p className="mt-10 text-center text-sm text-ink-faint">

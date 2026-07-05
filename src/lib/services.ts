@@ -1,6 +1,60 @@
 import { type ServiceTier } from '@/components/ServiceSections'
 
-/** Single source of truth for refactor pricing — homepage mini-cards derive from this. */
+/** Hermes AI Consulting tiers — the primary marketed service line. */
+export const hermesTiers: (ServiceTier & {
+  priceShort: string
+  summary: string
+})[] = [
+  {
+    name: 'Quick Start',
+    price: '$750',
+    priceShort: '$750',
+    description: 'One agent, one workflow, working in 48 hours',
+    summary: '1 agent in your Slack, 1 workflow',
+    features: [
+      '1 AI agent in your Slack',
+      '1 workflow — email triage, CRM enrichment, or customer FAQ',
+      '48-hour setup',
+      '1-hour training session',
+      '2 weeks of Slack support',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Business Ops',
+    price: '$2,000',
+    priceShort: '$2K',
+    description: 'A small team of agents running your daily ops',
+    summary: '2–3 agents, scheduled jobs, custom skills',
+    features: [
+      '2–3 specialized agents',
+      'Dedicated Slack channels',
+      'Scheduled jobs (reports, follow-ups, alerts)',
+      '2 custom skills for your business',
+      '2-hour training session',
+      '30 days of Slack support + 1 skill iteration',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'Full Stack',
+    price: '$4,500',
+    priceShort: '$4.5K',
+    description: 'Multi-agent automation across your whole operation',
+    summary: 'Multi-agent + CRM/email/calendar integrations',
+    features: [
+      'Multi-agent setup',
+      'Custom integrations — CRM, email, calendar',
+      'SOP automation & dashboards',
+      'Full team training',
+      '60 days of support',
+      'Quarterly health checks',
+    ],
+    highlighted: false,
+  },
+]
+
+/** Refactor service — de-listed from nav 2026-07-05 (penalty box); page stays live as a sub-page. */
 export const refactorTiers: (ServiceTier & {
   priceShort: string
   summary: string

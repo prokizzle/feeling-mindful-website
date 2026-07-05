@@ -33,7 +33,6 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 const navLinks = [
   { href: '/apps/good-parts', label: 'Good Parts' },
-  { href: '/services/refactor', label: 'Refactor' },
   { href: '/services/hermes', label: 'AI Consulting' },
   { href: 'https://support.feelingmindful.com', label: 'Support' },
 ]
@@ -178,14 +177,12 @@ function Navigation() {
         <NavigationItem href="/apps">All Apps</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/services/refactor">
-          Refactor Service
-        </NavigationItem>
         <NavigationItem href="/services/hermes">AI Consulting</NavigationItem>
+        <NavigationItem href="/support">Support</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/support">Support</NavigationItem>
         <NavigationItem href="/contact">Contact</NavigationItem>
+        <NavigationItem href="/privacy">Privacy</NavigationItem>
       </NavigationRow>
     </nav>
   )

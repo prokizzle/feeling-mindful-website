@@ -18,7 +18,7 @@ const nextConfig = {
     return [
       {
         source: '/services',
-        destination: '/services/refactor',
+        destination: '/services/hermes',
         permanent: false,
       },
       {

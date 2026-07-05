@@ -7,7 +7,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { mindfulnessApps, fitnessApps, type AppInfo } from '@/lib/apps'
-import { refactorTiers } from '@/lib/services'
+import { hermesTiers } from '@/lib/services'
 
 function HeroSection() {
   return (
@@ -37,8 +37,8 @@ function HeroSection() {
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-muted sm:text-xl">
             We build software in service of people: IFS-guided apps grounded
-            in clinical research, plus refactoring and AI-agent services for
-            small teams.
+            in clinical research, plus AI agents that run daily ops for small
+            businesses.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -62,10 +62,10 @@ function HeroSection() {
               </svg>
             </Link>
             <Link
-              href="/services/refactor"
+              href="/services/hermes"
               className="inline-flex items-center gap-2 rounded-full border border-edge-strong px-8 py-4 text-base font-semibold text-ink-muted transition-all hover:border-ink-faint hover:text-ink"
             >
-              Refactoring Service
+              AI Consulting
             </Link>
           </div>
         </FadeIn>
@@ -222,18 +222,18 @@ function ServicesSection() {
                 </span>
               </div>
               <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Turn your vibe-coded app into production software.
+                AI agents that run your busywork.
               </h2>
               <p className="mt-6 text-base leading-relaxed text-ink-muted">
-                AI got you 80% of the way. We handle the other 20% —
-                architecture, edge cases, and the polish that makes reviewers
-                approve your App Store submission.
+                We set up autonomous agents in your Slack that handle email
+                triage, lead follow-up, scheduling, and reporting. Working in
+                as little as 48 hours.
               </p>
               <Link
-                href="/services/refactor"
+                href="/services/hermes"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-surface transition-all hover:bg-ink/85"
               >
-                Get a free code audit
+                See consulting packages
                 <svg
                   className="h-4 w-4"
                   fill="none"
@@ -248,20 +248,10 @@ function ServicesSection() {
                   />
                 </svg>
               </Link>
-              <p className="mt-6 text-sm text-ink-faint">
-                Running a small business instead?{' '}
-                <Link
-                  href="/services/hermes"
-                  className="text-ink-muted underline hover:text-ink"
-                >
-                  AI agents in your Slack from $750
-                </Link>
-                .
-              </p>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
-              {refactorTiers.map((tier) => (
+              {hermesTiers.map((tier) => (
                 <div
                   key={tier.name}
                   className="rounded-xl border border-edge bg-raised p-5 text-center"

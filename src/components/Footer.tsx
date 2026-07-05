@@ -15,7 +15,6 @@ const navigation = [
   {
     title: 'Company',
     links: [
-      { title: 'Refactor Service', href: '/services/refactor' },
       { title: 'AI Consulting', href: '/services/hermes' },
       { title: 'Support', href: '/support' },
       { title: 'Contact', href: '/contact' },
