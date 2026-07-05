@@ -11,6 +11,8 @@ export interface AppInfo {
   bgGlow: string
   externalUrl?: string
   appStoreUrl?: string
+  /** Hidden apps stay live at their URLs but are excluded from nav, hub, homepage, and sitemap. */
+  hidden?: boolean
 }
 
 export const SUPPORT_URL = 'https://support.feelingmindful.com'
@@ -20,8 +22,9 @@ export const apps: AppInfo[] = [
   {
     name: 'Good Parts',
     slug: 'good-parts',
-    description: 'IFS-aware voice journaling. Record your thoughts, discover your parts, and track patterns over time.',
-    status: 'Beta',
+    description:
+      'IFS-aware voice journaling. Record your thoughts, discover your parts, and track patterns over time.',
+    status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/good-parts-icon.png',
     gradient: 'from-dusk-400 to-dusk-600',
@@ -30,7 +33,9 @@ export const apps: AppInfo[] = [
   {
     name: 'Becoming One',
     slug: 'becoming-one',
-    description: 'IFS-guided meditation. Explore your inner world through practices designed for parts work and self-integration.',
+    hidden: true,
+    description:
+      'IFS-guided meditation. Explore your inner world through practices designed for parts work and self-integration.',
     status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/becoming-one-icon.png',
@@ -40,7 +45,9 @@ export const apps: AppInfo[] = [
   {
     name: 'Simple Rituals',
     slug: 'simple-rituals',
-    description: 'Build morning and evening routines that stick. Prioritize with MoSCoW, track streaks, grow consistency.',
+    hidden: true,
+    description:
+      'Build morning and evening routines that stick. Prioritize with MoSCoW, track streaks, grow consistency.',
     status: 'Beta',
     domain: 'mindfulness',
     icon: '/icons/simple-rituals-icon.png',
@@ -51,7 +58,9 @@ export const apps: AppInfo[] = [
   {
     name: 'CutEngine',
     slug: 'cutengine',
-    description: 'ML-driven fat loss that adapts daily. Your Apple Watch data becomes personalized calorie and macro targets.',
+    hidden: true,
+    description:
+      'ML-driven fat loss that adapts daily. Your Apple Watch data becomes personalized calorie and macro targets.',
     status: 'Beta',
     domain: 'fitness',
     icon: '/icons/cutengine-icon.png',
@@ -62,7 +71,9 @@ export const apps: AppInfo[] = [
   {
     name: 'CardioEngine',
     slug: 'cardioengine',
-    description: 'HR zone-based cardio training with live workout coaching and Bluetooth heart rate monitor support.',
+    hidden: true,
+    description:
+      'HR zone-based cardio training with live workout coaching and Bluetooth heart rate monitor support.',
     status: 'Coming Soon',
     domain: 'fitness',
     icon: '/icons/cardioengine-icon.png',
@@ -71,5 +82,8 @@ export const apps: AppInfo[] = [
   },
 ]
 
-export const mindfulnessApps = apps.filter((a) => a.domain === 'mindfulness')
-export const fitnessApps = apps.filter((a) => a.domain === 'fitness')
+export const visibleApps = apps.filter((a) => !a.hidden)
+export const mindfulnessApps = visibleApps.filter(
+  (a) => a.domain === 'mindfulness',
+)
+export const fitnessApps = visibleApps.filter((a) => a.domain === 'fitness')

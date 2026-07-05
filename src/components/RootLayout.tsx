@@ -44,13 +44,17 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 const navLinks = [
   { href: '/apps/good-parts', label: 'Good Parts' },
-  { href: '/apps/becoming-one', label: 'Becoming One' },
-  { href: '/apps/cutengine', label: 'CutEngine' },
   { href: '/services/refactor', label: 'Refactor' },
   { href: 'https://support.feelingmindful.com', label: 'Support' },
 ]
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
   const pathname = usePathname()
   const isActive = pathname === href || pathname.startsWith(href + '/')
 
@@ -59,14 +63,12 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       className={clsx(
         'relative py-2 text-sm font-medium transition-colors duration-200',
-        isActive
-          ? 'text-white'
-          : 'text-zinc-400 hover:text-white',
+        isActive ? 'text-white' : 'text-zinc-400 hover:text-white',
       )}
     >
       {children}
       {isActive && (
-        <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-sage-400 to-dawn-400" />
+        <span className="absolute right-0 -bottom-1 left-0 h-0.5 rounded-full bg-gradient-to-r from-sage-400 to-dawn-400" />
       )}
     </Link>
   )
@@ -112,7 +114,7 @@ function Header({
 
       {/* Desktop Navigation - Center */}
       {!invert && (
-        <nav className="hidden lg:flex items-center gap-x-8">
+        <nav className="hidden items-center gap-x-8 lg:flex">
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href}>
               {link.label}
@@ -123,7 +125,11 @@ function Header({
 
       {/* Right side actions */}
       <div className="flex items-center gap-x-3 sm:gap-x-4">
-        <Button href="/contact" invert={invert} className="hidden sm:inline-flex">
+        <Button
+          href="/contact"
+          invert={invert}
+          className="hidden sm:inline-flex"
+        >
           Contact
         </Button>
         <button
@@ -134,9 +140,7 @@ function Header({
           aria-controls={panelId}
           className={clsx(
             'group relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200',
-            invert
-              ? 'hover:bg-white/10'
-              : 'bg-zinc-800 hover:bg-zinc-700',
+            invert ? 'hover:bg-white/10' : 'bg-zinc-800 hover:bg-zinc-700',
           )}
           aria-label="Toggle navigation"
         >
@@ -198,14 +202,12 @@ function Navigation() {
     <nav className="mt-px font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
       <NavigationRow>
         <NavigationItem href="/apps/good-parts">Good Parts</NavigationItem>
-        <NavigationItem href="/apps/becoming-one">Becoming One</NavigationItem>
+        <NavigationItem href="/apps">All Apps</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/apps/cutengine">CutEngine</NavigationItem>
-        <NavigationItem href="/apps/cardioengine">CardioEngine</NavigationItem>
-      </NavigationRow>
-      <NavigationRow>
-        <NavigationItem href="/services/refactor">Refactor Service</NavigationItem>
+        <NavigationItem href="/services/refactor">
+          Refactor Service
+        </NavigationItem>
         <NavigationItem href="/contact">Contact</NavigationItem>
       </NavigationRow>
     </nav>
@@ -281,7 +283,10 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           inert={expanded ? undefined : true}
         >
           <motion.div layout className="bg-zinc-900/30">
-            <div ref={navRef} className="bg-zinc-950 pt-14 pb-12 sm:pt-16 sm:pb-14">
+            <div
+              ref={navRef}
+              className="bg-zinc-950 pt-14 pb-12 sm:pt-16 sm:pb-14"
+            >
               <Header
                 invert
                 panelId={panelId}
@@ -331,7 +336,6 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           className="relative isolate flex w-full flex-col pt-4"
         >
-
           <main className="w-full flex-auto">{children}</main>
 
           <Footer />

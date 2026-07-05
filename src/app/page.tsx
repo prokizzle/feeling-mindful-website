@@ -18,7 +18,8 @@ function HeroSection() {
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
       />
@@ -32,15 +33,13 @@ function HeroSection() {
 
           <h1 className="font-display text-5xl font-semibold tracking-tight text-white sm:text-7xl lg:text-8xl">
             Software for{' '}
-            <span className="text-gradient-brand">
-              mind and body.
-            </span>
+            <span className="text-gradient-brand">mind and body.</span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
-            We build iOS apps that help you understand yourself better —
-            from IFS-guided inner work to data-driven fitness.
-            Plus a refactoring service for teams shipping to the App Store.
+            We build iOS apps that help you understand yourself better, starting
+            with IFS-guided inner work. Plus a refactoring service for teams
+            shipping to the App Store.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-4">
@@ -49,8 +48,18 @@ function HeroSection() {
               className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-zinc-950 transition-all hover:bg-zinc-100"
             >
               Explore Our Apps
-              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </Link>
             <Link
@@ -72,7 +81,9 @@ function AppCard({ app }: { app: AppInfo }) {
       <Link href={`/apps/${app.slug}`} className="group block">
         <article className="relative h-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900 sm:p-10">
           {/* Glow effect on hover */}
-          <div className={`absolute -right-20 -top-20 h-64 w-64 rounded-full ${app.bgGlow} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100`} />
+          <div
+            className={`absolute -top-20 -right-20 h-64 w-64 rounded-full ${app.bgGlow} opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100`}
+          />
 
           <div className="relative">
             <div className="relative inline-block">
@@ -87,7 +98,7 @@ function AppCard({ app }: { app: AppInfo }) {
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1">
               {app.status === 'Beta' && (
-                <span className="h-1.5 w-1.5 rounded-full bg-sage-400 animate-pulse" />
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-sage-400" />
               )}
               {app.status === 'Live' && (
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -95,7 +106,9 @@ function AppCard({ app }: { app: AppInfo }) {
               {app.status === 'Coming Soon' && (
                 <span className="h-1.5 w-1.5 rounded-full bg-zinc-500" />
               )}
-              <span className="text-xs font-medium text-zinc-400">{app.status}</span>
+              <span className="text-xs font-medium text-zinc-400">
+                {app.status}
+              </span>
             </div>
 
             <h3 className="mt-6 font-display text-xl font-semibold text-white transition-colors group-hover:text-zinc-100 sm:text-2xl">
@@ -107,8 +120,18 @@ function AppCard({ app }: { app: AppInfo }) {
 
             <div className="mt-6 flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors group-hover:text-zinc-300">
               <span>Learn more</span>
-              <svg className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg
+                className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </div>
           </div>
@@ -118,16 +141,25 @@ function AppCard({ app }: { app: AppInfo }) {
   )
 }
 
-function AppSection({ title, subtitle, accentColor, apps: sectionApps }: {
+function AppSection({
+  title,
+  subtitle,
+  accentColor,
+  apps: sectionApps,
+}: {
   title: string
   subtitle: string
   accentColor: string
   apps: AppInfo[]
 }) {
+  if (sectionApps.length === 0) {
+    return null
+  }
+
   return (
     <div>
       <FadeIn>
-        <div className="flex items-center gap-3 mb-3">
+        <div className="mb-3 flex items-center gap-3">
           <div className={`h-px w-8 ${accentColor}`} />
           <span className="font-display text-sm font-medium tracking-widest text-zinc-500 uppercase">
             {title}
@@ -186,7 +218,7 @@ function ServicesSection() {
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div>
-              <div className="flex items-center gap-3 mb-3">
+              <div className="mb-3 flex items-center gap-3">
                 <div className="h-px w-8 bg-zinc-400" />
                 <span className="font-display text-sm font-medium tracking-widest text-zinc-500 uppercase">
                   Services
@@ -196,29 +228,59 @@ function ServicesSection() {
                 Turn your vibe-coded app into production software.
               </h2>
               <p className="mt-6 text-base leading-relaxed text-zinc-400">
-                AI got you 80% of the way. We handle the other 20% — architecture,
-                edge cases, and the polish that makes reviewers approve your App Store submission.
+                AI got you 80% of the way. We handle the other 20% —
+                architecture, edge cases, and the polish that makes reviewers
+                approve your App Store submission.
               </p>
               <Link
                 href="/services/refactor"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-zinc-950 transition-all hover:bg-zinc-100"
               >
                 Get a free code audit
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
               {[
-                { price: '$3K', label: 'UI Polish', desc: 'Design system, animations, native feel' },
-                { price: '$7.5K', label: 'Full Refactor', desc: 'Architecture, state, API, tests' },
-                { price: '$20K', label: 'Production Ready', desc: 'App Store submission + 30d support' },
+                {
+                  price: '$3K',
+                  label: 'UI Polish',
+                  desc: 'Design system, animations, native feel',
+                },
+                {
+                  price: '$7.5K',
+                  label: 'Full Refactor',
+                  desc: 'Architecture, state, API, tests',
+                },
+                {
+                  price: '$20K',
+                  label: 'Production Ready',
+                  desc: 'App Store submission + 30d support',
+                },
               ].map((tier) => (
-                <div key={tier.label} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 text-center">
-                  <div className="font-display text-2xl font-semibold text-white">{tier.price}</div>
-                  <div className="mt-1 text-sm font-medium text-zinc-300">{tier.label}</div>
+                <div
+                  key={tier.label}
+                  className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 text-center"
+                >
+                  <div className="font-display text-2xl font-semibold text-white">
+                    {tier.price}
+                  </div>
+                  <div className="mt-1 text-sm font-medium text-zinc-300">
+                    {tier.label}
+                  </div>
                   <div className="mt-2 text-xs text-zinc-500">{tier.desc}</div>
                 </div>
               ))}
@@ -234,19 +296,23 @@ function PhilosophySection() {
   const principles = [
     {
       title: 'Evidence-based',
-      description: 'Every feature is grounded in research — IFS clinical practice to exercise science.',
+      description:
+        'Every feature is grounded in research — IFS clinical practice to exercise science.',
     },
     {
       title: 'Privacy-first',
-      description: 'On-device processing where possible. Your data is never sold.',
+      description:
+        'On-device processing where possible. Your data is never sold.',
     },
     {
       title: 'Platform-native',
-      description: 'Swift 6, SwiftUI, HealthKit, SwiftData. Not cross-platform compromises.',
+      description:
+        'Swift 6, SwiftUI, HealthKit, SwiftData. Not cross-platform compromises.',
     },
     {
       title: 'Data-driven',
-      description: 'ML models, biofeedback signals, and real-time adaptation. Your data works for you.',
+      description:
+        'ML models, biofeedback signals, and real-time adaptation. Your data works for you.',
     },
   ]
 
@@ -256,7 +322,7 @@ function PhilosophySection() {
 
       <Container>
         <FadeIn>
-          <div className="flex items-center gap-3 mb-3">
+          <div className="mb-3 flex items-center gap-3">
             <div className="h-px w-8 bg-sage-400" />
             <span className="font-display text-sm font-medium tracking-widest text-zinc-500 uppercase">
               Philosophy
@@ -266,8 +332,9 @@ function PhilosophySection() {
             Technology in service of you
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">
-            The best tools get out of your way. Whether you&apos;re exploring your inner world
-            or optimizing your training, our software supports your goals — not distracts from them.
+            The best tools get out of your way. Whether you&apos;re exploring
+            your inner world or optimizing your training, our software supports
+            your goals — not distracts from them.
           </p>
         </FadeIn>
 
@@ -293,7 +360,7 @@ function PhilosophySection() {
 export const metadata: Metadata = {
   title: 'Feeling Mindful Labs - Software for mind and body',
   description:
-    'Feeling Mindful Labs builds iOS apps for mindful living and intelligent fitness. IFS journaling, meditation, adaptive fat loss, and HR zone training.',
+    'Feeling Mindful Labs builds iOS apps for mindful living, starting with Good Parts — IFS-aware voice journaling.',
 }
 
 export default async function Home() {

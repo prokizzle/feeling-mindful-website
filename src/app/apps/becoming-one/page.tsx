@@ -18,10 +18,24 @@ const features = [
 ]
 
 const themes = [
-  { name: 'Parts Work', description: 'Meet and work with your inner protectors, exiles, and managers.' },
-  { name: 'Self Energy', description: 'Connect with calm, curious, compassionate Self leadership.' },
-  { name: 'Unblending', description: 'Practice separating from overwhelming feelings to see them clearly.' },
-  { name: 'General Mindfulness', description: 'Breathing, body scan, and grounding practices for everyone.' },
+  {
+    name: 'Parts Work',
+    description:
+      'Meet and work with your inner protectors, exiles, and managers.',
+  },
+  {
+    name: 'Self Energy',
+    description: 'Connect with calm, curious, compassionate Self leadership.',
+  },
+  {
+    name: 'Unblending',
+    description:
+      'Practice separating from overwhelming feelings to see them clearly.',
+  },
+  {
+    name: 'General Mindfulness',
+    description: 'Breathing, body scan, and grounding practices for everyone.',
+  },
 ]
 
 export const metadata: Metadata = {
@@ -35,7 +49,7 @@ export default function BecomingOnePage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-40">
         <FadeIn className="max-w-3xl">
-          <div className="flex items-center gap-6 mb-8">
+          <div className="mb-8 flex items-center gap-6">
             <Image
               src="/icons/becoming-one-icon.png"
               alt="Becoming One"
@@ -44,7 +58,7 @@ export default function BecomingOnePage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1 text-sm font-medium text-zinc-400 mb-2">
+              <span className="mb-2 inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1 text-sm font-medium text-zinc-400">
                 Coming Soon
               </span>
               <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
@@ -53,55 +67,59 @@ export default function BecomingOnePage() {
             </div>
           </div>
           <p className="mt-4 text-xl text-zinc-400">
-            IFS-guided meditation for self-integration. Explore your inner world through
-            practices designed for parts work — from meeting protectors to connecting with Self energy.
+            IFS-guided meditation for self-integration. Explore your inner world
+            through practices designed for parts work — from meeting protectors
+            to connecting with Self energy.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <ProductlaneButton
-              className="inline-flex items-center px-6 py-3 bg-white text-zinc-950 rounded-full font-medium hover:bg-zinc-100 transition-colors"
-            >
+            <ProductlaneButton className="inline-flex items-center rounded-full bg-white px-6 py-3 font-medium text-zinc-950 transition-colors hover:bg-zinc-100">
               Request Early Access
             </ProductlaneButton>
-            <ProductlaneButton
-              className="inline-flex items-center px-6 py-3 bg-zinc-900/50 border border-zinc-700 text-zinc-300 rounded-full font-medium hover:border-zinc-500 transition-colors"
-            >
+            <ProductlaneButton className="inline-flex items-center rounded-full border border-zinc-700 bg-zinc-900/50 px-6 py-3 font-medium text-zinc-300 transition-colors hover:border-zinc-500">
               Give Feedback
             </ProductlaneButton>
           </div>
         </FadeIn>
       </Container>
 
-      <div className="mt-24 rounded-2xl bg-zinc-900 border border-zinc-800 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl border border-zinc-800 bg-zinc-900 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
               Meditation meets parts work
             </h2>
-            <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
-              Becoming One uses the Internal Family Systems framework to guide your meditation practice.
-              The name refers to the IFS concept of integration — bringing scattered inner parts into a
-              unified, Self-led whole. It&apos;s an ongoing process, not a destination.
+            <p className="mt-6 max-w-2xl text-lg text-zinc-400">
+              Becoming One uses the Internal Family Systems framework to guide
+              your meditation practice. The name refers to the IFS concept of
+              integration — bringing scattered inner parts into a unified,
+              Self-led whole. It&apos;s an ongoing process, not a destination.
             </p>
-            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
-              Content ranges from general mindfulness to IFS-specific guided practices.
-              No prior IFS knowledge required — the app rewards curiosity at every level.
+            <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+              Content ranges from general mindfulness to IFS-specific guided
+              practices. No prior IFS knowledge required — the app rewards
+              curiosity at every level.
             </p>
           </FadeIn>
         </Container>
       </div>
 
       <SectionIntro title="Meditation themes" className="mt-24 sm:mt-32">
-        <p>
-          Practices organized by IFS concept and general mindfulness.
-        </p>
+        <p>Practices organized by IFS concept and general mindfulness.</p>
       </SectionIntro>
       <Container className="mt-16">
         <FadeIn>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {themes.map((theme) => (
-              <div key={theme.name} className="rounded-2xl bg-zinc-900/50 border border-zinc-800 p-6">
-                <h3 className="font-display text-lg font-semibold text-white">{theme.name}</h3>
-                <p className="mt-2 text-sm text-zinc-400">{theme.description}</p>
+              <div
+                key={theme.name}
+                className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6"
+              >
+                <h3 className="font-display text-lg font-semibold text-white">
+                  {theme.name}
+                </h3>
+                <p className="mt-2 text-sm text-zinc-400">
+                  {theme.description}
+                </p>
               </div>
             ))}
           </div>
@@ -109,14 +127,17 @@ export default function BecomingOnePage() {
       </Container>
 
       <SectionIntro title="What to expect" className="mt-24 sm:mt-32">
-        <p>Becoming One is in active development. Here&apos;s what we&apos;re building.</p>
+        <p>
+          Becoming One is in active development. Here&apos;s what we&apos;re
+          building.
+        </p>
       </SectionIntro>
       <Container className="mt-16">
         <FadeIn>
-          <ul className="space-y-4 max-w-xl mx-auto">
+          <ul className="mx-auto max-w-xl space-y-4">
             {features.map((feature) => (
               <li key={feature} className="flex items-start gap-3">
-                <span className="text-zinc-500 mt-0.5">&#10003;</span>
+                <span className="mt-0.5 text-zinc-500">&#10003;</span>
                 <span className="text-zinc-400">{feature}</span>
               </li>
             ))}
@@ -124,18 +145,37 @@ export default function BecomingOnePage() {
         </FadeIn>
       </Container>
 
-      <Container className="mt-24 sm:mt-32 mb-24">
+      <Container className="mt-24 mb-24 sm:mt-32">
         <FadeIn>
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-medium tracking-tight text-white">
               Part of the Feeling Mindful suite
             </h2>
             <p className="mt-4 text-zinc-400">
               Becoming One is a sibling to{' '}
-              <Link href="/apps/good-parts" className="text-zinc-200 underline hover:text-white">Good Parts</Link>
-              {' '}(IFS journaling). Users who engage with parts work in meditation can go deeper with journaling — and vice versa.
+              <Link
+                href="/apps/good-parts"
+                className="text-zinc-200 underline hover:text-white"
+              >
+                Good Parts
+              </Link>{' '}
+              (IFS journaling). Users who engage with parts work in meditation
+              can go deeper with journaling — and vice versa.
             </p>
           </div>
+        </FadeIn>
+      </Container>
+
+      <Container className="mt-16">
+        <FadeIn>
+          <p className="text-center text-sm text-zinc-500">
+            <Link
+              href="/apps/becoming-one/privacy"
+              className="hover:text-zinc-300"
+            >
+              Privacy Policy
+            </Link>
+          </p>
         </FadeIn>
       </Container>
 

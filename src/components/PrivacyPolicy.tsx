@@ -8,14 +8,15 @@ interface PrivacyPolicyProps {
   thirdPartyServices: string[]
   healthData?: string[]
   devicePermissions?: string[]
+  mentalHealthDisclaimer?: boolean
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
-const LEGAL_ENTITY = 'FeelingMindful LLC'
-const LEGAL_ADDRESS = 'Austin, TX, United States'
-const CONTACT_EMAIL = 'nick@feelingmindful.com'
+const LEGAL_ENTITY = 'Feeling Mindful Labs LLC'
+const LEGAL_ADDRESS = 'United States'
+const CONTACT_EMAIL = 'privacy@feelingmindful.com'
 const COUNTRY = 'the United States'
-const LAST_UPDATED = '2026-03-29'
+const LAST_UPDATED = '2026-07-04'
 
 export function PrivacyPolicy({
   appName,
@@ -23,6 +24,7 @@ export function PrivacyPolicy({
   thirdPartyServices,
   healthData,
   devicePermissions,
+  mentalHealthDisclaimer,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -153,18 +155,31 @@ export function PrivacyPolicy({
             data, please contact us and we will remove it.
           </p>
 
-          <h2>App Store</h2>
+          {mentalHealthDisclaimer && (
+            <>
+              <h2>Not Medical or Mental Health Advice</h2>
+              <p>
+                {appName} is a wellness and self-reflection tool. It is not therapy, medical care,
+                or a substitute for professional mental health treatment, and nothing in the app
+                constitutes medical advice. If you are in crisis, call or text 988 (in the US) or
+                contact your local emergency services.
+              </p>
+            </>
+          )}
+
+          <h2>App Stores</h2>
           <p>
-            {appName} is distributed through the Apple App Store. Apple&apos;s terms and privacy
-            policy also apply to your use of the app. We are solely responsible for {appName} and
-            its content — Apple has no obligation to provide maintenance or support.
+            {appName} is distributed through the Apple App Store and/or Google Play. The terms
+            and privacy policies of Apple and Google also apply to your use of the app. We are
+            solely responsible for {appName} and its content — Apple and Google have no
+            obligation to provide maintenance or support.
           </p>
 
           <h2>In-App Purchases</h2>
           <p>
-            {appName} may offer in-app purchases managed through Apple&apos;s App Store. Refund
-            requests for in-app purchases should be directed to Apple. We do not have access to
-            your payment card information.
+            {appName} may offer in-app purchases and subscriptions billed through the Apple App
+            Store or Google Play. Refund requests should be directed to the store where you made
+            the purchase. We do not have access to your payment card information.
           </p>
 
           <h2>Changes to This Policy</h2>

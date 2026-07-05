@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     template: '%s - Feeling Mindful Labs',
     default: 'Feeling Mindful Labs - Software for mind and body',
   },
-  description: 'Feeling Mindful Labs builds apps for mindful living and intelligent fitness. IFS journaling, meditation, adaptive fat loss, and HR zone training.',
+  description:
+    'Feeling Mindful Labs builds apps for mindful living, starting with Good Parts — IFS-aware voice journaling.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32' },

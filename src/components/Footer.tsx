@@ -6,25 +6,17 @@ import { Logo } from '@/components/Logo'
 
 const navigation = [
   {
-    title: 'Mindfulness',
+    title: 'Apps',
     links: [
       { title: 'Good Parts', href: '/apps/good-parts' },
-      { title: 'Becoming One', href: '/apps/becoming-one' },
-      { title: 'Simple Rituals', href: '/apps/simple-rituals' },
-    ],
-  },
-  {
-    title: 'Fitness',
-    links: [
-      { title: 'CutEngine', href: '/apps/cutengine' },
-      { title: 'CardioEngine', href: '/apps/cardioengine' },
+      { title: 'All Apps', href: '/apps' },
     ],
   },
   {
     title: 'Company',
     links: [
       { title: 'Refactor Service', href: '/services/refactor' },
-      { title: 'The Collective', href: '/the-collective' },
+      { title: 'Support', href: '/support' },
       { title: 'Contact', href: '/contact' },
     ],
   },
@@ -41,7 +33,7 @@ const navigation = [
 function Navigation() {
   return (
     <nav>
-      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+      <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
             <div className="font-display text-sm font-semibold tracking-wider text-zinc-200">

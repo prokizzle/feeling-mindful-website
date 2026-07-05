@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -26,7 +27,7 @@ export default function GoodPartsPage() {
       {/* Hero */}
       <Container className="mt-24 sm:mt-32 md:mt-40">
         <FadeIn>
-          <div className="relative overflow-hidden rounded-3xl mb-16">
+          <div className="relative mb-16 overflow-hidden rounded-3xl">
             <Image
               src="/images/heroes/goodparts-hero.png"
               alt="Good Parts app illustration"
@@ -38,7 +39,7 @@ export default function GoodPartsPage() {
           </div>
         </FadeIn>
         <FadeIn className="max-w-3xl">
-          <div className="flex items-center gap-6 mb-8">
+          <div className="mb-8 flex items-center gap-6">
             <Image
               src="/icons/good-parts-icon.png"
               alt="Good Parts"
@@ -47,7 +48,7 @@ export default function GoodPartsPage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="inline-block px-3 py-1 border border-zinc-700 bg-zinc-800/50 text-zinc-400 rounded-full text-sm font-medium mb-2">
+              <span className="mb-2 inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1 text-sm font-medium text-zinc-400">
                 Coming Soon
               </span>
               <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
@@ -56,49 +57,48 @@ export default function GoodPartsPage() {
             </div>
           </div>
           <p className="mt-4 text-xl text-zinc-400">
-            IFS-aware voice journaling. Record your thoughts, discover your parts,
-            and track patterns over time with AI-powered Internal Family Systems awareness.
+            IFS-aware voice journaling. Record your thoughts, discover your
+            parts, and track patterns over time with AI-powered Internal Family
+            Systems awareness.
           </p>
         </FadeIn>
       </Container>
 
       {/* What it is */}
-      <div className="mt-24 rounded-2xl bg-zinc-900 border border-zinc-800 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl border border-zinc-800 bg-zinc-900 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
             <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
               Understanding your inner world
             </h2>
-            <p className="mt-6 text-lg text-zinc-400 max-w-2xl">
-              Good Parts uses the Internal Family Systems (IFS) framework to help you
-              understand the different parts of yourself. By speaking your thoughts
-              aloud, you&apos;ll discover patterns in how your parts interact and learn
-              to work with them more effectively.
+            <p className="mt-6 max-w-2xl text-lg text-zinc-400">
+              Good Parts uses the Internal Family Systems (IFS) framework to
+              help you understand the different parts of yourself. By speaking
+              your thoughts aloud, you&apos;ll discover patterns in how your
+              parts interact and learn to work with them more effectively.
             </p>
-            <p className="mt-4 text-lg text-zinc-400 max-w-2xl">
-              Our AI analyzes your voice journals to identify which parts are speaking,
-              track their frequency over time, and surface insights about your inner
-              landscape.
+            <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+              Our AI analyzes your voice journals to identify which parts are
+              speaking, track their frequency over time, and surface insights
+              about your inner landscape.
             </p>
           </FadeIn>
         </Container>
       </div>
 
       {/* Features Preview */}
-      <SectionIntro
-        title="What to expect"
-        className="mt-24 sm:mt-32"
-      >
+      <SectionIntro title="What to expect" className="mt-24 sm:mt-32">
         <p>
-          Good Parts is currently in development. Here&apos;s what we&apos;re building.
+          Good Parts is currently in development. Here&apos;s what we&apos;re
+          building.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <FadeIn>
-          <ul className="space-y-4 max-w-xl mx-auto">
+          <ul className="mx-auto max-w-xl space-y-4">
             {features.map((feature) => (
               <li key={feature} className="flex items-start gap-3">
-                <span className="text-amber-500 mt-0.5">✓</span>
+                <span className="mt-0.5 text-amber-500">✓</span>
                 <span className="text-zinc-400">{feature}</span>
               </li>
             ))}
@@ -107,16 +107,34 @@ export default function GoodPartsPage() {
       </Container>
 
       {/* Newsletter */}
-      <Container className="mt-24 sm:mt-32 mb-24">
+      <Container className="mt-24 mb-24 sm:mt-32">
         <FadeIn>
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-medium tracking-tight text-white">
               Get notified when Good Parts launches
             </h2>
             <p className="mt-4 text-zinc-400">
-              Join our mailing list to be the first to know when Good Parts is ready.
+              Join our mailing list to be the first to know when Good Parts is
+              ready.
             </p>
           </div>
+        </FadeIn>
+      </Container>
+
+      <Container className="mt-16">
+        <FadeIn>
+          <p className="text-center text-sm text-zinc-500">
+            <Link
+              href="/apps/good-parts/privacy"
+              className="hover:text-zinc-300"
+            >
+              Privacy Policy
+            </Link>
+            <span className="mx-2">·</span>
+            <Link href="/apps/good-parts/terms" className="hover:text-zinc-300">
+              Terms of Service
+            </Link>
+          </p>
         </FadeIn>
       </Container>
 
