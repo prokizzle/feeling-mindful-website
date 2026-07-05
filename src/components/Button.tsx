@@ -18,8 +18,8 @@ export function Button({
     className,
     'inline-flex rounded-full px-5 py-2 text-sm font-semibold tracking-wide transition-all duration-200',
     invert
-      ? 'bg-white text-zinc-950 hover:bg-zinc-100'
-      : 'bg-white text-zinc-950 hover:bg-zinc-100',
+      ? 'bg-white text-zinc-950 hover:bg-zinc-200'
+      : 'bg-ink text-surface hover:bg-ink/85',
   )
 
   const inner = <span className="relative top-px">{children}</span>

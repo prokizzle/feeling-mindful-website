@@ -29,7 +29,7 @@ export function SocialMedia({
       role="list"
       className={clsx(
         'flex gap-x-10',
-        invert ? 'text-white' : 'text-zinc-200',
+        invert ? 'text-white' : 'text-ink',
         className,
       )}
     >
@@ -40,7 +40,7 @@ export function SocialMedia({
             aria-label={socialMediaProfile.title}
             className={clsx(
               'transition-colors duration-200',
-              invert ? 'hover:text-zinc-300' : 'hover:text-zinc-400',
+              invert ? 'hover:text-zinc-300' : 'hover:text-ink-muted',
             )}
           >
             <socialMediaProfile.icon className="h-6 w-6 fill-current" />

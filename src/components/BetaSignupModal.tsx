@@ -140,7 +140,7 @@ export function BetaSignupModal({ isOpen, onClose, app = 'good-parts' }: BetaSig
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="mt-6 inline-flex w-full justify-center rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white hover:bg-neutral-800"
+                      className="mt-6 inline-flex w-full justify-center rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-800"
                     >
                       Done
                     </button>
@@ -240,7 +240,7 @@ export function BetaSignupModal({ isOpen, onClose, app = 'good-parts' }: BetaSig
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex-1 rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white hover:bg-neutral-800 disabled:opacity-50"
+                          className="flex-1 rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-ink hover:bg-neutral-800 disabled:opacity-50"
                         >
                           {isSubmitting ? 'Signing up...' : 'Join Beta'}
                         </button>

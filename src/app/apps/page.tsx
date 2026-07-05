@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { visibleApps, type AppInfo } from '@/lib/apps'
+import { fitnessApps, mindfulnessApps, type AppInfo } from '@/lib/apps'
 
 export const metadata: Metadata = {
   title: 'Apps - Feeling Mindful Labs',
@@ -19,7 +19,7 @@ function AppCard({ app }: { app: AppInfo }) {
     <FadeIn>
       <Link
         href={`/apps/${app.slug}`}
-        className="group block rounded-3xl border border-zinc-800 bg-zinc-900/50 p-8 transition hover:border-sage-500/50 hover:bg-zinc-900"
+        className="group block rounded-3xl border border-edge bg-raised p-8 transition hover:border-sage-500/50 hover:bg-raised-2"
       >
         <div className="flex items-center gap-5">
           <Image
@@ -30,15 +30,15 @@ function AppCard({ app }: { app: AppInfo }) {
             className="rounded-2xl"
           />
           <div>
-            <h2 className="font-display text-xl font-medium text-white group-hover:text-sage-300">
+            <h2 className="font-display text-xl font-medium text-ink group-hover:text-sage-700 dark:group-hover:text-sage-300">
               {app.name}
             </h2>
-            <span className="mt-1 inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-2.5 py-0.5 text-xs font-medium text-zinc-400">
+            <span className="mt-1 inline-block rounded-full border border-edge-strong bg-raised-2 px-2.5 py-0.5 text-xs font-medium text-ink-muted">
               {app.status}
             </span>
           </div>
         </div>
-        <p className="mt-5 text-sm leading-relaxed text-zinc-400">
+        <p className="mt-5 text-sm leading-relaxed text-ink-muted">
           {app.description}
         </p>
       </Link>
@@ -47,17 +47,17 @@ function AppCard({ app }: { app: AppInfo }) {
 }
 
 export default function AppsPage() {
-  const mindfulness = visibleApps.filter((app) => app.domain === 'mindfulness')
-  const fitness = visibleApps.filter((app) => app.domain === 'fitness')
+  const mindfulness = mindfulnessApps
+  const fitness = fitnessApps
 
   return (
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-40">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
-            Software for mind and body
+          <h1 className="font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl">
+            Our apps
           </h1>
-          <p className="mt-6 text-xl text-zinc-400">
+          <p className="mt-6 text-xl text-ink-muted">
             Tools that respect your attention and adapt to you — not the other
             way around. More coming soon.
           </p>
@@ -66,7 +66,7 @@ export default function AppsPage() {
         {mindfulness.length > 0 && (
           <>
             <FadeIn>
-              <h2 className="mt-20 font-display text-2xl font-medium tracking-tight text-sage-300">
+              <h2 className="mt-20 font-display text-2xl font-medium tracking-tight text-sage-700 dark:text-sage-300">
                 Mindfulness
               </h2>
             </FadeIn>
@@ -81,7 +81,7 @@ export default function AppsPage() {
         {fitness.length > 0 && (
           <>
             <FadeIn>
-              <h2 className="mt-20 font-display text-2xl font-medium tracking-tight text-sage-300">
+              <h2 className="mt-20 font-display text-2xl font-medium tracking-tight text-sage-700 dark:text-sage-300">
                 Fitness
               </h2>
             </FadeIn>

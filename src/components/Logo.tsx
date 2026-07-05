@@ -1,14 +1,7 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 
-export function Logomark({
-  invert = false,
-  className,
-}: {
-  invert?: boolean
-  filled?: boolean
-  className?: string
-}) {
+export function Logomark({ className }: { className?: string }) {
   return (
     <Image
       src="/images/logos/fm-logomark.png"
@@ -26,16 +19,14 @@ export function Logo({
 }: {
   className?: string
   invert?: boolean
-  filled?: boolean
-  fillOnHover?: boolean
 }) {
   return (
     <div className={clsx('flex items-center gap-x-3', className)}>
-      <Logomark className="h-10 w-10" invert={invert} />
+      <Logomark className="h-10 w-10" />
       <span
         className={clsx(
           'font-display text-2xl font-semibold tracking-tight',
-          invert ? 'text-white' : 'text-sage-950',
+          invert ? 'text-white' : 'text-ink',
         )}
       >
         Feeling Mindful

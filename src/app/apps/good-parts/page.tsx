@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 export default function GoodPartsPage() {
   return (
     <RootLayout>
-      {/* Hero */}
       <Container className="mt-24 sm:mt-32 md:mt-40">
         <FadeIn>
           <div className="relative mb-16 overflow-hidden rounded-3xl">
@@ -48,36 +47,34 @@ export default function GoodPartsPage() {
               className="rounded-2xl"
             />
             <div>
-              <span className="mb-2 inline-block rounded-full border border-zinc-700 bg-zinc-800/50 px-3 py-1 text-sm font-medium text-zinc-400">
+              <span className="mb-2 inline-block rounded-full border border-edge-strong bg-raised-2 px-3 py-1 text-sm font-medium text-ink-muted">
                 Coming Soon
               </span>
-              <h1 className="font-display text-4xl font-medium tracking-tight text-white sm:text-5xl">
+              <h1 className="font-display text-4xl font-medium tracking-tight text-ink sm:text-5xl">
                 Good Parts
               </h1>
             </div>
           </div>
-          <p className="mt-4 text-xl text-zinc-400">
+          <p className="mt-4 text-xl text-ink-muted">
             IFS-aware voice journaling. Record your thoughts, discover your
             parts, and track patterns over time with AI-powered Internal Family
             Systems awareness.
           </p>
         </FadeIn>
       </Container>
-
-      {/* What it is */}
-      <div className="mt-24 rounded-2xl border border-zinc-800 bg-zinc-900 py-20 sm:mt-32 sm:py-32">
+      <div className="mt-24 rounded-2xl border border-edge bg-raised-2 py-20 sm:mt-32 sm:py-32">
         <Container>
           <FadeIn>
-            <h2 className="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
+            <h2 className="font-display text-3xl font-medium tracking-tight text-ink sm:text-4xl">
               Understanding your inner world
             </h2>
-            <p className="mt-6 max-w-2xl text-lg text-zinc-400">
+            <p className="mt-6 max-w-2xl text-lg text-ink-muted">
               Good Parts uses the Internal Family Systems (IFS) framework to
               help you understand the different parts of yourself. By speaking
               your thoughts aloud, you&apos;ll discover patterns in how your
               parts interact and learn to work with them more effectively.
             </p>
-            <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+            <p className="mt-4 max-w-2xl text-lg text-ink-muted">
               Our AI analyzes your voice journals to identify which parts are
               speaking, track their frequency over time, and surface insights
               about your inner landscape.
@@ -85,8 +82,6 @@ export default function GoodPartsPage() {
           </FadeIn>
         </Container>
       </div>
-
-      {/* Features Preview */}
       <SectionIntro title="What to expect" className="mt-24 sm:mt-32">
         <p>
           Good Parts is currently in development. Here&apos;s what we&apos;re
@@ -98,22 +93,20 @@ export default function GoodPartsPage() {
           <ul className="mx-auto max-w-xl space-y-4">
             {features.map((feature) => (
               <li key={feature} className="flex items-start gap-3">
-                <span className="mt-0.5 text-amber-500">✓</span>
-                <span className="text-zinc-400">{feature}</span>
+                <span className="mt-0.5 text-sage-600 dark:text-amber-500">✓</span>
+                <span className="text-ink-muted">{feature}</span>
               </li>
             ))}
           </ul>
         </FadeIn>
       </Container>
-
-      {/* Newsletter */}
       <Container className="mt-24 mb-24 sm:mt-32">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-medium tracking-tight text-white">
+            <h2 className="font-display text-3xl font-medium tracking-tight text-ink">
               Get notified when Good Parts launches
             </h2>
-            <p className="mt-4 text-zinc-400">
+            <p className="mt-4 text-ink-muted">
               Join our mailing list to be the first to know when Good Parts is
               ready.
             </p>
@@ -123,15 +116,15 @@ export default function GoodPartsPage() {
 
       <Container className="mt-16">
         <FadeIn>
-          <p className="text-center text-sm text-zinc-500">
+          <p className="text-center text-sm text-ink-faint">
             <Link
               href="/apps/good-parts/privacy"
-              className="hover:text-zinc-300"
+              className="hover:text-ink"
             >
               Privacy Policy
             </Link>
             <span className="mx-2">·</span>
-            <Link href="/apps/good-parts/terms" className="hover:text-zinc-300">
+            <Link href="/apps/good-parts/terms" className="hover:text-ink">
               Terms of Service
             </Link>
           </p>

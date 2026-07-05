@@ -2,6 +2,46 @@
 @import './base.css';
 @import './typography.css' layer(components);
 
+@plugin '@tailwindcss/typography';
+
+/* Class-based dark mode — .dark set on <html> by the theme script */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Field Journal semantic tokens.
+ * Light: warm paper + green-black ink, derived from the Good Parts palette.
+ * Dark: the studio look on a sage-tinted black.
+ */
+:root {
+  --surface: #f7f6f1;
+  --raised: #fdfdfb;
+  --raised-2: #edece3;
+  --ink: #20261d;
+  --ink-muted: #4c5546;
+  --ink-faint: #6e7566;
+  --edge: #e0dfd3;
+  --edge-strong: #c8c8b8;
+  --grid-line: rgba(32, 38, 29, 1);
+  --grad-a: var(--color-sage-600);
+  --grad-b: var(--color-dawn-600);
+  color-scheme: light;
+}
+
+.dark {
+  --surface: #0b0c0a;
+  --raised: #141613;
+  --raised-2: #1d201b;
+  --ink: #f1f2ec;
+  --ink-muted: #a8aea1;
+  --ink-faint: #798073;
+  --edge: #24271f;
+  --edge-strong: #363a30;
+  --grid-line: rgba(255, 255, 255, 1);
+  --grad-a: var(--color-sage-400);
+  --grad-b: var(--color-dawn-400);
+  color-scheme: dark;
+}
+
 @theme {
   --text-*: initial;
   --text-xs: 0.75rem;
@@ -104,24 +144,57 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-/* Dark studio utilities */
+/* Semantic color utilities (bg-surface, text-ink, border-edge, …) with
+ * opacity-modifier support; values flip with the .dark class above. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-raised-2: var(--raised-2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-edge: var(--edge);
+  --color-edge-strong: var(--edge-strong);
+}
+
+/* Prose (legal pages) — one palette, both modes, via semantic tokens */
+@layer components {
+  .prose {
+    --tw-prose-body: var(--ink-muted);
+    --tw-prose-headings: var(--ink);
+    --tw-prose-lead: var(--ink-muted);
+    --tw-prose-links: var(--ink);
+    --tw-prose-bold: var(--ink);
+    --tw-prose-counters: var(--ink-faint);
+    --tw-prose-bullets: var(--edge-strong);
+    --tw-prose-hr: var(--edge);
+    --tw-prose-quotes: var(--ink);
+    --tw-prose-quote-borders: var(--edge-strong);
+    --tw-prose-captions: var(--ink-faint);
+    --tw-prose-code: var(--ink);
+    --tw-prose-th-borders: var(--edge-strong);
+    --tw-prose-td-borders: var(--edge);
+  }
+}
+
+/* Field Journal utilities */
 @layer utilities {
   .text-gradient-brand {
-    background: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-dawn-400) 100%);
+    background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-sage {
-    background: linear-gradient(135deg, var(--color-sage-400) 0%, var(--color-sage-300) 100%);
+    background: linear-gradient(135deg, var(--grad-a) 0%, var(--color-sage-300) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-dawn {
-    background: linear-gradient(135deg, var(--color-dawn-400) 0%, var(--color-dawn-300) 100%);
+    background: linear-gradient(135deg, var(--grad-b) 0%, var(--color-dawn-300) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

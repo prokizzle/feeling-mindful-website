@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
@@ -19,11 +12,7 @@ import { Footer } from '@/components/Footer'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
-
-const RootLayoutContext = createContext<{
-  logoHovered: boolean
-  setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
-} | null>(null)
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -45,6 +34,7 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 const navLinks = [
   { href: '/apps/good-parts', label: 'Good Parts' },
   { href: '/services/refactor', label: 'Refactor' },
+  { href: '/services/hermes', label: 'AI Consulting' },
   { href: 'https://support.feelingmindful.com', label: 'Support' },
 ]
 
@@ -63,7 +53,7 @@ function NavLink({
       href={href}
       className={clsx(
         'relative py-2 text-sm font-medium transition-colors duration-200',
-        isActive ? 'text-white' : 'text-zinc-400 hover:text-white',
+        isActive ? 'text-ink' : 'text-ink-muted hover:text-ink',
       )}
     >
       {children}
@@ -89,27 +79,11 @@ function Header({
   toggleRef: React.RefObject<HTMLButtonElement | null>
   invert?: boolean
 }) {
-  const { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
-
   const content = (
     <div className="flex items-center justify-between">
-      {/* Logo */}
-      <Link
-        href="/"
-        aria-label="Home"
-        onMouseEnter={() => setLogoHovered(true)}
-        onMouseLeave={() => setLogoHovered(false)}
-      >
-        <Logomark
-          className="h-10 w-10 sm:hidden"
-          invert={invert}
-          filled={logoHovered}
-        />
-        <Logo
-          className="hidden sm:block"
-          invert={invert}
-          filled={logoHovered}
-        />
+      <Link href="/" aria-label="Home">
+        <Logomark className="h-10 w-10 sm:hidden" />
+        <Logo className="hidden sm:block" invert={invert} />
       </Link>
 
       {/* Desktop Navigation - Center */}
@@ -122,9 +96,8 @@ function Header({
           ))}
         </nav>
       )}
-
-      {/* Right side actions */}
       <div className="flex items-center gap-x-3 sm:gap-x-4">
+        <ThemeToggle invert={invert} />
         <Button
           href="/contact"
           invert={invert}
@@ -140,7 +113,7 @@ function Header({
           aria-controls={panelId}
           className={clsx(
             'group relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200',
-            invert ? 'hover:bg-white/10' : 'bg-zinc-800 hover:bg-zinc-700',
+            invert ? 'hover:bg-white/10' : 'bg-raised-2 hover:bg-edge-strong',
           )}
           aria-label="Toggle navigation"
         >
@@ -149,7 +122,7 @@ function Header({
               'h-5 w-5 transition-colors',
               invert
                 ? 'fill-white group-hover:fill-zinc-200'
-                : 'fill-zinc-400 group-hover:fill-white',
+                : 'fill-ink-muted group-hover:fill-ink',
             )}
           />
         </button>
@@ -208,6 +181,10 @@ function Navigation() {
         <NavigationItem href="/services/refactor">
           Refactor Service
         </NavigationItem>
+        <NavigationItem href="/services/hermes">AI Consulting</NavigationItem>
+      </NavigationRow>
+      <NavigationRow>
+        <NavigationItem href="/support">Support</NavigationItem>
         <NavigationItem href="/contact">Contact</NavigationItem>
       </NavigationRow>
     </nav>
@@ -255,7 +232,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           inert={expanded ? true : undefined}
         >
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-2xl bg-zinc-900/80 px-4 py-3 ring-1 ring-zinc-800 backdrop-blur-xl sm:px-6 sm:py-4">
+            <div className="rounded-2xl bg-raised/80 px-4 py-3 ring-1 ring-edge backdrop-blur-xl sm:px-6 sm:py-4">
               <Header
                 panelId={panelId}
                 icon={MenuIcon}
@@ -330,7 +307,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
       <motion.div
         layout
-        className="relative flex flex-auto overflow-hidden bg-zinc-950 pt-20 sm:pt-24"
+        className="relative flex flex-auto overflow-hidden bg-surface pt-20 sm:pt-24"
       >
         <motion.div
           layout
@@ -347,11 +324,6 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [logoHovered, setLogoHovered] = useState(false)
 
-  return (
-    <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
-    </RootLayoutContext.Provider>
-  )
+  return <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
 }

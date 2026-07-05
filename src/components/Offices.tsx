@@ -13,10 +13,10 @@ function Office({
     <address
       className={clsx(
         'text-sm not-italic',
-        invert ? 'text-zinc-300' : 'text-zinc-400',
+        invert ? 'text-zinc-400' : 'text-ink-muted',
       )}
     >
-      <strong className={invert ? 'text-white' : 'text-zinc-200'}>
+      <strong className={invert ? 'text-white' : 'text-ink'}>
         {name}
       </strong>
       <br />

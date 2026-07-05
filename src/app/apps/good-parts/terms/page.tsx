@@ -16,9 +16,9 @@ export default function GoodPartsTermsPage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 mb-24">
         <FadeIn>
-          <article className="prose prose-invert prose-zinc max-w-3xl mx-auto">
-            <p className="text-sm text-zinc-500 mb-4">
-              <Link href="/apps/good-parts" className="hover:text-zinc-300">
+          <article className="prose max-w-3xl mx-auto">
+            <p className="text-sm text-ink-faint mb-4">
+              <Link href="/apps/good-parts" className="hover:text-ink">
                 ← Back to Good Parts
               </Link>
             </p>
@@ -127,7 +127,7 @@ export default function GoodPartsTermsPage() {
             </p>
 
             <hr />
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-ink-faint">
               See also: <Link href="/terms">General Terms of Service</Link> ·{' '}
               <Link href="/apps/good-parts/privacy">
                 Good Parts Privacy Policy

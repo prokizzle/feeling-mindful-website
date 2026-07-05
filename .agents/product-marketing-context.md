@@ -1,13 +1,21 @@
-# Product Marketing Context — FeelingMindful LLC
+# Product Marketing Context — Feeling Mindful Labs LLC
 
-*Last updated: 2026-03-30*
+*Last updated: 2026-07-05*
+
+## Current Posture (2026-07) — READ FIRST
+All apps are pre-launch. **Good Parts is the flagship and only publicly visible app** (shipping soon, exiting beta with consumer IAP). Becoming One, Simple Rituals, CutEngine, and CardioEngine are stealth-hidden on the website (pages live at their URLs, unlinked, out of the sitemap) — do not market them publicly until unhidden. CutEngine is parked (low adoption, strong competitor in MacroFactor). The fitness line is paused, not dead — keep the "mind and body" tagline but do not elaborate on fitness in public copy. "The Collective" is not a real concept (internal agent org is "The Split", internal-only — never market it). Revenue focus (next 90 days): GoodParts IAP + Hermes AI Consulting + Refactor Service.
+
+**GoodParts pricing (decided 2026-07-02, wiki/concepts/goodparts-landing-page.md):** Free tier 10 entries/mo; GoodParts Pro $4.99/mo or $35.99/yr; deliberately NO lifetime purchase (AI analysis costs scale per entry — annual saves 40%). NOTE: RevenueCat still has a lifetime product configured; needs reconciliation before launch.
+**GoodParts launch web presence:** standalone landing page planned at goodparts.app (separate Next.js site, app's own warm palette DM Serif/DM Sans, Apple Smart App Banner app-id 6757692886) — see wiki/concepts/goodparts-landing-page.md and goodparts-gtm.md. feelingmindful.com/apps/good-parts stays the corporate page.
 
 ## Product Overview
-**One-liner:** An indie software studio building apps for self-understanding — from IFS therapy tools to data-driven fitness.
-**What it does:** Feeling Mindful Labs builds a suite of iOS apps spanning two domains: mindfulness (IFS journaling, guided meditation, daily routines) and fitness (ML-adaptive fat loss, HR zone cardio training). We also offer contract refactoring services for teams with vibe-coded mobile apps that need production-quality architecture.
-**Product category:** Wellness tech / Fitness tech / Dev services
+**One-liner:** An indie iOS studio building IFS-informed tools for self-understanding — starting with Good Parts, voice journaling that discovers your parts.
+**What it does:** Feeling Mindful Labs builds IFS-informed mindfulness apps (voice journaling, guided meditation, daily routines) with a parked data-driven fitness line, plus two B2B service lines: the Refactor Service (turning vibe-coded apps into production iOS software) and Hermes AI Consulting (Slack-native AI agents for small businesses).
+**Product category:** Wellness tech / Dev services / AI consulting
 **Product type:** Native iOS apps (consumer) + contract services (B2B)
-**Business model:** Freemium subscriptions for apps (monthly/annual); fixed-price tiers for refactoring service ($3K/$7.5K/$20K)
+**Business model:** Freemium subscriptions + lifetime IAP for apps (RevenueCat); fixed-price refactoring tiers ($3K/$7.5K/$20K); Hermes consulting tiers ($750 Quick Start / $2,000 Business Ops / $4,500 Full Stack + $300–800/mo retainer)
+**Tagline:** Mindful AI. Real software. · **Philosophy:** Technology in service of you
+**Positioning (wiki-canonical, 2026-06-30):** AI-native development studio shipping cross-platform apps, SaaS platforms, and autonomous business agents — grounded in clinical research, powered by a 13-agent dev team (The Split, internal).
 
 ## Target Audience
 
@@ -16,11 +24,14 @@ Three distinct audiences:
 **1. Mindfulness seekers (consumer)**
 Broadly spiritual people drawn to yoga, breathwork, journaling, therapy. IFS-curious or actively in IFS therapy. Want tools that feel premium and intentional, not clinical or gamified. Age 25-45, skew female, iPhone users.
 
-**2. Serious fitness enthusiasts (consumer)**
+**2. Serious fitness enthusiasts (consumer) — PARKED (fitness line paused; do not target until CutEngine/CardioEngine return)**
 Intermediate-to-advanced lifters doing intentional fat loss phases (cuts). Track workouts, wear Apple Watch, want data-driven nutrition guidance — not generic "eat less" advice. Age 22-40, skew male, performance-oriented. Includes natural lifters, TRT users, GLP-1 users, competitive bodybuilders.
 
 **3. Founders/CTOs with vibe-coded apps (B2B)**
 Solo founders or small teams who used AI (Cursor, Copilot, Claude) to build an MVP mobile app. It works but the code is messy, the UI isn't polished, and they're embarrassed to submit to the App Store. Need someone to turn their prototype into production software.
+
+**4. Small business owners wanting AI leverage (B2B — Hermes AI Consulting)**
+SMB owners who hear about AI daily but have no technical staff. Want practical automation (intake, scheduling, follow-ups, reporting) inside tools they already use — especially Slack. Buy outcomes, not technology. Entry at $750 lowers commitment risk; retainer keeps agents maintained.
 
 **Primary use cases:**
 - Understand my inner world through IFS-guided journaling and meditation
@@ -150,7 +161,7 @@ Solo founders or small teams who used AI (Cursor, Copilot, Claude) to build an M
 | Adaptive intelligence | CutEngine's ML adjusts daily; GoodParts AI identifies IFS parts from voice journals |
 
 ## Goals
-**Business goal:** Establish Feeling Mindful Labs as the go-to indie studio for IFS-informed wellness apps and data-driven fitness tools on iOS
+**Business goal:** Ship Good Parts out of beta profitably while growing services revenue (Hermes consulting + Refactor); long-term, establish Feeling Mindful Labs as the go-to indie studio for IFS-informed wellness apps on iOS
 **Conversion actions:**
 - Apps: Download → complete onboarding → subscribe (monthly/annual)
 - Refactor: Visit page → request free code audit → purchase tier

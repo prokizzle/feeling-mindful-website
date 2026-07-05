@@ -15,7 +15,7 @@ export default function SimpleRitualsTermsPage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
-          <article className="prose prose-neutral max-w-3xl mx-auto">
+          <article className="prose max-w-3xl mx-auto">
             <p className="text-sm text-neutral-500 mb-4">
               <Link href="/apps/simple-rituals" className="hover:text-neutral-700">
                 ← Back to Simple Rituals

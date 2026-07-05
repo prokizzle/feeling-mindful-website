@@ -7,10 +7,7 @@ export interface AppInfo {
   status: 'Live' | 'Beta' | 'Coming Soon'
   domain: AppDomain
   icon: string
-  gradient: string
   bgGlow: string
-  externalUrl?: string
-  appStoreUrl?: string
   /** Hidden apps stay live at their URLs but are excluded from nav, hub, homepage, and sitemap. */
   hidden?: boolean
 }
@@ -27,7 +24,6 @@ export const apps: AppInfo[] = [
     status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/good-parts-icon.png',
-    gradient: 'from-dusk-400 to-dusk-600',
     bgGlow: 'bg-dusk-400/20',
   },
   {
@@ -39,7 +35,6 @@ export const apps: AppInfo[] = [
     status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/becoming-one-icon.png',
-    gradient: 'from-sand-400 to-sand-600',
     bgGlow: 'bg-sand-400/20',
   },
   {
@@ -51,7 +46,6 @@ export const apps: AppInfo[] = [
     status: 'Beta',
     domain: 'mindfulness',
     icon: '/icons/simple-rituals-icon.png',
-    gradient: 'from-sage-400 to-sage-600',
     bgGlow: 'bg-sage-400/20',
   },
   // Fitness suite
@@ -64,9 +58,7 @@ export const apps: AppInfo[] = [
     status: 'Beta',
     domain: 'fitness',
     icon: '/icons/cutengine-icon.png',
-    gradient: 'from-dawn-400 to-dawn-600',
     bgGlow: 'bg-dawn-400/20',
-    externalUrl: 'https://cutengine.app',
   },
   {
     name: 'CardioEngine',
@@ -77,7 +69,6 @@ export const apps: AppInfo[] = [
     status: 'Coming Soon',
     domain: 'fitness',
     icon: '/icons/cardioengine-icon.png',
-    gradient: 'from-dawn-500 to-dawn-700',
     bgGlow: 'bg-dawn-500/20',
   },
 ]

@@ -21,7 +21,7 @@ export default function TermsPage() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 mb-24">
         <FadeIn>
-          <article className="prose prose-invert prose-zinc max-w-3xl mx-auto">
+          <article className="prose max-w-3xl mx-auto">
             <h1>Terms of Service</h1>
             <p className="lead">
               <strong>Last updated: July 4, 2026</strong>

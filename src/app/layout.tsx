@@ -15,10 +15,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s - Feeling Mindful Labs',
-    default: 'Feeling Mindful Labs - Software for mind and body',
+    default: 'Feeling Mindful Labs - Mindful AI. Real software.',
   },
   description:
-    'Feeling Mindful Labs builds apps for mindful living, starting with Good Parts — IFS-aware voice journaling.',
+    'Feeling Mindful Labs is an AI-native studio building apps grounded in clinical research, starting with Good Parts — IFS-aware voice journaling.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32' },
@@ -33,9 +33,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className={`h-full bg-zinc-950 text-base antialiased ${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
+      className={`h-full bg-surface text-base antialiased ${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body className="flex min-h-full flex-col text-zinc-100">
+      <head>
+        {/* Set theme class before paint to avoid a flash of the wrong mode */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d)}catch(e){document.documentElement.classList.add('dark')}})()`,
+          }}
+        />
+      </head>
+      <body className="flex min-h-full flex-col text-ink">
         {children}
         <ProductlaneWidget />
       </body>

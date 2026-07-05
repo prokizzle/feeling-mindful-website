@@ -20,13 +20,13 @@ export function PageIntro({
     >
       <FadeIn>
         <h1>
-          <span className="block font-display text-base font-semibold text-zinc-400">
+          <span className="block font-display text-base font-semibold text-ink-muted">
             {eyebrow}
           </span>
           <span className="sr-only"> - </span>
           <span
             className={clsx(
-              'mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-balance text-white sm:text-6xl',
+              'mt-6 block max-w-5xl font-display text-5xl font-medium tracking-tight text-balance text-ink sm:text-6xl',
               centered && 'mx-auto',
             )}
           >
@@ -35,7 +35,7 @@ export function PageIntro({
         </h1>
         <div
           className={clsx(
-            'mt-6 max-w-3xl text-xl text-zinc-400',
+            'mt-6 max-w-3xl text-xl text-ink-muted',
             centered && 'mx-auto',
           )}
         >

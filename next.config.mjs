@@ -21,6 +21,11 @@ const nextConfig = {
         destination: '/services/refactor',
         permanent: false,
       },
+      {
+        source: '/the-collective',
+        destination: '/',
+        permanent: false,
+      },
     ]
   },
 }
