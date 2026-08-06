@@ -24,7 +24,7 @@ export default function GoodPartsTermsPage() {
             </p>
             <h1>Good Parts Terms of Service</h1>
             <p className="lead">
-              <strong>Last updated: July 4, 2026</strong>
+              <strong>Last updated: August 6, 2026</strong>
             </p>
             <p>
               These terms govern your use of the Good Parts app provided by
@@ -76,10 +76,27 @@ export default function GoodPartsTermsPage() {
               for details on how your data is handled.
             </p>
 
+            <h2>ChatGPT Integration</h2>
+            <p>
+              You may optionally connect an existing Good Parts account to
+              ChatGPT. ChatGPT can request the Good Parts data and actions
+              described in the Good Parts Privacy Policy only after you
+              authorize the connection. Saving a reflection or resolving a
+              prompt requires your explicit confirmation. You can disconnect
+              Good Parts from ChatGPT settings at any time.
+            </p>
+            <p>
+              The ChatGPT integration is available only to accounts with an
+              existing GoodParts Pro entitlement. It may explain when access is
+              unavailable, but it does not sell, upgrade, or initiate a
+              subscription inside ChatGPT.
+            </p>
+
             <h2>Subscriptions</h2>
             <p>
-              Some features require a GoodParts Plus subscription. Billing is
-              handled by the Apple App Store or Google Play under their terms:
+              Some features require a GoodParts Pro subscription. Billing may
+              be handled by the Apple App Store, Google Play, or RevenueCat Web
+              Billing and its payment processor under their respective terms:
             </p>
             <ul>
               <li>
@@ -87,12 +104,12 @@ export default function GoodPartsTermsPage() {
                 hours before the end of the current period.
               </li>
               <li>
-                Manage or cancel your subscription in your Apple ID or Google
-                Play settings — deleting the app does not cancel it.
+                Manage or cancel your subscription through the channel where
+                you purchased it — deleting the app does not cancel it.
               </li>
               <li>
-                Refund requests are handled by Apple or Google under their
-                refund policies.
+                Refund requests are handled by the applicable purchase channel
+                under its refund policies.
               </li>
             </ul>
 
