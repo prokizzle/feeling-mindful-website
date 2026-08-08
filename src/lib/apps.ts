@@ -12,7 +12,7 @@ export interface AppInfo {
   hidden?: boolean
 }
 
-export const SUPPORT_URL = 'https://support.feelingmindful.com'
+export const SUPPORT_URL = '/support'
 
 export const apps: AppInfo[] = [
   // Mindfulness suite

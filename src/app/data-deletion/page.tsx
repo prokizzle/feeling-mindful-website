@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: 'Request Data Deletion - Feeling Mindful Labs',
   description: 'Request deletion of your personal data from any Feeling Mindful app.',
 }
-
 export default function DataDeletionPage() {
   return (
     <RootLayout>
@@ -31,7 +30,7 @@ export default function DataDeletionPage() {
             {apps.map((app) => (
               <Link
                 key={app.slug}
-                href={SUPPORT_URL}
+                href={`${SUPPORT_URL}?app=${app.slug}&type=data-deletion#contact-support`}
                 className="group flex items-center justify-between rounded-2xl bg-raised p-5 border border-edge transition-all hover:bg-raised-2 hover:border-edge-strong"
               >
                 <div>

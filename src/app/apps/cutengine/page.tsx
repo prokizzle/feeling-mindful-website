@@ -6,7 +6,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { ProductlaneButton } from '@/components/ProductlaneWidget'
+import { SupportButton } from '@/components/SupportButton'
 
 const highlights = [
   {
@@ -65,12 +65,12 @@ export default function CutEnginePage() {
             protect your recovery.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <ProductlaneButton className="inline-flex items-center rounded-full bg-ink px-6 py-3 font-medium text-surface transition-colors hover:bg-ink/85">
+            <SupportButton app="cutengine" category="beta" className="inline-flex items-center rounded-full bg-ink px-6 py-3 font-medium text-surface transition-colors hover:bg-ink/85">
               Request Beta Access
-            </ProductlaneButton>
-            <ProductlaneButton className="inline-flex items-center rounded-full border border-edge-strong bg-raised px-6 py-3 font-medium text-ink-muted transition-colors hover:border-ink-faint">
+            </SupportButton>
+            <SupportButton app="cutengine" category="feedback" className="inline-flex items-center rounded-full border border-edge-strong bg-raised px-6 py-3 font-medium text-ink-muted transition-colors hover:border-ink-faint">
               Give Feedback
-            </ProductlaneButton>
+            </SupportButton>
           </div>
         </FadeIn>
       </Container>

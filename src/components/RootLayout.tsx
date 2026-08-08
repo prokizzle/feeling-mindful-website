@@ -34,7 +34,7 @@ function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 const navLinks = [
   { href: '/apps/good-parts', label: 'Good Parts' },
   { href: '/services/hermes', label: 'AI Consulting' },
-  { href: 'https://support.feelingmindful.com', label: 'Support' },
+  { href: '/support', label: 'Support' },
 ]
 
 function NavLink({
