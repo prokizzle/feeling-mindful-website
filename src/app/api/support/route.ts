@@ -13,14 +13,6 @@ import {
   sendSupportEmail,
 } from '@/lib/support-email'
 
-const teamEnvByApp: Record<string, string> = {
-  'good-parts': 'LINEAR_TEAM_GOOD_PARTS',
-  'becoming-one': 'LINEAR_TEAM_BECOMING_ONE',
-  'simple-rituals': 'LINEAR_TEAM_SIMPLE_RITUALS',
-  cutengine: 'LINEAR_TEAM_CUTENGINE',
-  cardioengine: 'LINEAR_TEAM_CARDIOENGINE',
-}
-
 export async function POST(request: Request) {
   const payload = validateSupportRequest(
     await request.json().catch(() => null),
@@ -48,8 +40,7 @@ export async function POST(request: Request) {
   }
 
   const app = apps.find(({ slug }) => slug === payload.app)!
-  const teamId =
-    process.env[teamEnvByApp[app.slug]] ?? process.env.LINEAR_DEFAULT_TEAM_ID
+  const teamId = process.env.LINEAR_SUPPORT_TEAM_ID
   if (!teamId) {
     return NextResponse.json(
       {
@@ -90,7 +81,7 @@ export async function POST(request: Request) {
     const confirmationSent = await sendSupportEmail({
       to: payload.email,
       subject: `[${issue.identifier}] We received your request`,
-      text: `Hi ${payload.name},\n\nThanks for contacting Feeling Mindful Support about ${app.name}. Your request is with the right team, and we'll reply here.\n\nReference: ${issue.identifier}\nSubject: ${payload.subject}\n\nYou can add more details by replying to this email.\n\n— Feeling Mindful Support`,
+      text: `Hi ${payload.name},\n\nThanks for contacting Feeling Mindful Support about ${app.name}. Our support team has your request, and we'll reply here.\n\nReference: ${issue.identifier}\nSubject: ${payload.subject}\n\nYou can add more details by replying to this email.\n\n— Feeling Mindful Support`,
       issueId: issue.id,
       idempotencyKey: `support-received/${issue.id}`,
     })

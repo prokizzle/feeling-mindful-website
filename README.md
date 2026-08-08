@@ -37,11 +37,11 @@ To learn more about the technologies used in this site template, see the followi
 
 ## Support portal
 
-Customer requests submitted at `/support` are created in the Linear team mapped
-to the selected app. The recommended setup is a Linear OAuth app with client
-credentials enabled and the `read`, `issues:create`, and `comments:create`
-scopes. Copy `.env.example` to `.env.local`, add the OAuth credentials, and set
-each app's Linear team UUID.
+Customer requests submitted at `/support` are created in the dedicated Linear
+Support team. The selected app is included in each issue. The recommended setup
+is a Linear OAuth app with client credentials enabled and the `read`,
+`issues:create`, and `comments:create` scopes. Copy `.env.example` to
+`.env.local`, add the OAuth credentials, and set the Support team UUID.
 
 For a single-workspace setup, `LINEAR_API_KEY` can be used instead.
 
