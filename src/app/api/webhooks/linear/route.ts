@@ -1,8 +1,9 @@
 import { createHmac, timingSafeEqual } from 'node:crypto'
 
-import { getSupportIssue } from '@/lib/linear'
+import { createLinearComment, getSupportIssue } from '@/lib/linear'
 import {
   customerFromDescription,
+  emailMessageMarker,
   latestMessageId,
   sendSupportEmail,
 } from '@/lib/support-email'
@@ -44,7 +45,7 @@ export async function POST(request: Request) {
     if (
       payload.type !== 'Comment' ||
       payload.action !== 'create' ||
-      payload.data.body.includes('<!-- support-email-inbound:')
+      payload.data.body.includes('<!-- support-email-message:')
     ) {
       return new Response('OK')
     }
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
     const customer = customerFromDescription(issue.description)
     if (!customer) return new Response('Not a support issue')
 
-    await sendSupportEmail({
+    const messageId = await sendSupportEmail({
       to: customer.email,
       subject: `Re: [${issue.identifier}] ${issue.title}`,
       text: `Hi ${customer.name},\n\n${reply}\n\n— Feeling Mindful Support`,
@@ -67,6 +68,12 @@ export async function POST(request: Request) {
       idempotencyKey: `linear-comment/${payload.data.id}`,
       inReplyTo: latestMessageId(issue.comments.nodes),
     })
+    if (messageId) {
+      await createLinearComment(
+        issue.id,
+        `Reply emailed to customer.\n\n${emailMessageMarker(messageId)}`,
+      )
+    }
 
     return new Response('OK')
   } catch (error) {

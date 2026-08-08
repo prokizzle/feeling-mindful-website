@@ -81,7 +81,8 @@ export function validateSupportRequest(
     message,
     appVersion,
     device,
-    website: typeof request.website === 'string' ? request.website : '',
+    website:
+      typeof request.website === 'string' ? request.website.trim() : '',
   }
 }
 
@@ -114,6 +115,6 @@ export function formatLinearDescription(
     marker && '',
     marker,
   ]
-    .filter(Boolean)
+    .filter((line): line is string => typeof line === 'string')
     .join('\n')
 }

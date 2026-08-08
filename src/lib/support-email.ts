@@ -12,7 +12,7 @@ type Customer = {
 }
 
 const markerPrefix = '<!-- fm-support:'
-const inboundMarker = /<!-- support-email-inbound:([A-Za-z0-9_-]+) -->/g
+const messageMarker = /<!-- support-email-message:([A-Za-z0-9_-]+) -->/g
 
 function relaySecret() {
   const secret = process.env.SUPPORT_REPLY_SECRET
@@ -112,9 +112,13 @@ export function newestReply(text: string) {
 
 export function inboundCommentMarker(emailId: string, messageId: string) {
   return [
-    `<!-- support-email-inbound:${Buffer.from(messageId).toString('base64url')} -->`,
+    emailMessageMarker(messageId),
     `<!-- resend-email:${emailId} -->`,
   ].join('\n')
+}
+
+export function emailMessageMarker(messageId: string) {
+  return `<!-- support-email-message:${Buffer.from(messageId).toString('base64url')} -->`
 }
 
 export function hasInboundEmail(comments: IssueComment[], emailId: string) {
@@ -126,7 +130,7 @@ export function hasInboundEmail(comments: IssueComment[], emailId: string) {
 export function latestMessageId(comments: IssueComment[]) {
   return comments
     .flatMap((comment) => {
-      const encoded = [...comment.body.matchAll(inboundMarker)].at(-1)?.[1]
+      const encoded = [...comment.body.matchAll(messageMarker)].at(-1)?.[1]
       if (!encoded) return []
       const value = Buffer.from(encoded, 'base64url').toString()
       if (!/^<[^<>\r\n]+>$/.test(value)) return []
@@ -167,7 +171,7 @@ export async function sendSupportEmail({
   inReplyTo?: string
 }) {
   const resend = new Resend(process.env.RESEND_API_KEY)
-  const { error } = await resend.emails.send(
+  const { data, error } = await resend.emails.send(
     {
       from: process.env.RESEND_FROM_EMAIL!,
       to,
@@ -180,5 +184,14 @@ export async function sendSupportEmail({
     },
     { idempotencyKey },
   )
-  if (error) throw new Error(error.message)
+  if (error || !data) throw new Error(error?.message ?? 'Email send failed')
+
+  const { data: email, error: lookupError } = await resend.emails.get(data.id)
+  const messageId = (email as (typeof email & { message_id?: string }) | null)
+    ?.message_id
+  if (lookupError || !messageId || !/^<[^<>\r\n]+>$/.test(messageId)) {
+    console.warn('Could not record the sent email Message-ID')
+    return undefined
+  }
+  return messageId
 }

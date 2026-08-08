@@ -7,6 +7,7 @@ import {
 import {
   customerFromDescription,
   customerMarker,
+  emailMessageMarker,
   inboundCommentMarker,
   issueIdFromRecipients,
   latestMessageId,
@@ -48,6 +49,12 @@ assert.equal(
   ]),
   null,
 )
+assert.equal(
+  validateSupportRequest({ ...valid, website: '   ' }, ['good-parts'])
+    ?.website,
+  '',
+)
+assert.match(formatLinearDescription(valid, 'Good Parts'), /\n\n## Context\n\n/)
 
 const marker = customerMarker(valid)
 assert.deepEqual(customerFromDescription(marker), {
@@ -69,6 +76,15 @@ assert.equal(
     },
   ]),
   '<message@example.com>',
+)
+assert.equal(
+  latestMessageId([
+    {
+      body: emailMessageMarker('<sent@example.com>'),
+      createdAt: '2026-08-07T13:00:00.000Z',
+    },
+  ]),
+  '<sent@example.com>',
 )
 
 console.log('Support routing checks passed')

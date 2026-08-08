@@ -26,7 +26,7 @@ const faqs = [
   {
     question: 'Can I suggest a feature?',
     answer:
-      'Yes. Choose Share feedback in the request form. Your note goes directly to the product team responsible for that app.',
+      'Yes. Choose Share feedback in the request form. Your note goes directly to our support team with the selected app attached.',
   },
 ]
 
@@ -105,8 +105,8 @@ export function SupportPortal({
             How can we help?
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-ink-muted sm:text-lg">
-            Find a quick answer or send a note straight to the right product
-            team. We typically reply within two business days.
+            Find a quick answer or send a note straight to our support team. We
+            typically reply within two business days.
           </p>
           <label className="mx-auto mt-9 flex max-w-xl items-center gap-3 rounded-2xl border border-edge-strong bg-raised px-5 shadow-sm transition focus-within:border-sage-500 focus-within:ring-4 focus-within:ring-sage-200/30">
             <span className="text-xl text-ink-faint" aria-hidden="true">
@@ -176,7 +176,8 @@ export function SupportPortal({
               Tell us what&apos;s going on
             </h2>
             <p className="mt-2 text-sm text-ink-muted">
-              Your request is sent directly to the team responsible for the app.
+              Your request is sent directly to Feeling Mindful Support with the
+              selected app attached.
             </p>
 
             {status.kind === 'success' ? (

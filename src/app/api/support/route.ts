@@ -9,6 +9,7 @@ import {
 } from '@/lib/support'
 import {
   customerMarker,
+  emailMessageMarker,
   emailRelayConfigured,
   sendSupportEmail,
 } from '@/lib/support-email'
@@ -85,7 +86,15 @@ export async function POST(request: Request) {
       issueId: issue.id,
       idempotencyKey: `support-received/${issue.id}`,
     })
-      .then(() => true)
+      .then(async (messageId) => {
+        if (messageId) {
+          await createLinearComment(
+            issue.id,
+            `Confirmation email sent.\n\n${emailMessageMarker(messageId)}`,
+          ).catch(console.error)
+        }
+        return true
+      })
       .catch(async (error) => {
         console.error('Support confirmation email failed', error)
         await createLinearComment(

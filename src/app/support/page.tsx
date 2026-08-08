@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How can we help? — Feeling Mindful Support',
     description:
-      'Support for every Feeling Mindful app, routed to the right team.',
+      'Support for every Feeling Mindful app, handled by one dedicated team.',
     images: ['https://feelingmindful.com/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How can we help? — Feeling Mindful Support',
     description:
-      'Support for every Feeling Mindful app, routed to the right team.',
+      'Support for every Feeling Mindful app, handled by one dedicated team.',
     images: ['https://feelingmindful.com/og.png'],
   },
 }
