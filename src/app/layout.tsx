@@ -4,7 +4,6 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 
 import '@/styles/tailwind.css'
-import { ProductlaneWidget } from '@/components/ProductlaneWidget'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,7 +27,6 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
 }
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -46,7 +44,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-full flex-col text-ink">
         {children}
-        <ProductlaneWidget />
       </body>
     </html>
   )

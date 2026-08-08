@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description:
     'How Feeling Mindful Labs LLC collects, uses, and protects your personal data across our website and mobile applications.',
 }
-
 const APP_POLICIES = [
   { name: 'Good Parts', href: '/apps/good-parts/privacy' },
   { name: 'Becoming One', href: '/apps/becoming-one/privacy' },
@@ -131,7 +130,10 @@ export default function PrivacyPage() {
                 used by us to train third-party models.
               </li>
               <li>
-                <strong>Productlane</strong> — feedback and support portal
+                <strong>Linear</strong> — customer support request management
+              </li>
+              <li>
+                <strong>Resend</strong> — transactional support email delivery
               </li>
             </ul>
             <p>

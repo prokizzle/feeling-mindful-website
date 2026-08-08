@@ -7,7 +7,7 @@ import { FadeIn } from '@/components/FadeIn'
 import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
 import { ContactSection } from '@/components/ContactSection'
-import { ProductlaneButton } from '@/components/ProductlaneWidget'
+import { SupportButton } from '@/components/SupportButton'
 
 const features = [
   'IFS-specific guided meditations (parts work, unblending, Self energy)',
@@ -72,12 +72,12 @@ export default function BecomingOnePage() {
             to connecting with Self energy.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <ProductlaneButton className="inline-flex items-center rounded-full bg-ink px-6 py-3 font-medium text-surface transition-colors hover:bg-ink/85">
+            <SupportButton app="becoming-one" category="beta" className="inline-flex items-center rounded-full bg-ink px-6 py-3 font-medium text-surface transition-colors hover:bg-ink/85">
               Request Early Access
-            </ProductlaneButton>
-            <ProductlaneButton className="inline-flex items-center rounded-full border border-edge-strong bg-raised px-6 py-3 font-medium text-ink-muted transition-colors hover:border-ink-faint">
+            </SupportButton>
+            <SupportButton app="becoming-one" category="feedback" className="inline-flex items-center rounded-full border border-edge-strong bg-raised px-6 py-3 font-medium text-ink-muted transition-colors hover:border-ink-faint">
               Give Feedback
-            </ProductlaneButton>
+            </SupportButton>
           </div>
         </FadeIn>
       </Container>

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "check:support": "node --experimental-strip-types scripts/check-support.mts"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -31,6 +32,7 @@
     "rehype-unwrap-images": "^1.0.0",
     "remark-gfm": "^4.0.1",
     "remark-rehype-wrap": "0.0.5",
+    "resend": "^6.18.1",
     "shiki": "^0.11.1",
     "tailwindcss": "^4.1.15",
     "typescript": "^5.8.3",
