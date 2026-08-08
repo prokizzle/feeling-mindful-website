@@ -87,6 +87,26 @@ export function issueIdFromRecipients(recipients: string[]) {
   return null
 }
 
+export function issueReferenceFromEmail(recipients: string[], subject: string) {
+  const signedIssueId = issueIdFromRecipients(recipients)
+  if (signedIssueId) return signedIssueId
+
+  const domain = process.env.RESEND_INBOUND_DOMAIN?.toLowerCase()
+  if (
+    !domain ||
+    !recipients.some((recipient) =>
+      emailAddress(recipient).toLowerCase().endsWith(`@${domain}`),
+    )
+  ) {
+    return null
+  }
+
+  return (
+    subject.match(/\[([A-Z][A-Z0-9_]{0,20}-\d{1,10})\]/i)?.[1].toUpperCase() ??
+    null
+  )
+}
+
 export function emailAddress(value: string) {
   return value.match(/<([^<>]+)>/)?.[1] ?? value.trim()
 }

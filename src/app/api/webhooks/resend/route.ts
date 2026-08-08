@@ -6,7 +6,7 @@ import {
   emailAddress,
   hasInboundEmail,
   inboundCommentMarker,
-  issueIdFromRecipients,
+  issueReferenceFromEmail,
   newestReply,
 } from '@/lib/support-email'
 
@@ -38,10 +38,8 @@ export async function POST(request: Request) {
     })
     if (event.type !== 'email.received') return new Response('OK')
 
-    const issueId = issueIdFromRecipients([
-      ...event.data.to,
-      ...event.data.received_for,
-    ])
+    const recipients = [...event.data.to, ...event.data.received_for]
+    const issueId = issueReferenceFromEmail(recipients, event.data.subject)
     if (!issueId) return new Response('Ignored')
 
     const issue = await getSupportIssue(issueId)

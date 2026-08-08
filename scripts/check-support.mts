@@ -10,6 +10,7 @@ import {
   emailMessageMarker,
   inboundCommentMarker,
   issueIdFromRecipients,
+  issueReferenceFromEmail,
   latestMessageId,
   newestReply,
   replyAddress,
@@ -50,8 +51,7 @@ assert.equal(
   null,
 )
 assert.equal(
-  validateSupportRequest({ ...valid, website: '   ' }, ['good-parts'])
-    ?.website,
+  validateSupportRequest({ ...valid, website: '   ' }, ['good-parts'])?.website,
   '',
 )
 assert.match(formatLinearDescription(valid, 'Good Parts'), /\n\n## Context\n\n/)
@@ -64,6 +64,20 @@ assert.deepEqual(customerFromDescription(marker), {
 
 const issueId = '539068e2-ae88-4d09-bd75-22eb4a59612f'
 assert.equal(issueIdFromRecipients([replyAddress(issueId)]), issueId)
+assert.equal(
+  issueReferenceFromEmail(
+    ['support@reply.example.com'],
+    'Re: [SUPPORT-2] We received your request',
+  ),
+  'SUPPORT-2',
+)
+assert.equal(
+  issueReferenceFromEmail(
+    ['support@elsewhere.example.com'],
+    'Re: [SUPPORT-2] We received your request',
+  ),
+  null,
+)
 assert.equal(
   newestReply('New details here.\n\nOn Friday, Support wrote:\n> Old reply'),
   'New details here.',
