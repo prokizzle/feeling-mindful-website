@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
@@ -9,6 +11,9 @@ interface PrivacyPolicyProps {
   healthData?: string[]
   devicePermissions?: string[]
   mentalHealthDisclaimer?: boolean
+  webBilling?: boolean
+  lastUpdated?: string
+  children?: ReactNode
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
@@ -25,6 +30,9 @@ export function PrivacyPolicy({
   healthData,
   devicePermissions,
   mentalHealthDisclaimer,
+  webBilling,
+  lastUpdated = LAST_UPDATED,
+  children,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -33,7 +41,7 @@ export function PrivacyPolicy({
           <h1 className="font-display text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             Privacy Policy — {appName}
           </h1>
-          <p className="text-sm text-ink-faint">Last updated: {LAST_UPDATED}</p>
+          <p className="text-sm text-ink-faint">Last updated: {lastUpdated}</p>
 
           <p>
             {COMPANY_NAME} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy.
@@ -114,6 +122,8 @@ export function PrivacyPolicy({
             Each third-party service has its own privacy policy governing the use of your information.
           </p>
 
+          {children}
+
           <h2>Data Sharing</h2>
           <p>
             We do not sell your personal information. We may share data with third-party service providers
@@ -176,11 +186,20 @@ export function PrivacyPolicy({
           </p>
 
           <h2>In-App Purchases</h2>
-          <p>
-            {appName} may offer in-app purchases and subscriptions billed through the Apple App
-            Store or Google Play. Refund requests should be directed to the store where you made
-            the purchase. We do not have access to your payment card information.
-          </p>
+          {webBilling ? (
+            <p>
+              {appName} may offer subscriptions through the Apple App Store, Google Play, or
+              RevenueCat Web Billing and its payment processor. Manage cancellations and refund
+              requests through the channel where you purchased. We do not receive your full payment
+              card number.
+            </p>
+          ) : (
+            <p>
+              {appName} may offer in-app purchases and subscriptions billed through the Apple App
+              Store or Google Play. Refund requests should be directed to the store where you made
+              the purchase. We do not have access to your payment card information.
+            </p>
+          )}
 
           <h2>Changes to This Policy</h2>
           <p>
