@@ -49,9 +49,13 @@ export default function SimpleRitualsTermsPage() {
             <p>
               The app creates an anonymous account by default. You may
               optionally link it using Sign in with Apple or another available
-              sign-in provider. You can remove your rituals, completion history,
-              and local app data using Settings → Delete my data. You may also
-              request deletion through our{' '}
+              sign-in provider. Delete your rituals, completion history, local
+              app data, and the account itself from Settings → Delete account.
+              That in-app path is the deletion method for anonymous accounts,
+              which have no email to verify. If you linked a sign-in provider,
+              you may also email{' '}
+              <a href="mailto:privacy@feelingmindful.com">privacy@feelingmindful.com</a>{' '}
+              or use our{' '}
               <Link href="/data-deletion">data deletion page</Link>.
             </p>
 

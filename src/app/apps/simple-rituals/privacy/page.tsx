@@ -39,14 +39,16 @@ export default function SimpleRitualsPrivacy() {
       devicePermissions={[
         'Notifications — to schedule ritual reminders locally on your device',
       ]}
-      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete my data in the app or when we complete a verified deletion request. Apple, Firebase, RevenueCat, and Sentry may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
+      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete account in the app or when we complete a verified deletion request for a linked account. Apple, Firebase, RevenueCat, and Sentry may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
       deletionDescription={
         <>
-          You can delete your rituals, completion history, and local app data
-          from Settings → Delete my data. For access, correction, portability,
-          or deletion of any remaining account record, contact{' '}
-          <a href="mailto:privacy@feelingmindful.com">privacy@feelingmindful.com</a>{' '}
-          or use our <a href="/data-deletion">data deletion request page</a>.
+          Anonymous accounts have no email. Delete your rituals, completion
+          history, local app data, and the account itself from Settings → Delete
+          account. For access, correction, portability, or deletion of a remaining
+          linked-account record, contact{' '}
+          <a href="mailto:privacy@feelingmindful.com">privacy@feelingmindful.com</a>.
+          The <a href="/data-deletion">data deletion request page</a> can only
+          verify accounts that have an email on file.
         </>
       }
       inAppPurchaseDescription="Simple Rituals offers an optional, one-time, non-consumable Pro purchase billed through the Apple App Store or Google Play. It is not an auto-renewing subscription. RevenueCat processes purchase and entitlement records, while the app store processes payment information. We do not receive your payment card details. Refund requests must be directed to the store where you made the purchase."
