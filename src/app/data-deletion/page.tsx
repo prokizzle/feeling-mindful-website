@@ -51,7 +51,9 @@ export default function DataDeletionPage() {
             <ul className="mt-4 space-y-3 text-sm text-ink-muted">
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">1.</span>
-                We&apos;ll verify your email address matches an account in our system.
+                If the app created an anonymous account with no email, delete
+                from inside the app instead. For linked accounts we&apos;ll
+                verify your email address matches an account in our system.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">2.</span>
