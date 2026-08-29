@@ -13,6 +13,11 @@ interface PrivacyPolicyProps {
   mentalHealthDisclaimer?: boolean
   webBilling?: boolean
   lastUpdated?: string
+  dataStoredOnDevice?: string[]
+  dataUse?: string[]
+  retentionDescription?: string
+  deletionDescription?: ReactNode
+  inAppPurchaseDescription?: string
   children?: ReactNode
 }
 
@@ -32,6 +37,11 @@ export function PrivacyPolicy({
   mentalHealthDisclaimer,
   webBilling,
   lastUpdated = LAST_UPDATED,
+  dataStoredOnDevice,
+  dataUse,
+  retentionDescription,
+  deletionDescription,
+  inAppPurchaseDescription,
   children,
 }: PrivacyPolicyProps) {
   return (
@@ -69,6 +79,20 @@ export function PrivacyPolicy({
             ))}
           </ul>
 
+          {dataStoredOnDevice && dataStoredOnDevice.length > 0 && (
+            <>
+              <h2>Information Stored Only on Your Device</h2>
+              <p>
+                The following information stays on your device and is not transmitted to us:
+              </p>
+              <ul>
+                {dataStoredOnDevice.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
           {healthData && healthData.length > 0 && (
             <>
               <h2>Health &amp; Fitness Data</h2>
@@ -104,11 +128,15 @@ export function PrivacyPolicy({
 
           <h2>How Do We Use Your Information?</h2>
           <ul>
-            <li>To provide and maintain {appName}&apos;s core functionality</li>
-            <li>To personalize your experience based on your preferences and data</li>
-            <li>To improve {appName} based on usage patterns and feedback</li>
-            <li>To process transactions (if applicable)</li>
-            <li>To communicate updates, security alerts, and support messages</li>
+            {(dataUse ?? [
+              `To provide and maintain ${appName}'s core functionality`,
+              'To personalize your experience based on your preferences and data',
+              `To improve ${appName} based on usage patterns and feedback`,
+              'To process transactions (if applicable)',
+              'To communicate updates, security alerts, and support messages',
+            ]).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
 
           <h2>Third-Party Services</h2>
@@ -133,9 +161,7 @@ export function PrivacyPolicy({
 
           <h2>Data Retention</h2>
           <p>
-            We retain your information only as long as necessary to provide {appName} and fulfill the
-            purposes described in this policy. When you delete your account, we remove your personal
-            data from our active systems within 30 days.
+            {retentionDescription ?? `We retain your information only as long as necessary to provide ${appName} and fulfill the purposes described in this policy. When you delete your account, we remove your personal data from our active systems within 30 days.`}
           </p>
 
           <h2>Data Security</h2>
@@ -153,9 +179,13 @@ export function PrivacyPolicy({
             <li><strong>Portability:</strong> Request transfer of your data to another service</li>
           </ul>
           <p>
-            To exercise any of these rights, contact us at{' '}
-            <a href={`mailto:${CONTACT_EMAIL}`} className="text-ink-muted hover:text-ink">{CONTACT_EMAIL}</a> or use our{' '}
-            <a href="/data-deletion" className="text-ink-muted hover:text-ink">data deletion request page</a>.
+            {deletionDescription ?? (
+              <>
+                To exercise any of these rights, contact us at{' '}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-ink-muted hover:text-ink">{CONTACT_EMAIL}</a> or use our{' '}
+                <a href="/data-deletion" className="text-ink-muted hover:text-ink">data deletion request page</a>.
+              </>
+            )}
           </p>
 
           <h2>Children&apos;s Privacy</h2>
@@ -186,7 +216,9 @@ export function PrivacyPolicy({
           </p>
 
           <h2>In-App Purchases</h2>
-          {webBilling ? (
+          {inAppPurchaseDescription ? (
+            <p>{inAppPurchaseDescription}</p>
+          ) : webBilling ? (
             <p>
               {appName} may offer subscriptions through the Apple App Store, Google Play, or
               RevenueCat Web Billing and its payment processor. Manage cancellations and refund

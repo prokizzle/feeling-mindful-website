@@ -23,7 +23,7 @@ export default function SimpleRitualsTermsPage() {
             </p>
             <h1>Simple Rituals Terms of Service</h1>
             <p className="lead">
-              <strong>Last updated: January 19, 2026</strong>
+              <strong>Last updated: August 28, 2026</strong>
             </p>
             <p>
               These terms govern your use of the Simple Rituals app provided by
@@ -38,16 +38,31 @@ export default function SimpleRitualsTermsPage() {
 
             <h2>Your Data</h2>
             <p>
-              Your ritual data is stored locally on your device. You are
-              responsible for backing up your data. If you enable iCloud sync,
-              Apple&apos;s terms apply to that data.
+              Simple Rituals uses a pseudonymous account identifier to store
+              your rituals, configuration, and completion history in cloud
+              services so the app can restore and sync your data. Notification
+              preferences and reminder schedules are stored on your device.
+              You retain ownership of the ritual content you create.
             </p>
 
-            <h2>Subscriptions</h2>
+            <h2>Accounts and Deletion</h2>
             <p>
-              Some features require a Simple Rituals Pro subscription. Subscriptions
-              are billed through the App Store and subject to Apple&apos;s terms.
-              You can manage or cancel subscriptions in your Apple ID settings.
+              The app creates an anonymous account by default. You may
+              optionally link it using Sign in with Apple or another available
+              sign-in provider. You can remove your rituals, completion history,
+              and local app data using Settings → Delete my data. You may also
+              request deletion through our{' '}
+              <Link href="/data-deletion">data deletion page</Link>.
+            </p>
+
+            <h2>Simple Rituals Pro</h2>
+            <p>
+              Some features require Simple Rituals Pro, offered as a one-time,
+              non-consumable in-app purchase. It is not an auto-renewing
+              subscription. Purchases are billed by the Apple App Store or
+              Google Play and are subject to the applicable store terms. You
+              can restore an eligible purchase in the app. Refund requests must
+              be submitted to the store that processed the purchase.
             </p>
 
             <h2>Intellectual Property</h2>
