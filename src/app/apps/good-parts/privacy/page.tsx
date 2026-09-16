@@ -11,11 +11,12 @@ export default function GoodPartsPrivacy() {
   return (
     <PrivacyPolicy
       appName="Good Parts"
-      lastUpdated="2026-08-06"
+      lastUpdated="2026-09-16"
+      canonicalUrl="https://goodparts.ai/privacy"
       webBilling
       dataCollected={[
         'Name and email address (account registration)',
-        'Voice recordings (journal entries — processed on-device by default)',
+        'Voice recordings (journal entries — uploaded for transcription, then deleted)',
         'Journal transcriptions and AI-generated parts analysis',
         'Journal-derived moods, themes, people, insights, and personalized reflection prompts',
         'Tool requests and approved reflection text when you connect Good Parts to ChatGPT',
@@ -28,7 +29,8 @@ export default function GoodPartsPrivacy() {
         'Google Firebase — authentication and cloud infrastructure',
         'RevenueCat — subscription management for Apple App Store, Google Play, and web billing',
         'Sentry — crash reporting and error tracking',
-        'AI providers (OpenAI, OpenRouter, Google Gemini) — opt-in journal transcription and IFS parts analysis. Only the text needed for the feature is sent; we do not permit our AI providers to train models on your content.',
+        'AssemblyAI (EU) — speech-to-text transcription. Your recording is uploaded, transcribed, and our copy is deleted; we do not permit training on your content.',
+        'AI providers (OpenRouter, OpenAI, Google Gemini) — IFS parts analysis of the journal text. Only the text needed for the feature is sent; we do not permit our AI providers to train models on your content.',
         'OpenAI ChatGPT — access to the specific Good Parts data and actions you request after connecting your account',
       ]}
       devicePermissions={[

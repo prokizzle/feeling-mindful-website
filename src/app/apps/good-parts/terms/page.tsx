@@ -26,6 +26,11 @@ export default function GoodPartsTermsPage() {
             <p className="lead">
               <strong>Last updated: August 6, 2026</strong>
             </p>
+            <p className="text-sm text-ink-faint">
+              These terms now live at{' '}
+              <a href="https://goodparts.ai/terms">goodparts.ai/terms</a>. This copy is kept in step
+              with them for apps and listings that link here.
+            </p>
             <p>
               These terms govern your use of the Good Parts app provided by
               Feeling Mindful Labs LLC. They supplement our{' '}
