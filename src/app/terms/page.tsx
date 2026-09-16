@@ -24,7 +24,7 @@ export default function TermsPage() {
           <article className="prose max-w-3xl mx-auto">
             <h1>Terms of Service</h1>
             <p className="lead">
-              <strong>Last updated: July 4, 2026</strong>
+              <strong>Last updated: September 16, 2026</strong>
             </p>
             <p>
               These Terms of Service (&quot;Terms&quot;) govern your use of the
@@ -57,9 +57,10 @@ export default function TermsPage() {
             <h2>3. Subscriptions and Purchases</h2>
             <p>
               Some apps offer paid subscriptions or in-app purchases. Billing
-              is handled by the Apple App Store or Google Play under their
-              respective terms; we do not receive or store your payment card
-              details.
+              is handled by the Apple App Store, Google Play, or — where an app
+              offers it — RevenueCat Web Billing and its payment processor,
+              each under their respective terms; we do not receive or store
+              your payment card details.
             </p>
             <ul>
               <li>
@@ -67,18 +68,16 @@ export default function TermsPage() {
                 hours before the end of the current period.
               </li>
               <li>
-                Manage or cancel subscriptions in your Apple ID or Google Play
-                account settings — deleting an app does not cancel a
-                subscription.
+                Manage or cancel subscriptions through the channel where you
+                purchased — deleting an app does not cancel a subscription.
               </li>
               <li>
-                Refunds are governed by the policies of the app store where
-                you made the purchase; refund requests should be directed to
-                Apple or Google.
+                Refunds are governed by the policies of the channel where you
+                made the purchase; refund requests should be directed there.
               </li>
               <li>
                 Prices may change; we will provide notice as required by the
-                applicable app store before any change takes effect.
+                applicable purchase channel before any change takes effect.
               </li>
             </ul>
 
