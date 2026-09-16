@@ -19,6 +19,13 @@ interface PrivacyPolicyProps {
   deletionDescription?: ReactNode
   inAppPurchaseDescription?: string
   children?: ReactNode
+  /**
+   * Set when this policy has been rehomed and this page is the secondary copy. Renders a
+   * pointer to the canonical version. The page is deliberately NOT redirected: shipped app
+   * binaries and store listings carry this URL, and those links must keep resolving to the
+   * policy text itself.
+   */
+  canonicalUrl?: string
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
@@ -43,6 +50,7 @@ export function PrivacyPolicy({
   deletionDescription,
   inAppPurchaseDescription,
   children,
+  canonicalUrl,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -52,6 +60,14 @@ export function PrivacyPolicy({
             Privacy Policy — {appName}
           </h1>
           <p className="text-sm text-ink-faint">Last updated: {lastUpdated}</p>
+
+          {canonicalUrl && (
+            <p className="text-sm text-ink-faint">
+              This policy now lives at{' '}
+              <a href={canonicalUrl}>{canonicalUrl.replace(/^https:\/\//, '')}</a>. This copy is kept
+              in step with it for apps and listings that link here.
+            </p>
+          )}
 
           <p>
             {COMPANY_NAME} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy.

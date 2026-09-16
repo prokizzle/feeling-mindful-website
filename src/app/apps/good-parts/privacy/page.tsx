@@ -12,6 +12,7 @@ export default function GoodPartsPrivacy() {
     <PrivacyPolicy
       appName="Good Parts"
       lastUpdated="2026-09-16"
+      canonicalUrl="https://goodparts.ai/privacy"
       webBilling
       dataCollected={[
         'Name and email address (account registration)',
