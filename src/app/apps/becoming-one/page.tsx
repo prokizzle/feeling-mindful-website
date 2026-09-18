@@ -149,7 +149,7 @@ export default function BecomingOnePage() {
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-medium tracking-tight text-ink">
-              Part of the Feeling Mindful suite
+              Part of the Feeling Mindful Labs suite
             </h2>
             <p className="mt-4 text-ink-muted">
               Becoming One is a sibling to{' '}

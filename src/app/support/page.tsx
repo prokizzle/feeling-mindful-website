@@ -7,18 +7,18 @@ import { apps } from '@/lib/apps'
 export const metadata: Metadata = {
   title: 'Support',
   description:
-    'Get help with Feeling Mindful apps, report a problem, or share product feedback.',
+    'Get help with Feeling Mindful Labs apps, report a problem, or share product feedback.',
   openGraph: {
-    title: 'How can we help? — Feeling Mindful Support',
+    title: 'How can we help? — Feeling Mindful Labs Support',
     description:
-      'Support for every Feeling Mindful app, handled by one dedicated team.',
+      'Support for every Feeling Mindful Labs app, handled by one dedicated team.',
     images: ['https://feelingmindful.com/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'How can we help? — Feeling Mindful Support',
+    title: 'How can we help? — Feeling Mindful Labs Support',
     description:
-      'Support for every Feeling Mindful app, handled by one dedicated team.',
+      'Support for every Feeling Mindful Labs app, handled by one dedicated team.',
     images: ['https://feelingmindful.com/og.png'],
   },
 }

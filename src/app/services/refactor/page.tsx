@@ -17,7 +17,7 @@ export default function ServicePage() {
             is on apps.
           </h1>
           <p className="lead">
-            Feeling Mindful does not offer consulting or development services.
+            Feeling Mindful Labs does not offer consulting or development services.
             I’m focused on building GoodParts and the apps in our family.
           </p>
           <Link className="action-primary" href="/apps/good-parts">
