@@ -31,7 +31,7 @@ Visitors discover GoodParts, then complementary apps and community work. The sit
 - Existing routes include the homepage, app detail pages, services, support, contact, privacy, terms, and data deletion.
 - Existing content and functional links should remain truthful and usable.
 - The shared navigation, footer, theme toggle, animations, and app data are reused across routes.
-- GoodParts uses IFS-aware language and cloud transcription. Interface examples are explicitly labeled sample content, not screenshots.
+- GoodParts uses IFS-aware language and cloud transcription. Product previews use the supplied GoodParts V2 and Simple Rituals store screenshots, preserving their artwork and demo content.
 
 ## Brand Commitments
 

@@ -22,7 +22,7 @@ Self-hosted DM Serif Display regular for headings; DM Sans 400/500/700 for body 
 
 ## Components and behavior
 
-ProductMarketing shares product identity, beta actions, legal links and community sections. ProductPreview supplies labeled, noninteractive sample interfaces. Native details/summary handles mobile navigation with Escape-to-close and focus return. Links have visible focus; reduced-motion preferences disable decorative motion.
+ProductMarketing shares product identity, beta actions, legal links and community sections. ProductPreview displays the supplied store screenshots at their original aspect ratio with descriptive alt text and responsive Next.js image optimization. Native details/summary handles mobile navigation with Escape-to-close and focus return. Links have visible focus; reduced-motion preferences disable decorative motion.
 
 ## Content
 
