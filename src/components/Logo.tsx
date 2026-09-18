@@ -25,7 +25,7 @@ export function Logo({
       <Logomark className="h-10 w-10" />
       <span
         className={clsx(
-          'font-display text-2xl font-semibold tracking-tight',
+          'font-display text-xl font-normal tracking-tight sm:text-2xl',
           invert ? 'text-white' : 'text-ink',
         )}
       >

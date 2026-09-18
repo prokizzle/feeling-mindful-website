@@ -1,23 +1,31 @@
 import { type Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import localFont from 'next/font/local'
 
 import '@/styles/tailwind.css'
 
-const inter = Inter({
-  subsets: ['latin'],
+const dmSans = localFont({
+  src: [
+    { path: '../fonts/DM-Sans-400.ttf', weight: '400' },
+    { path: '../fonts/DM-Sans-500.ttf', weight: '500' },
+    { path: '../fonts/DM-Sans-700.ttf', weight: '700' },
+  ],
+  variable: '--font-dm-sans',
   display: 'swap',
-  variable: '--font-inter',
+})
+
+const dmSerif = localFont({
+  src: '../fonts/DM-Serif-Display-400.ttf',
+  variable: '--font-dm-serif',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: {
     template: '%s - Feeling Mindful Labs',
-    default: 'Feeling Mindful Labs - Mindful AI. Real software.',
+    default: 'Feeling Mindful — Home of GoodParts',
   },
   description:
-    'Feeling Mindful Labs is an AI-native studio building apps grounded in clinical research, starting with Good Parts — IFS-aware voice journaling.',
+    'Feeling Mindful makes GoodParts, an IFS-informed voice journal, alongside Simple Rituals, CardioEngine, and free community projects.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32' },
@@ -32,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`h-full bg-surface text-base antialiased ${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`}
+      className={`h-full bg-surface text-base antialiased ${dmSans.variable} ${dmSerif.variable}`}
     >
       <head>
         {/* Set theme class before paint to avoid a flash of the wrong mode */}
@@ -42,9 +50,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col text-ink">
-        {children}
-      </body>
+      <body className="flex min-h-full flex-col text-ink">{children}</body>
     </html>
   )
 }
