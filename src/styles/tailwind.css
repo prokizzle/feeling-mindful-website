@@ -13,14 +13,17 @@
  * Dark: the studio look on a sage-tinted black.
  */
 :root {
-  --surface: #f7f6f1;
-  --raised: #fdfdfb;
-  --raised-2: #edece3;
-  --ink: #20261d;
-  --ink-muted: #4c5546;
-  --ink-faint: #6e7566;
-  --edge: #e0dfd3;
-  --edge-strong: #c8c8b8;
+  --surface: #f4f1ec;
+  --raised: #fbfaf7;
+  --raised-2: #e3ddd4;
+  --ink: #2e3b2a;
+  --ink-muted: #586552;
+  --ink-faint: #5e645b;
+  --brand-accent-text: #80582f;
+  --preview-mat: #e3ddd4;
+  --ritual-mat: #e1e7dc;
+  --edge: #d8d2c9;
+  --edge-strong: #b9b0a4;
   --grid-line: rgba(32, 38, 29, 1);
   --grad-a: var(--color-sage-600);
   --grad-b: var(--color-dawn-600);
@@ -28,14 +31,17 @@
 }
 
 .dark {
-  --surface: #0b0c0a;
-  --raised: #141613;
-  --raised-2: #1d201b;
-  --ink: #f1f2ec;
-  --ink-muted: #a8aea1;
-  --ink-faint: #798073;
-  --edge: #24271f;
-  --edge-strong: #363a30;
+  --surface: #1a1e18;
+  --raised: #2a2e28;
+  --raised-2: #343a30;
+  --ink: #e8e4de;
+  --ink-muted: #b5c0a5;
+  --ink-faint: #a8b5a0;
+  --brand-accent-text: #c4ad88;
+  --preview-mat: #343a30;
+  --ritual-mat: #2a3629;
+  --edge: #3d4638;
+  --edge-strong: #596551;
   --grid-line: rgba(255, 255, 255, 1);
   --grad-a: var(--color-sage-400);
   --grad-b: var(--color-dawn-400);
@@ -139,9 +145,9 @@
   --color-dusk-950: #2a242f;
 
   /* Font stack — loaded via next/font in layout.tsx */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-geist-sans), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-serif), Georgia, serif;
+  --font-mono: var(--font-dm-sans), ui-monospace, monospace;
 }
 
 /* Semantic color utilities (bg-surface, text-ink, border-edge, …) with
@@ -175,40 +181,4 @@
   --tw-prose-code: var(--ink);
   --tw-prose-th-borders: var(--edge-strong);
   --tw-prose-td-borders: var(--edge);
-}
-
-/* Field Journal utilities */
-@layer utilities {
-  .text-gradient-brand {
-    background: linear-gradient(135deg, var(--grad-a) 0%, var(--grad-b) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-sage {
-    background: linear-gradient(135deg, var(--grad-a) 0%, var(--color-sage-300) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-dawn {
-    background: linear-gradient(135deg, var(--grad-b) 0%, var(--color-dawn-300) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-sage {
-    box-shadow: 0 0 80px -20px var(--color-sage-500);
-  }
-
-  .glow-dawn {
-    box-shadow: 0 0 80px -20px var(--color-dawn-500);
-  }
-
-  .glow-dusk {
-    box-shadow: 0 0 80px -20px var(--color-dusk-500);
-  }
 }

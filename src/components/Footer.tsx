@@ -1,21 +1,22 @@
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
 
 const navigation = [
   {
     title: 'Apps',
     links: [
-      { title: 'Good Parts', href: '/apps/good-parts' },
+      { title: 'GoodParts', href: '/apps/good-parts' },
+      { title: 'Simple Rituals', href: '/apps/simple-rituals' },
+      { title: 'CardioEngine', href: '/apps/cardioengine' },
       { title: 'All Apps', href: '/apps' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { title: 'AI Consulting', href: '/services/hermes' },
+      { title: 'Community projects', href: '/#community' },
       { title: 'Support', href: '/support' },
       { title: 'Contact', href: '/contact' },
     ],
@@ -32,20 +33,17 @@ const navigation = [
 
 function Navigation() {
   return (
-    <nav>
+    <nav aria-label="Footer">
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-ink">
+            <div className="text-sm font-semibold text-ink">
               {section.title}
             </div>
             <ul role="list" className="mt-4 text-sm text-ink-faint">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
-                  <Link
-                    href={link.href}
-                    className="transition hover:text-ink"
-                  >
+                  <Link href={link.href} className="transition hover:text-ink">
                     {link.title}
                   </Link>
                 </li>
@@ -60,8 +58,8 @@ function Navigation() {
 
 export function Footer() {
   return (
-    <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
-      <FadeIn>
+    <Container as="footer" className="mt-20 w-full">
+      <div>
         <div className="border-t border-edge pt-12">
           <Navigation />
         </div>
@@ -73,7 +71,7 @@ export function Footer() {
             &copy; Feeling Mindful Labs {new Date().getFullYear()}
           </p>
         </div>
-      </FadeIn>
+      </div>
     </Container>
   )
 }

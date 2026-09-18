@@ -13,18 +13,21 @@ export interface AppInfo {
 }
 
 export const SUPPORT_URL = '/support'
+export const BETA_EMAIL = 'nick@feelingmindful.com'
+export const GOODPARTS_BETA_URL = `mailto:${BETA_EMAIL}?subject=GoodParts%20beta%20access`
+export const CARDIOENGINE_STORE_URL = 'https://apps.apple.com/app/id6761030036'
 
 export const apps: AppInfo[] = [
   // Mindfulness suite
   {
-    name: 'Good Parts',
+    name: 'GoodParts',
     slug: 'good-parts',
     description:
-      'IFS-aware voice journaling. Record your thoughts, discover your parts, and track patterns over time.',
+      'An IFS-informed voice journal. Explore your inner parts and notice the patterns that emerge over time.',
     status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/good-parts-icon.png',
-    bgGlow: 'bg-dusk-400/20',
+    bgGlow: 'bg-sage-400/20',
   },
   {
     name: 'Becoming One',
@@ -40,10 +43,9 @@ export const apps: AppInfo[] = [
   {
     name: 'Simple Rituals',
     slug: 'simple-rituals',
-    hidden: true,
     description:
-      'Build morning and evening routines that stick. Prioritize with MoSCoW, track streaks, grow consistency.',
-    status: 'Beta',
+      'A little structure, a little more room to breathe. Build daily rituals with flexible priorities and space to begin again.',
+    status: 'Coming Soon',
     domain: 'mindfulness',
     icon: '/icons/simple-rituals-icon.png',
     bgGlow: 'bg-sage-400/20',
@@ -63,10 +65,9 @@ export const apps: AppInfo[] = [
   {
     name: 'CardioEngine',
     slug: 'cardioengine',
-    hidden: true,
     description:
       'HR zone-based cardio training with live workout coaching and Bluetooth heart rate monitor support.',
-    status: 'Coming Soon',
+    status: 'Live',
     domain: 'fitness',
     icon: '/icons/cardioengine-icon.png',
     bgGlow: 'bg-dawn-500/20',
