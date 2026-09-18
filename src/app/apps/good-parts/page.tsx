@@ -36,7 +36,12 @@ export default function GoodPartsPage() {
               a journal you can explore, bringing recurring parts, people, and
               patterns into view.
             </p>
-            <BetaAction />
+            <div className="hero-actions">
+              <BetaAction />
+              <a className="text-link" href="https://goodparts.ai">
+                Visit goodparts.ai
+              </a>
+            </div>
           </div>
           <GoodPartsPreview />
         </section>

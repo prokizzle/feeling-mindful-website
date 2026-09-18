@@ -14,9 +14,9 @@ import {
 } from '@/components/ProductMarketing'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Feeling Mindful — Home of GoodParts' },
+  title: { absolute: 'Feeling Mindful Labs — Home of GoodParts' },
   description:
-    'Meet GoodParts, an IFS-informed voice journal for getting to know your inner parts. Thoughtful apps and community projects by Feeling Mindful.',
+    'Meet GoodParts, an IFS-informed voice journal for getting to know your inner parts. Thoughtful apps and community projects by Feeling Mindful Labs.',
 }
 
 export default function Home() {
@@ -39,9 +39,9 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <BetaAction />
-              <Link className="text-link" href="/apps/good-parts">
-                Get to know GoodParts <Arrow />
-              </Link>
+              <a className="text-link" href="https://goodparts.ai">
+                Visit goodparts.ai <Arrow />
+              </a>
             </div>
             <p className="availability">
               In development · Beta requests welcome
@@ -120,11 +120,11 @@ export default function Home() {
         <section className="founder-note">
           <h2>Made with a personal purpose.</h2>
           <p>
-            I’m Nick, the founder of Feeling Mindful. GoodParts is my main
+            I’m Nick, the founder of Feeling Mindful Labs. GoodParts is my main
             focus. Alongside it, I’m building tools for daily life and giving
             back through software for my community.
           </p>
-          <span>Nick · Founder, Feeling Mindful</span>
+          <span>Nick · Founder, Feeling Mindful Labs</span>
         </section>
       </Container>
       <ContactSection />

@@ -22,10 +22,10 @@ const dmSerif = localFont({
 export const metadata: Metadata = {
   title: {
     template: '%s - Feeling Mindful Labs',
-    default: 'Feeling Mindful — Home of GoodParts',
+    default: 'Feeling Mindful Labs — Home of GoodParts',
   },
   description:
-    'Feeling Mindful makes GoodParts, an IFS-informed voice journal, alongside Simple Rituals, CardioEngine, and free community projects.',
+    'Feeling Mindful Labs makes GoodParts, an IFS-informed voice journal, alongside Simple Rituals, CardioEngine, and free community projects.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32' },

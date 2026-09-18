@@ -56,7 +56,7 @@ export default function CardioEnginePage() {
           </div>
           <p className="quiet-note">
             CardioEngine was my first published app. It remains part of the
-            Feeling Mindful family as I build GoodParts.
+            Feeling Mindful Labs family as I build GoodParts.
           </p>
           <ProductLegal slug="cardioengine" />
         </section>

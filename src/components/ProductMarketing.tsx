@@ -87,8 +87,8 @@ export function CommunityProjects() {
         </h2>
         <p>
           Burning Man and the spirit of gifting are part of this story, too.
-          These are free software projects I build and run for my community,
-          with no income from them.
+          These are tools and websites I’ve built for the communities I’m part
+          of, from camp planning to staying connected.
         </p>
       </div>
       <div className="community-projects">
@@ -112,10 +112,20 @@ export function CommunityProjects() {
           </p>
           <span>Explore the camp &amp; app</span>
         </a>
+        <a href="https://brcpickleballclub.com">
+          <h3>
+            BRC Pickleball Club <Arrow />
+          </h3>
+          <p>
+            The website I built for the camp I joined at Burning Man in 2026. A
+            home for the camp’s plans, practical details, and community.
+          </p>
+          <span>Visit the camp website</span>
+        </a>
       </div>
       <p className="community-note">
-        The software is a gift. Camp dues, rentals, and participation costs are
-        separate.
+        PlayaOS and Waffles &amp; House are free software gifts. Camp dues,
+        rentals, and participation costs are separate.
       </p>
     </section>
   )

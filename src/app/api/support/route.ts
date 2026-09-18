@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     const confirmationSent = await sendSupportEmail({
       to: payload.email,
       subject: `[${issue.identifier}] We received your request`,
-      text: `Hi ${payload.name},\n\nThanks for contacting Feeling Mindful Support about ${app.name}. Our support team has your request, and we'll reply here.\n\nReference: ${issue.identifier}\nSubject: ${payload.subject}\n\nYou can add more details by replying to this email.\n\n— Feeling Mindful Support`,
+      text: `Hi ${payload.name},\n\nThanks for contacting Feeling Mindful Labs Support about ${app.name}. Our support team has your request, and we'll reply here.\n\nReference: ${issue.identifier}\nSubject: ${payload.subject}\n\nYou can add more details by replying to this email.\n\n— Feeling Mindful Labs Support`,
       issueId: issue.id,
       idempotencyKey: `support-received/${issue.id}`,
     })

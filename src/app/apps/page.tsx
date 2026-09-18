@@ -11,7 +11,7 @@ import { visibleApps } from '@/lib/apps'
 export const metadata: Metadata = {
   title: 'Our apps',
   description:
-    'GoodParts, Simple Rituals, and CardioEngine. Explore the apps and community projects by Feeling Mindful.',
+    'GoodParts, Simple Rituals, and CardioEngine. Explore the apps and community projects by Feeling Mindful Labs.',
 }
 export default function AppsPage() {
   return (
@@ -24,7 +24,7 @@ export default function AppsPage() {
             Personal beginnings.
           </h1>
           <p className="lead">
-            GoodParts is at the heart of Feeling Mindful. Alongside it: daily
+            GoodParts is at the heart of Feeling Mindful Labs. Alongside it: daily
             rituals, a way to train, and software built as a gift.
           </p>
           <div className="app-directory">
