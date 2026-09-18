@@ -5,7 +5,7 @@ export function Logomark({ className }: { className?: string }) {
   return (
     <Image
       src="/images/logos/fm-logomark.png"
-      alt="Feeling Mindful"
+      alt="Feeling Mindful Labs"
       width={32}
       height={32}
       className={className}
@@ -29,7 +29,7 @@ export function Logo({
           invert ? 'text-white' : 'text-ink',
         )}
       >
-        Feeling Mindful
+        Feeling Mindful Labs
       </span>
     </div>
   )

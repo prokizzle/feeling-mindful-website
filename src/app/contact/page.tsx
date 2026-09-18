@@ -6,7 +6,7 @@ import { Arrow, BetaAction } from '@/components/ProductMarketing'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Nick at Feeling Mindful, request GoodParts beta access, or get help with an app.',
+    'Contact Nick at Feeling Mindful Labs, request GoodParts beta access, or get help with an app.',
 }
 export default function Contact() {
   return (
@@ -15,7 +15,7 @@ export default function Contact() {
         <section className="text-page">
           <h1>Let’s talk.</h1>
           <p className="lead">
-            I’m Nick, the founder of Feeling Mindful. For questions about the
+            I’m Nick, the founder of Feeling Mindful Labs. For questions about the
             apps, feedback, or a simple hello, you can reach me directly.
           </p>
           <a

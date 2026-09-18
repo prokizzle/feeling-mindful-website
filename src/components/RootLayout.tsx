@@ -26,7 +26,7 @@ function SiteFrame({ children }: { children: React.ReactNode }) {
       <header className="site-header">
         <Container>
           <div className="header-row">
-            <Link href="/" aria-label="Feeling Mindful home">
+            <Link href="/" aria-label="Feeling Mindful Labs home">
               <Logo />
             </Link>
             <nav className="desktop-nav" aria-label="Main navigation">

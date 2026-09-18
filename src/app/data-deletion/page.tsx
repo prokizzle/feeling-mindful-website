@@ -8,7 +8,7 @@ import { apps, SUPPORT_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
   title: 'Request Data Deletion - Feeling Mindful Labs',
-  description: 'Request deletion of your personal data from any Feeling Mindful app.',
+  description: 'Request deletion of your personal data from any Feeling Mindful Labs app.',
 }
 export default function DataDeletionPage() {
   return (

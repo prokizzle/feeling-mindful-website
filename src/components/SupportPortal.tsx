@@ -176,7 +176,7 @@ export function SupportPortal({
               Tell us what&apos;s going on
             </h2>
             <p className="mt-2 text-sm text-ink-muted">
-              Your request is sent directly to Feeling Mindful Support with the
+              Your request is sent directly to Feeling Mindful Labs Support with the
               selected app attached.
             </p>
 

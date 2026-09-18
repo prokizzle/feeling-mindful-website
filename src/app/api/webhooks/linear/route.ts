@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     const messageId = await sendSupportEmail({
       to: customer.email,
       subject: `Re: [${issue.identifier}] ${issue.title}`,
-      text: `Hi ${customer.name},\n\n${reply}\n\n— Feeling Mindful Support`,
+      text: `Hi ${customer.name},\n\n${reply}\n\n— Feeling Mindful Labs Support`,
       issueId: issue.id,
       idempotencyKey: `linear-comment/${payload.data.id}`,
       inReplyTo: latestMessageId(issue.comments.nodes),
