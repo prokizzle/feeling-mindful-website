@@ -30,7 +30,7 @@ export default function GoodPartsPrivacy() {
         'RevenueCat — subscription management for Apple App Store, Google Play, and web billing',
         'Sentry — crash reporting and error tracking',
         'AssemblyAI (EU) — speech-to-text transcription. Your recording is uploaded, transcribed, and our copy is deleted; we do not permit training on your content.',
-        'AI providers (OpenRouter, OpenAI, Google Gemini) — IFS parts analysis of the journal text. Only the text needed for the feature is sent; we do not permit our AI providers to train models on your content.',
+        'Vercel AI Gateway — routes the journal text to the model that analyses it for IFS parts, and the phrases you type into semantic search to the model that turns them into vectors. Only the text needed for the feature is sent. Every request requires zero data retention, which on this gateway also disallows training on the content, and is restricted to providers that honour it — currently Azure, DeepInfra, DigitalOcean, Fireworks, Baseten and Together AI. A request fails rather than falling back to a provider that does not. The analysis models are DeepSeek models, but they run on the providers above; DeepSeek itself never receives your content.',
         'OpenAI ChatGPT — access to the specific Good Parts data and actions you request after connecting your account',
       ]}
       devicePermissions={[
