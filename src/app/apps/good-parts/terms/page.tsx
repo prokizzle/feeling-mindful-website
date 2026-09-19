@@ -6,9 +6,9 @@ import { FadeIn } from '@/components/FadeIn'
 import { RootLayout } from '@/components/RootLayout'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Good Parts',
+  title: 'Terms of Service - GoodParts',
   description:
-    'Terms of Service for Good Parts, an IFS-aware voice journaling app by Feeling Mindful Labs.',
+    'Terms of Service for GoodParts, an IFS-aware voice journaling app by Feeling Mindful Labs.',
 }
 
 export default function GoodPartsTermsPage() {
@@ -19,10 +19,10 @@ export default function GoodPartsTermsPage() {
           <article className="prose max-w-3xl mx-auto">
             <p className="text-sm text-ink-faint mb-4">
               <Link href="/apps/good-parts" className="hover:text-ink">
-                ← Back to Good Parts
+                ← Back to GoodParts
               </Link>
             </p>
-            <h1>Good Parts Terms of Service</h1>
+            <h1>GoodParts Terms of Service</h1>
             <p className="lead">
               <strong>Last updated: August 6, 2026</strong>
             </p>
@@ -32,16 +32,16 @@ export default function GoodPartsTermsPage() {
               with them for apps and listings that link here.
             </p>
             <p>
-              These terms govern your use of the Good Parts app provided by
+              These terms govern your use of the GoodParts app provided by
               Feeling Mindful Labs LLC. They supplement our{' '}
               <Link href="/terms">General Terms of Service</Link>, which also
               apply. If these app-specific terms conflict with the general
-              terms, these terms control for Good Parts.
+              terms, these terms control for GoodParts.
             </p>
 
             <h2>Use of the App</h2>
             <p>
-              Good Parts is a voice journaling app informed by the Internal
+              GoodParts is a voice journaling app informed by the Internal
               Family Systems (IFS) framework. It is provided for personal
               reflection and self-development. You must be at least 13 years
               old to use the app.
@@ -49,7 +49,7 @@ export default function GoodPartsTermsPage() {
 
             <h2>Not Therapy or Medical Care</h2>
             <p>
-              Good Parts is <strong>not therapy, medical care, or a substitute
+              GoodParts is <strong>not therapy, medical care, or a substitute
               for professional mental health treatment</strong>, and Feeling
               Mindful Labs is not a healthcare provider. IFS-inspired content
               and AI-generated reflections are for educational and
@@ -60,7 +60,7 @@ export default function GoodPartsTermsPage() {
 
             <h2>AI Features</h2>
             <p>
-              Good Parts offers opt-in AI features, including transcription of
+              GoodParts offers opt-in AI features, including transcription of
               your voice entries and analysis of your journal text. AI output
               can be inaccurate, incomplete, or misattributed — treat it as a
               starting point for your own reflection, not as fact or advice.
@@ -76,19 +76,19 @@ export default function GoodPartsTermsPage() {
               your data from Settings and delete your account at any time. See
               the{' '}
               <Link href="/apps/good-parts/privacy">
-                Good Parts Privacy Policy
+                GoodParts Privacy Policy
               </Link>{' '}
               for details on how your data is handled.
             </p>
 
             <h2>ChatGPT Integration</h2>
             <p>
-              You may optionally connect an existing Good Parts account to
-              ChatGPT. ChatGPT can request the Good Parts data and actions
-              described in the Good Parts Privacy Policy only after you
+              You may optionally connect an existing GoodParts account to
+              ChatGPT. ChatGPT can request the GoodParts data and actions
+              described in the GoodParts Privacy Policy only after you
               authorize the connection. Saving a reflection or resolving a
               prompt requires your explicit confirmation. You can disconnect
-              Good Parts from ChatGPT settings at any time.
+              GoodParts from ChatGPT settings at any time.
             </p>
             <p>
               The ChatGPT integration is available only to accounts with an
@@ -120,7 +120,7 @@ export default function GoodPartsTermsPage() {
 
             <h2>Intellectual Property</h2>
             <p>
-              The Good Parts app, including its design, code, and branding, is
+              The GoodParts app, including its design, code, and branding, is
               owned by Feeling Mindful Labs LLC. Your journal content belongs
               to you.
             </p>
@@ -152,7 +152,7 @@ export default function GoodPartsTermsPage() {
             <p className="text-sm text-ink-faint">
               See also: <Link href="/terms">General Terms of Service</Link> ·{' '}
               <Link href="/apps/good-parts/privacy">
-                Good Parts Privacy Policy
+                GoodParts Privacy Policy
               </Link>
             </p>
           </article>

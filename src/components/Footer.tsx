@@ -44,9 +44,15 @@ function Navigation() {
             <ul role="list" className="mt-4 text-sm text-ink-faint">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
-                  <Link href={link.href} className="transition hover:text-ink">
-                    {link.title}
-                  </Link>
+                  {link.href.startsWith('/') ? (
+                    <Link href={link.href} className="transition hover:text-ink">
+                      {link.title}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="transition hover:text-ink">
+                      {link.title}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'How Feeling Mindful Labs LLC collects, uses, and protects your personal data across our website and mobile applications.',
 }
 const APP_POLICIES = [
-  { name: 'Good Parts', href: 'https://goodparts.ai/privacy' },
+  { name: 'GoodParts', href: 'https://goodparts.ai/privacy' },
   { name: 'Becoming One', href: '/apps/becoming-one/privacy' },
   { name: 'Simple Rituals', href: '/apps/simple-rituals/privacy' },
   { name: 'CutEngine', href: '/apps/cutengine/privacy' },
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
               GoodParts journal data is described in its{' '}
               <a href="https://goodparts.ai/privacy">dedicated privacy policy</a> and{' '}
               <a href="https://goodparts.ai/consumer-health-privacy">Consumer Health Data Privacy Policy</a>.
-              Those policies govern GoodParts-specific data handling; the general provider
+              Those policies govern data handling for GoodParts; the general provider
               examples below are not its recipient inventory.
             </p>
             <h2>Information We Collect</h2>
@@ -258,7 +258,11 @@ export default function PrivacyPage() {
             <ul>
               {APP_POLICIES.map((app) => (
                 <li key={app.href}>
-                  <Link href={app.href}>{app.name}</Link>
+                  {app.href.startsWith('/') ? (
+                    <Link href={app.href}>{app.name}</Link>
+                  ) : (
+                    <a href={app.href}>{app.name}</a>
+                  )}
                 </li>
               ))}
             </ul>
