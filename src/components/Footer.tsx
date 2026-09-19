@@ -25,6 +25,7 @@ const navigation = [
     title: 'Legal',
     links: [
       { title: 'Privacy Policy', href: '/privacy' },
+      { title: 'GoodParts Consumer Health Privacy', href: 'https://goodparts.ai/consumer-health-privacy' },
       { title: 'Terms of Service', href: '/terms' },
       { title: 'Delete My Data', href: '/data-deletion' },
     ],
@@ -43,9 +44,15 @@ function Navigation() {
             <ul role="list" className="mt-4 text-sm text-ink-faint">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
-                  <Link href={link.href} className="transition hover:text-ink">
-                    {link.title}
-                  </Link>
+                  {link.href.startsWith('/') ? (
+                    <Link href={link.href} className="transition hover:text-ink">
+                      {link.title}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="transition hover:text-ink">
+                      {link.title}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
