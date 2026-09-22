@@ -45,7 +45,7 @@ export const apps: AppInfo[] = [
     slug: 'simple-rituals',
     description:
       'A little structure, a little more room to breathe. Build daily rituals with flexible priorities and space to begin again.',
-    status: 'Coming Soon',
+    status: 'Live',
     domain: 'mindfulness',
     icon: '/icons/simple-rituals-icon.png',
     bgGlow: 'bg-sage-400/20',
