@@ -5,10 +5,12 @@ import { RootLayout } from '@/components/RootLayout'
 import { RitualsPreview } from '@/components/ProductPreview'
 import { AppIdentity, Arrow, ProductLegal } from '@/components/ProductMarketing'
 
+const appStoreUrl = 'https://apps.apple.com/us/app/simple-rituals/id6762166301'
+
 export const metadata: Metadata = {
   title: 'Simple Rituals — Find your daily rhythm',
   description:
-    'Flexible daily rituals with gentle reminders and room to begin again. Coming soon, with a free morning window and a one-time full-day unlock.',
+    'Flexible daily rituals with gentle reminders and room to begin again, with a free morning window and a one-time full-day unlock.',
 }
 
 export default function SimpleRitualsPage() {
@@ -20,7 +22,7 @@ export default function SimpleRitualsPage() {
             <AppIdentity
               name="Simple Rituals"
               icon="/icons/simple-rituals-icon.png"
-              status="Coming soon"
+              status="Live"
             />
             <h1>
               A rhythm for
@@ -34,12 +36,14 @@ export default function SimpleRitualsPage() {
             </p>
             <a
               className="action-primary"
-              href="mailto:nick@feelingmindful.com?subject=Simple%20Rituals%20enquiry"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noreferrer"
             >
-              Ask about Simple Rituals <Arrow />
+              Download on the App Store <Arrow />
             </a>
             <p className="quiet-note">
-              Not publicly available yet. This link opens your email app.
+              Available now on the App Store.
             </p>
           </div>
           <RitualsPreview />
