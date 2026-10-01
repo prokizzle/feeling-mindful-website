@@ -38,7 +38,7 @@ export default function SimpleRitualsPrivacy() {
         'Apple App Store and StoreKit — payment processing and purchase records on iOS',
         'Google Play Billing — payment processing and purchase records on Android',
         'Expo EAS Update — app update delivery. Each update check sends the app version, platform, update channel, and a random installation ID, and Expo receives your IP address with each request',
-        'Sign in with Apple — optional account linking',
+        'Sign in with Apple and Google Sign-In — optional account linking',
       ]}
       devicePermissions={[
         'Notifications — to schedule ritual reminders locally on your device',
@@ -55,7 +55,7 @@ export default function SimpleRitualsPrivacy() {
           verify accounts that have an email on file.
         </>
       }
-      inAppPurchaseDescription="Simple Rituals offers an optional, one-time, non-consumable Pro purchase billed through the Apple App Store or Google Play. It is not an auto-renewing subscription. On Android, purchases are handled by Google Play Billing: Google processes your payment, and your card details go only to Google. RevenueCat receives the purchase record (product, transaction, and entitlement status) so it can validate and restore Pro, while the app store processes payment information. We do not receive your payment card details. Refund requests must be directed to the store where you made the purchase."
+      inAppPurchaseDescription="Simple Rituals offers an optional, one-time, non-consumable Pro purchase billed through the Apple App Store or Google Play. It is not an auto-renewing subscription. On Android, purchases are handled by Google Play Billing: Google processes your payment, and your card details go only to Google. RevenueCat receives the purchase record (product, transaction, and entitlement status) so it can validate and restore Pro. We do not receive your payment card details. Refund requests must be directed to the store where you made the purchase."
     >
       <p>
         Our service providers (Firebase, Sentry, RevenueCat, and Expo) receive
