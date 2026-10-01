@@ -10,7 +10,7 @@ export default function SimpleRitualsPrivacy() {
   return (
     <PrivacyPolicy
       appName="Simple Rituals"
-      lastUpdated="2026-08-28"
+      lastUpdated="2026-10-01"
       dataCollected={[
         'A pseudonymous user ID created by Firebase Authentication so your data can be stored and retrieved',
         'Your email address if you choose to link your account using Sign in with Apple or Google',
@@ -18,6 +18,7 @@ export default function SimpleRitualsPrivacy() {
         'Completion and progress history associated with your user ID',
         'Purchase history, product identifiers, transaction status, and Pro entitlement status',
         'Crash reports, error details, app and device information, and performance measurements',
+        'App update checks: the app version (runtime version and installed update), platform, update channel, and a random installation ID',
       ]}
       dataStoredOnDevice={[
         'Notification preferences and the schedule used for local reminder notifications',
@@ -27,31 +28,40 @@ export default function SimpleRitualsPrivacy() {
         'To authenticate you and provide, sync, restore, and personalize your rituals and progress',
         'To validate purchases, restore Pro access, prevent purchase fraud, and understand purchase performance',
         'To diagnose crashes, errors, and performance problems and improve app reliability',
+        'To check for and deliver app updates',
         'To respond to support, privacy, and deletion requests',
       ]}
       thirdPartyServices={[
         'Google Firebase Authentication and Cloud Firestore — anonymous or linked account authentication and cloud storage',
         'RevenueCat — in-app purchase validation, entitlement management, purchase analytics, and restoration',
         'Sentry — crash reporting, error monitoring, and performance diagnostics',
-        'Apple App Store and StoreKit — payment processing and purchase records',
+        'Apple App Store and StoreKit — payment processing and purchase records on iOS',
+        'Google Play Billing — payment processing and purchase records on Android',
+        'Expo EAS Update — app update delivery. Each update check sends the app version, platform, update channel, and a random installation ID, and Expo receives your IP address with each request',
         'Sign in with Apple — optional account linking',
       ]}
       devicePermissions={[
         'Notifications — to schedule ritual reminders locally on your device',
       ]}
-      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete account in the app or when we complete a verified deletion request for a linked account. Apple, Firebase, RevenueCat, and Sentry may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
+      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete account in the app or when we complete a verified deletion request for a linked account. Apple, Google, Firebase, RevenueCat, Sentry, and Expo may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
       deletionDescription={
         <>
           Anonymous accounts have no email. Delete your rituals, completion
-          history, local app data, and the account itself from Settings → Delete
-          account. For access, correction, portability, or deletion of a remaining
+          history, local app data, and the account itself from Settings → Account →
+          Delete account. For access, correction, portability, or deletion of a remaining
           linked-account record, contact{' '}
           <a href="mailto:privacy@feelingmindful.com">privacy@feelingmindful.com</a>.
           The <a href="/data-deletion">data deletion request page</a> can only
           verify accounts that have an email on file.
         </>
       }
-      inAppPurchaseDescription="Simple Rituals offers an optional, one-time, non-consumable Pro purchase billed through the Apple App Store or Google Play. It is not an auto-renewing subscription. RevenueCat processes purchase and entitlement records, while the app store processes payment information. We do not receive your payment card details. Refund requests must be directed to the store where you made the purchase."
-    />
+      inAppPurchaseDescription="Simple Rituals offers an optional, one-time, non-consumable Pro purchase billed through the Apple App Store or Google Play. It is not an auto-renewing subscription. On Android, purchases are handled by Google Play Billing: Google processes your payment, and your card details go only to Google. RevenueCat receives the purchase record (product, transaction, and entitlement status) so it can validate and restore Pro, while the app store processes payment information. We do not receive your payment card details. Refund requests must be directed to the store where you made the purchase."
+    >
+      <p>
+        Our service providers (Firebase, Sentry, RevenueCat, and Expo) receive
+        your IP address and device and app information when the app connects to
+        them, and use it for security and diagnostics.
+      </p>
+    </PrivacyPolicy>
   )
 }
