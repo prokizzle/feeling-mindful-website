@@ -44,6 +44,92 @@ export default function DataDeletionPage() {
             ))}
           </div>
 
+          <section
+            id="simple-rituals"
+            aria-labelledby="simple-rituals-heading"
+            className="mt-12 pt-8 border-t border-edge scroll-mt-24"
+          >
+            <h2 id="simple-rituals-heading" className="font-display text-lg font-medium text-ink">
+              Simple Rituals: delete your account in the app
+            </h2>
+            <p className="mt-4 text-sm text-ink-muted">
+              Simple Rituals is developed by Feeling Mindful Labs LLC. You can delete your
+              Simple Rituals account and its data yourself, inside the app.
+            </p>
+            <ol className="mt-4 space-y-3 text-sm text-ink-muted">
+              <li className="flex gap-3">
+                <span className="text-ink-faint font-medium">1.</span>
+                Open Simple Rituals and tap the settings icon to open Settings.
+              </li>
+              <li className="flex gap-3">
+                <span className="text-ink-faint font-medium">2.</span>
+                Under Account, tap Delete account.
+              </li>
+              <li className="flex gap-3">
+                <span className="text-ink-faint font-medium">3.</span>
+                Tap Delete to confirm. Deletion happens right away and cannot be undone.
+              </li>
+            </ol>
+
+            <h3 className="mt-8 font-display text-base font-semibold text-ink">What is deleted</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-ink-muted">
+              <li>Your rituals and their settings, and your selected ritual pack</li>
+              <li>Your completion history</li>
+              <li>Your anonymous user ID (the Firebase Authentication account the app created for you)</li>
+              <li>
+                App data in your device&apos;s local storage, and your reminder settings and
+                scheduled reminders
+              </li>
+            </ul>
+
+            <h3 className="mt-8 font-display text-base font-semibold text-ink">What is kept, and for how long</h3>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-ink-muted">
+              <li>
+                <strong className="font-medium text-ink">Purchase records.</strong> If you bought
+                Simple Rituals Pro, Google Play (or the Apple App Store on iOS) keeps its record of
+                the purchase under its own terms. Deleting your account in the app does not remove
+                it. These records are used to restore purchases, prevent fraud, and meet legal and
+                tax obligations.
+              </li>
+              <li>
+                <strong className="font-medium text-ink">RevenueCat purchase history.</strong>{' '}
+                RevenueCat, which validates purchases for us, keeps the purchase history linked to
+                your anonymous ID, along with any server-side purchase event records we hold, until
+                we delete them. Deleting your account in the app does not remove them. To have them deleted, email{' '}
+                <a href="mailto:support@feelingmindful.com" className="text-ink-muted underline hover:text-ink">
+                  support@feelingmindful.com
+                </a>
+                .
+              </li>
+              <li>
+                <strong className="font-medium text-ink">Diagnostics.</strong> Crash and error
+                reports already sent to Sentry are kept for up to 90 days, and performance data for
+                up to 30 days, and are then deleted automatically.
+              </li>
+              <li>
+                <strong className="font-medium text-ink">App update checks.</strong> Expo (EAS
+                Update) may keep logs of update requests, including the random installation ID and
+                IP address, according to its own retention policy.
+              </li>
+              <li>
+                <strong className="font-medium text-ink">Backups and security records.</strong>{' '}
+                Firebase may keep limited security records or backups for a short time under its
+                own policies.
+              </li>
+            </ul>
+
+            <p className="mt-6 text-sm text-ink-muted">
+              If you have not linked a Google or Apple account, your Simple Rituals account has no
+              email address, so a request on this page cannot be matched to it. Deleting from
+              inside the app is how that account is removed. Uninstalling the app does not delete your data, so delete
+              your account first. For help, email{' '}
+              <a href="mailto:support@feelingmindful.com" className="text-ink-muted underline hover:text-ink">
+                support@feelingmindful.com
+              </a>
+              .
+            </p>
+          </section>
+
           <div className="mt-12 pt-8 border-t border-edge">
             <h2 className="font-display text-lg font-medium text-ink">
               What happens next?
