@@ -23,8 +23,11 @@ export default function DataDeletionPage() {
             below to submit a deletion request. We&apos;ll process it within 30 days.
           </p>
           <p className="mt-4 text-sm text-ink-faint">
-            This will delete all data associated with your account, including your profile,
-            progress, journal entries, and any other personal information stored in our systems.
+            This deletes the data your account holds in our app databases, including your profile,
+            progress and journal entries. Some things are kept: anything an app wrote to Apple Health
+            or Health Connect, such as Becoming One’s mindful minutes, stays there, and we keep a
+            record of your request and, where an app keeps them, of the consents you gave or
+            withdrew, as step 3 explains.
           </p>
           <div className="mt-10 space-y-4">
             {apps.map((app) => (
@@ -153,10 +156,14 @@ export default function DataDeletionPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">3.</span>
-                We act on deletion requests within 30 days. Data in our app
-                databases is deleted. Copies in providers’ backups and crash
-                reports expire on the schedules in each app’s privacy policy, and
-                we keep a record that your request was made and answered.
+                We act on deletion requests within 30 days. Your data in our app
+                databases is deleted, except the records each app’s privacy policy
+                says we keep. Copies in providers’ backups, logs and crash reports
+                are deleted on the schedules, or under the provider policies,
+                described in each app’s privacy policy. We keep a record of your
+                request and our answer and, where an app keeps them, of the consents
+                you gave or withdrew and what we deleted, for the periods in that
+                app’s privacy policy.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">4.</span>

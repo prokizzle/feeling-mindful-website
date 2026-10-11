@@ -32,6 +32,12 @@ interface PrivacyPolicyProps {
    * My Health My Data Act, use of an app is not consent, and its page says so in its own words.
    */
   implicitConsent?: boolean
+  /**
+   * Replaces the default "solely to operate" sentence under Data Sharing. Becoming One passes one
+   * (BOI-35), because Sentry's and Expo's terms let them use some service data for their own
+   * purposes, so "solely" would be false.
+   */
+  dataSharingDescription?: string
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
@@ -58,6 +64,7 @@ export function PrivacyPolicy({
   children,
   canonicalUrl,
   implicitConsent = true,
+  dataSharingDescription,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -179,9 +186,10 @@ export function PrivacyPolicy({
 
           <h2>Data Sharing</h2>
           <p>
-            We do not sell your personal information. We may share data with third-party service providers
-            solely to operate {appName} (e.g., authentication, cloud storage, crash reporting). We may
-            also disclose information if required by law.
+            We do not sell your personal information.{' '}
+            {dataSharingDescription ??
+              `We may share data with third-party service providers solely to operate ${appName} (e.g., authentication, cloud storage, crash reporting).`}{' '}
+            We may also disclose information if required by law.
           </p>
 
           <h2>Data Retention</h2>
