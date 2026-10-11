@@ -175,6 +175,13 @@ export default function BecomingOnePage() {
             >
               Privacy Policy
             </Link>
+            {' · '}
+            <Link
+              href="/apps/becoming-one/consumer-health-privacy"
+              className="hover:text-ink"
+            >
+              Consumer Health Data Privacy Policy
+            </Link>
           </p>
         </FadeIn>
       </Container>
