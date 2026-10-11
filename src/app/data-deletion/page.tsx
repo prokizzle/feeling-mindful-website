@@ -25,9 +25,8 @@ export default function DataDeletionPage() {
           <p className="mt-4 text-sm text-ink-faint">
             This deletes the data your account holds in our app databases, including your profile,
             progress and journal entries. Some things are kept: anything an app wrote to Apple Health
-            or Health Connect, such as Becoming One’s mindful minutes, stays there, and we keep a
-            record of your request and, where an app keeps them, of the consents you gave or
-            withdrew, as step 3 explains.
+            or Health Connect, such as Becoming One’s mindful minutes, stays there, and we keep the
+            records described in step 3 and in each app’s privacy policy.
           </p>
           <div className="mt-10 space-y-4">
             {apps.map((app) => (
@@ -157,13 +156,17 @@ export default function DataDeletionPage() {
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">3.</span>
                 We act on deletion requests within 30 days. Your data in our app
-                databases is deleted, except the records each app’s privacy policy
-                says we keep. Copies in providers’ backups, logs and crash reports
-                are deleted on the schedules, or under the provider policies,
-                described in each app’s privacy policy. We keep a record of your
-                request and our answer and, where an app keeps them, of the consents
-                you gave or withdrew and what we deleted, for the periods in that
-                app’s privacy policy.
+                databases is deleted, except a record of your request and our
+                answer, any other records the app’s privacy policy says we keep,
+                and, where an app keeps them, records of the consents you gave or
+                withdrew and of what we deleted. We keep those records to show that
+                we handled your request. If the app’s privacy policy does not say
+                how long, email privacy@feelingmindful.com to ask. Copies in
+                providers’ backups, logs and crash reports are deleted on the
+                schedules, or under the provider policies, described in each app’s
+                privacy policy. If you live in Washington State, the deadlines in
+                the app’s Consumer Health Data Privacy Policy also apply: up to 45
+                days, which we may extend once by another 45.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">4.</span>

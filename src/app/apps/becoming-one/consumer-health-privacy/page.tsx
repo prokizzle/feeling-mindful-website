@@ -48,8 +48,9 @@ export default function BecomingOneConsumerHealthPrivacy() {
               This policy describes how Becoming One handles consumer health data under
               Washington&apos;s My Health My Data Act. Our{' '}
               <Link href="/apps/becoming-one/privacy">Becoming One Privacy Policy</Link> covers
-              everything else the app collects. Reading a policy or continuing to use Becoming One
-              does not itself provide consent for additional collection or sharing.
+              everything else the app collects. Using Becoming One, or reading this policy, is not
+              consent. Where we need your consent, for example to write to Apple Health or Health
+              Connect, we ask for it separately.
             </p>
 
             <h2>Health data we collect and why</h2>
@@ -97,11 +98,13 @@ export default function BecomingOneConsumerHealthPrivacy() {
               <li>
                 <strong>Google Firebase</strong>: in app versions that use Firebase, sign-in
                 accounts, meditation audio, and your saved reflections with the meditation, moods and
-                time of each. This data stays in Firebase when you move to a newer
-                version of the app; contact us at <Email /> for a copy or to have it removed.
+                time of each. This data stays in Firebase even if a later version
+                of the app uses Supabase instead; contact us at <Email /> for a copy or to have it
+                removed.
               </li>
               <li>
-                <strong>Supabase</strong>: in app versions that use Supabase (none released yet), sign-in accounts, meditation audio,
+                <strong>Supabase</strong>: in app versions that use Supabase (none released yet),
+                sign-in accounts, meditation audio,
                 your reflections, and records of the meditations you finish.
               </li>
               <li>
@@ -137,8 +140,9 @@ export default function BecomingOneConsumerHealthPrivacy() {
 
             <h2>Collection and optional sharing</h2>
             <p>
-              We collect what the features you use need, plus the diagnostic data described above (Sentry) and app update checks (Expo). A reflection is saved when you choose
-              to save one. Mindful minutes are written only after you allow it in your phone&apos;s
+              We collect only what is needed to provide the features you use, including what keeps
+              the app working and up to date: crash and error diagnostics (Sentry) and app update
+              checks (Expo). A reflection is saved when you choose to save one. Mindful minutes are written only after you allow it in your phone&apos;s
               health permission prompt, and you can turn that off at any time in Apple Health or
               Health Connect. We share consumer health data only with the service providers and
               sign-in providers listed above, to run the app, and, if you allow it, with Apple Health or
@@ -181,12 +185,13 @@ export default function BecomingOneConsumerHealthPrivacy() {
               We respond without undue delay and within 45 days of receiving your request;
               authentication does not extend that deadline. If reasonably necessary, we may extend
               by another 45 days and explain why within the first 45. Deletion removes the data
-              from our app databases: Supabase, and Firebase for app versions that use it. Copies held
-              by providers expire on their own schedules. Crash and error reports sent to Sentry do
-              not include your account ID, and the app is set up to keep the text you write out of
-              them. Sentry deletes them automatically after up to 90 days (performance data after up to
-              30 days). Copies in Supabase’s and
-              Firebase’s backups are removed as those backups expire, within six months.
+              from our app databases: Supabase, and Firebase for app versions that use it. We also
+              tell the service providers listed above that received your data, including Sentry and
+              Expo, about your request and ask them to delete it. Crash and error reports sent to
+              Sentry do not include your account ID, and the app is set up to keep the text you write
+              out of them; Sentry also deletes them automatically after up to 90 days (performance
+              data after up to 30 days). Copies in Supabase’s and Firebase’s backups are removed as
+              those backups expire, within six months.
               Withdrawing consent stops future collection or sharing and may make the affected
               features unavailable; it does not delete existing records.
             </p>
