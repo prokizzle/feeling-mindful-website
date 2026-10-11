@@ -2,11 +2,11 @@ import { type Metadata } from 'next'
 import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
-import { Arrow, BetaAction } from '@/components/ProductMarketing'
+import { Arrow, StoreActions } from '@/components/ProductMarketing'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Nick at Feeling Mindful Labs, request GoodParts beta access, or get help with an app.',
+    'Contact Nick at Feeling Mindful Labs, get GoodParts, or get help with an app.',
 }
 export default function Contact() {
   return (
@@ -39,10 +39,9 @@ export default function Contact() {
           <section className="beta-section">
             <h2>Curious about GoodParts?</h2>
             <p>
-              It’s still in development. Send a beta request to let me know
-              you’d like to try it.
+              It’s on the App Store for iPhone and on Google Play for Android.
             </p>
-            <BetaAction />
+            <StoreActions />
           </section>
         </section>
       </Container>

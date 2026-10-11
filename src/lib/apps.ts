@@ -13,8 +13,10 @@ export interface AppInfo {
 }
 
 export const SUPPORT_URL = '/support'
-export const BETA_EMAIL = 'nick@feelingmindful.com'
-export const GOODPARTS_BETA_URL = `mailto:${BETA_EMAIL}?subject=GoodParts%20beta%20access`
+// GoodParts 1.0 is on the App Store and on Google Play (2026-10-11).
+export const GOODPARTS_APP_STORE_URL = 'https://apps.apple.com/app/id6757692886'
+export const GOODPARTS_PLAY_URL =
+  'https://play.google.com/store/apps/details?id=com.feelingmindful.goodparts'
 export const CARDIOENGINE_STORE_URL = 'https://apps.apple.com/app/id6761030036'
 
 export const apps: AppInfo[] = [
@@ -24,7 +26,7 @@ export const apps: AppInfo[] = [
     slug: 'good-parts',
     description:
       'An IFS-informed voice journal. Explore your inner parts and notice the patterns that emerge over time.',
-    status: 'Coming Soon',
+    status: 'Live',
     domain: 'mindfulness',
     icon: '/icons/good-parts-icon.png',
     bgGlow: 'bg-sage-400/20',
