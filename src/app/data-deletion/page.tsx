@@ -137,9 +137,15 @@ export default function DataDeletionPage() {
             <ul className="mt-4 space-y-3 text-sm text-ink-muted">
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">1.</span>
-                If the app created an anonymous account with no email, delete
-                from inside the app instead. For linked accounts we&apos;ll
-                verify your email address matches an account in our system.
+                If you never signed in with Apple or Google, your account has no
+                email address. GoodParts and Simple Rituals let you delete it
+                inside the app. Becoming One does not yet, so email{' '}
+                <a href="mailto:privacy@feelingmindful.com" className="text-ink-muted underline hover:text-ink">
+                  privacy@feelingmindful.com
+                </a>{' '}
+                and we will work with you to find your account. For linked
+                accounts, we’ll check that your email address matches an account
+                in our system.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">2.</span>
@@ -147,7 +153,10 @@ export default function DataDeletionPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">3.</span>
-                Your data will be permanently deleted within 30 days of your request.
+                We act on deletion requests within 30 days. Data in our app
+                databases is deleted. Copies in providers’ backups and crash
+                reports expire on the schedules in each app’s privacy policy, and
+                we keep a record that your request was made and answered.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">4.</span>

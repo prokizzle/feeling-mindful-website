@@ -26,16 +26,23 @@ export default function BecomingOnePrivacy() {
         'Google Firebase — in app versions that use Firebase: sign-in accounts, meditation audio, and your saved reflections with the meditation, moods and time of each. This data stays in Firebase when you move to a newer version of the app; contact us at privacy@feelingmindful.com for a copy or to have it removed.',
         'Supabase — in newer app versions: sign-in accounts, your reflections, and records of the meditations you finish.',
         'Expo (EAS Update) — app update checks, which include a random installation ID and your IP address',
-        'Sentry — crash reporting and error tracking',
+        'Sentry: an app-start record each time the app opens, crash reports and error details, and performance traces from a sample of sessions',
       ]}
-      healthData={[
-        'Mindfulness session data (write) — logs completed meditation sessions to Apple Health',
+      devicePermissions={['Apple Health / Health Connect: writing mindful sessions (optional)']}
+      dataUse={[
+        'To provide the app: play meditations, save your reflections and show your progress',
+        'To fix crashes and errors (Sentry)',
+        'To deliver app updates (Expo)',
       ]}
-      devicePermissions={[
-        'HealthKit — mindfulness session tracking (optional)',
-        'Push Notifications — for reminders and updates',
-      ]}
+      implicitConsent={false}
     >
+      <h2>Health data</h2>
+      <p>
+        Mindful minutes (write only). If you allow it, each finished session is written to Apple
+        Health on iPhone or Health Connect on Android. The app does not read any health data. You can
+        turn this off in the Health app on iPhone, or in Health Connect under App permissions on
+        Android.
+      </p>
       <h2>Consumer Health Data</h2>
       <p>
         How Becoming One handles consumer health data under Washington&apos;s My Health My Data Act,
@@ -44,6 +51,11 @@ export default function BecomingOnePrivacy() {
           Becoming One Consumer Health Data Privacy Policy
         </Link>
         .
+      </p>
+      <p>
+        Using the app, or reading this policy, is not consent to anything this policy does not
+        describe. For consumer health data, see the Consumer Health Data Privacy Policy. If we change
+        how we use or share health data, we will ask for your consent first.
       </p>
     </PrivacyPolicy>
   )

@@ -26,6 +26,12 @@ interface PrivacyPolicyProps {
    * policy text itself.
    */
   canonicalUrl?: string
+  /**
+   * False drops the two sentences that treat using the app as agreeing to the policy ("By using…"
+   * and "Continued use… constitutes acceptance"). Becoming One sets it (BOI-35): under Washington's
+   * My Health My Data Act, use of an app is not consent, and its page says so in its own words.
+   */
+  implicitConsent?: boolean
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
@@ -51,6 +57,7 @@ export function PrivacyPolicy({
   inAppPurchaseDescription,
   children,
   canonicalUrl,
+  implicitConsent = true,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -74,10 +81,12 @@ export function PrivacyPolicy({
             This Privacy Policy explains how your personal information is collected, used, and disclosed
             when you use {appName}.
           </p>
-          <p>
-            By using {appName}, you signify that you have read, understood, and agree to our collection,
-            storage, use, and disclosure of your personal information as described in this Privacy Policy.
-          </p>
+          {implicitConsent && (
+            <p>
+              By using {appName}, you signify that you have read, understood, and agree to our collection,
+              storage, use, and disclosure of your personal information as described in this Privacy Policy.
+            </p>
+          )}
 
           <h2>Definitions</h2>
           <ul>
@@ -252,8 +261,10 @@ export function PrivacyPolicy({
           <h2>Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. We will notify you of material changes
-            through the app or by email. Continued use of {appName} after changes constitutes acceptance
-            of the updated policy.
+            through the app or by email.
+            {implicitConsent && (
+              <> Continued use of {appName} after changes constitutes acceptance of the updated policy.</>
+            )}
           </p>
 
           <h2>Governing Law</h2>

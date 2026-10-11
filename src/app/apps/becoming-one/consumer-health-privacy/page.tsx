@@ -60,9 +60,14 @@ export default function BecomingOneConsumerHealthPrivacy() {
                 again in the app.
               </li>
               <li>
-                Records of the meditations you finish, and your course progress. They show
-                your meditation practice and can reveal that you use a mental-wellbeing service. We
-                use them to show your progress and suggest what to play next.
+                Your course progress: which meditations you have saved a reflection for. We use it to
+                show your progress, unlock courses and suggest what to play next.
+              </li>
+              <li>
+                In app versions that use Supabase, a record of each meditation you finish: which one,
+                how long, and when. It can reveal that you use a mental-wellbeing service. We keep it
+                as a record of your practice, move it to your account when you sign in, and use it to
+                tell whether an account is still in use.
               </li>
               <li>
                 Mindful minutes. If you allow it, when you finish a session the app writes one
@@ -77,11 +82,7 @@ export default function BecomingOneConsumerHealthPrivacy() {
                 account, and can reveal that you use a mental-wellbeing service.
               </li>
             </ul>
-            <p>
-              We do not sell consumer health data or share it for targeted advertising. Becoming One
-              has no analytics or advertising tools. We do not analyse your reflections with AI, and
-              we do not use them to train AI models. We do not collect your location.
-            </p>
+            <p>We do not sell consumer health data or share it for targeted advertising.</p>
 
             <h2>Where the data comes from</h2>
             <p>
@@ -96,29 +97,33 @@ export default function BecomingOneConsumerHealthPrivacy() {
               <li>
                 <strong>Google Firebase</strong>: in app versions that use Firebase, sign-in
                 accounts, meditation audio, and your saved reflections with the meditation, moods and
-                time of each, and your progress. This data stays in Firebase when you move to a newer
+                time of each. This data stays in Firebase when you move to a newer
                 version of the app; contact us at <Email /> for a copy or to have it removed.
               </li>
               <li>
-                <strong>Supabase</strong>: in newer app versions, sign-in accounts, your reflections,
-                and records of the meditations you finish.
+                <strong>Supabase</strong>: in newer app versions, sign-in accounts, meditation audio,
+                your reflections, and records of the meditations you finish.
               </li>
               <li>
-                <strong>Sentry</strong>: crash reports, error details, and device and app information
-                when something goes wrong, and performance traces from a sample of app sessions. The app
-                is set up to keep reflection text, moods and other things you write out of these
-                reports. Sentry does not record your screen.
+                <strong>Sentry</strong>: each time the app opens, a short app-start record with a
+                random installation ID and device and app information; crash reports and error details
+                when something goes wrong; and performance traces from a sample of app sessions. The
+                app is set up to keep reflection text, moods and other things you write out of the
+                reports it sends. Sentry does not record your screen.
               </li>
               <li>
                 <strong>Expo (EAS Update)</strong>: app update checks, which include a random
                 installation ID and your IP address.
               </li>
-              <li>
-                <strong>Apple and Google sign-in</strong>: when you choose them, Apple or Google
-                signs you in. To sign you in, the app asks Google only for your name, email address
-                and profile picture.
-              </li>
             </ul>
+            <h3>Third parties you choose to involve</h3>
+            <p>
+              Apple and Google, when you choose to sign in with them. They learn that your Apple or
+              Google account signs in to Becoming One. The app asks Apple for your name and email
+              address, and Google for your name, email address and profile picture. GoodParts and
+              Becoming One use the same Google sign-in setup, so if you sign in with Google in both
+              apps, Google can tell that the same Google account uses both.
+            </p>
             <p>
               Some providers&apos; own terms let them use limited information about our use of their
               service for their own purposes: Sentry may use non-identifying service data to improve
@@ -135,8 +140,9 @@ export default function BecomingOneConsumerHealthPrivacy() {
               We collect only what the features you use need. A reflection is saved when you choose
               to save one. Mindful minutes are written only after you allow it in your phone&apos;s
               health permission prompt, and you can turn that off at any time in Apple Health or
-              Health Connect. We do not share consumer health data for any purpose beyond running the
-              app. If that changes, we will update this policy and ask for your separate consent
+              Health Connect. We share consumer health data only with the service providers and sign-in
+              providers listed above, to run the app. Under their own terms, Sentry and Expo may use
+              de-identified or aggregated service data. If that changes, we will update this policy and ask for your separate consent
               first.
             </p>
 
@@ -158,21 +164,26 @@ export default function BecomingOneConsumerHealthPrivacy() {
               Google account, not by us. Delete them in Apple Health or Health Connect.
             </p>
             <p>
-              In newer app versions, Becoming One signs you in with a Feeling Mindful account that
-              our other apps can share. Deleting that account, for example from GoodParts&apos;
-              Settings, also deletes what Becoming One saved to it. In newer app versions, if you
-              continue without signing in, your account is anonymous. We delete an anonymous account
-              and everything saved to it after 12 months without use, including asking our service
-              providers to delete their copies. Opening the app, or signing in, keeps it.
+              In app versions that use Firebase, if you do not sign in, the app creates an anonymous
+              Firebase account. Your reflections are kept in Firebase until you ask us to remove them;
+              there is no automatic time limit yet. Deleting a Feeling Mindful account, for example
+              from GoodParts’ Settings, does not remove data held in Firebase. In app versions that
+              use Supabase, Becoming One signs you in with a Feeling Mindful account that our other
+              apps can share, and deleting that account also deletes the reflections and meditation
+              records Becoming One saved to it. If you continue without signing in there, your account
+              is anonymous. We delete an anonymous account, with the reflections and meditation records
+              saved to it, after 12 months without use. We keep it longer only while it has an active
+              subscription or an open privacy request. Opening the app, or signing in, keeps it.
             </p>
             <p>
               We respond without undue delay and within 45 days of receiving your request;
               authentication does not extend that deadline. If reasonably necessary, we may extend
-              by another 45 days and explain why within the first 45. Deletion includes asking the
-              providers that hold the data to delete it. Crash and error reports already sent to
-              Sentry are kept for up to 90 days, and performance data for up to 30 days, and are
-              then deleted automatically. Supabase&apos;s daily backups are kept for 7 days. Firebase
-              may keep limited security records or backups for a short time under its own policies.
+              by another 45 days and explain why within the first 45. Deletion removes the data
+              from our app databases: Supabase, and Firebase for app versions that use it. Copies held
+              by providers expire on their own schedules. Crash and error reports sent to Sentry do
+              not include your account ID or the text you write, and Sentry deletes them automatically
+              after up to 90 days (performance data after up to 30 days). Copies in Supabase’s and
+              Firebase’s backups are removed as those backups expire, within six months.
               Withdrawing consent stops future collection or sharing and may make the affected
               features unavailable; it does not delete existing records.
             </p>
