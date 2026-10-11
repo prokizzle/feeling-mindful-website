@@ -26,6 +26,7 @@ const navigation = [
     links: [
       { title: 'Privacy Policy', href: '/privacy' },
       { title: 'GoodParts Consumer Health Privacy', href: 'https://goodparts.ai/consumer-health-privacy' },
+      { title: 'Becoming One Consumer Health Privacy', href: '/apps/becoming-one/consumer-health-privacy' },
       { title: 'Terms of Service', href: '/terms' },
       { title: 'Delete My Data', href: '/data-deletion' },
     ],

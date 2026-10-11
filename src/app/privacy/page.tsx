@@ -48,6 +48,10 @@ export default function PrivacyPage() {
               Those policies govern data handling for GoodParts; the general provider
               examples below are not its recipient inventory.
             </p>
+            <p>
+              Becoming One&apos;s consumer health data is described in its{' '}
+              <Link href="/apps/becoming-one/consumer-health-privacy">Consumer Health Data Privacy Policy</Link>.
+            </p>
             <h2>Information We Collect</h2>
             <h3>Information you provide</h3>
             <ul>
