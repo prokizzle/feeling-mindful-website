@@ -139,6 +139,7 @@ export default function DataDeletionPage() {
             <ul className="mt-4 space-y-3 text-sm text-ink-muted">
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">1.</span>
+                <span>
                 If you never signed in with Apple or Google, your account has no
                 email address. GoodParts and Simple Rituals let you delete it
                 inside the app. Becoming One does not yet, so email{' '}
@@ -148,6 +149,7 @@ export default function DataDeletionPage() {
                 and we will work with you to find your account. For linked
                 accounts, we’ll check that your email address matches an account
                 in our system.
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">2.</span>
