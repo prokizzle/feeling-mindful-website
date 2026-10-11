@@ -37,7 +37,7 @@ export default function BecomingOnePrivacy() {
       ]}
       implicitConsent={false}
       dataSharingDescription="We share data with the service providers listed above to operate Becoming One. Under their own terms, Sentry may use non-identifying service data to improve its products, and Expo may keep and use de-identified or aggregated data."
-      retentionDescription="In app versions that use Firebase, your reflections are kept until you ask us to remove them: there is no automatic time limit yet, and deleting a Feeling Mindful account does not remove data held in Firebase. Email privacy@feelingmindful.com to have it removed. In app versions that use Supabase (none released yet), they are deleted with your account, and an anonymous account is deleted after 12 months without use. See the Consumer Health Data Privacy Policy for details and backup schedules."
+      retentionDescription="In app versions that use Firebase, your reflections are kept until you ask us to remove them: there is no automatic time limit yet, and deleting a Feeling Mindful account does not remove data held in Firebase. Email privacy@feelingmindful.com to have it removed. In app versions that use Supabase (none released yet), they are deleted with your account, and an anonymous account is deleted after 12 months without use. See the Consumer Health Data Privacy Policy for details and backup schedules. Sentry deletes crash reports and error details automatically after up to 90 days, and performance traces after up to 30 days. Expo keeps app update check records under its own retention periods. Mindful minutes stay in Apple Health or Health Connect, on your device or in your Apple or Google account, until you delete them there."
     >
       <h2>Health data</h2>
       <p>
@@ -59,6 +59,16 @@ export default function BecomingOnePrivacy() {
         Using the app, or reading this policy, is not consent. Where we need your consent, for
         example to write to Apple Health or Health Connect, we ask for it separately. If we change
         how we use or share health data, we will ask for your consent first.
+      </p>
+
+      {/* BOI-37: Becoming One's App Store availability excludes the EEA, the UK and Switzerland
+          (set 2026-10-11). Offering it there again needs the full GDPR disclosures first. */}
+      <h2 id="eea-uk-switzerland">EEA, UK and Switzerland</h2>
+      <p>
+        Becoming One is not offered in the European Economic Area, the United Kingdom or
+        Switzerland. If you use it from there, email{' '}
+        <a href="mailto:privacy@feelingmindful.com">privacy@feelingmindful.com</a> and we will
+        handle your request under the law that applies to you.
       </p>
     </PrivacyPolicy>
   )
