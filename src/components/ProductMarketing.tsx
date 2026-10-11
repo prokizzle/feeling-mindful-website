@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BETA_EMAIL, GOODPARTS_BETA_URL } from '@/lib/apps'
+import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 
 export function Arrow() {
   return (
@@ -18,16 +18,25 @@ export function Arrow() {
   )
 }
 
-export function BetaAction() {
+export function StoreActions() {
   return (
-    <div className="beta-action">
-      <a href={GOODPARTS_BETA_URL} className="action-primary">
-        Request beta access <Arrow />
+    <div className="store-actions">
+      <a
+        href={GOODPARTS_APP_STORE_URL}
+        className="action-primary"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Download on the App Store <Arrow />
       </a>
-      <p>
-        Opens your email app. You can also write to{' '}
-        <a href={`mailto:${BETA_EMAIL}`}>{BETA_EMAIL}</a>.
-      </p>
+      <a
+        href={GOODPARTS_PLAY_URL}
+        className="action-secondary"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Get it on Google Play <Arrow />
+      </a>
     </div>
   )
 }

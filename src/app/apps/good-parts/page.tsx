@@ -4,15 +4,15 @@ import { RootLayout } from '@/components/RootLayout'
 import { GoodPartsPreview } from '@/components/ProductPreview'
 import {
   AppIdentity,
-  BetaAction,
   GoodPartsSteps,
   ProductLegal,
+  StoreActions,
 } from '@/components/ProductMarketing'
 
 export const metadata: Metadata = {
   title: 'GoodParts — Get to know every part of you',
   description:
-    'An IFS-informed voice journal for exploring your inner parts and noticing patterns over time. In development. Request beta access by email.',
+    'An IFS-informed voice journal for exploring your inner parts and noticing patterns over time. On the App Store and Google Play.',
 }
 
 export default function GoodPartsPage() {
@@ -24,7 +24,7 @@ export default function GoodPartsPage() {
             <AppIdentity
               name="GoodParts"
               icon="/icons/good-parts-icon.png"
-              status="Coming soon"
+              status="Live"
             />
             <h1>
               Your inner world,
@@ -37,7 +37,7 @@ export default function GoodPartsPage() {
               patterns into view.
             </p>
             <div className="hero-actions">
-              <BetaAction />
+              <StoreActions />
               <a className="text-link" href="https://goodparts.ai">
                 Visit goodparts.ai
               </a>
@@ -75,13 +75,13 @@ export default function GoodPartsPage() {
           </div>
         </section>
         <section className="beta-section">
-          <h2>Help shape GoodParts.</h2>
+          <h2>Get GoodParts.</h2>
           <p>
-            GoodParts isn’t publicly available yet. Email Nick to express
-            interest in trying the beta. Access is not automatic, and there is
-            no purchase required to send a request.
+            GoodParts is on the App Store for iPhone and on Google Play for
+            Android. Questions or feedback? Write to Nick at{' '}
+            <a href="mailto:nick@feelingmindful.com">nick@feelingmindful.com</a>.
           </p>
-          <BetaAction />
+          <StoreActions />
         </section>
         <p className="quiet-note">
           GoodParts is for personal reflection, not diagnosis, treatment, or

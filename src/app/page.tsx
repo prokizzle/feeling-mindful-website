@@ -8,9 +8,9 @@ import { GoodPartsPreview, RitualsPreview } from '@/components/ProductPreview'
 import {
   AppIdentity,
   Arrow,
-  BetaAction,
   CommunityProjects,
   GoodPartsSteps,
+  StoreActions,
 } from '@/components/ProductMarketing'
 
 export const metadata: Metadata = {
@@ -38,13 +38,14 @@ export default function Home() {
               what connects over time.
             </p>
             <div className="hero-actions">
-              <BetaAction />
+              <StoreActions />
               <a className="text-link" href="https://goodparts.ai">
                 Visit goodparts.ai <Arrow />
               </a>
             </div>
             <p className="availability">
-              In development · Beta requests welcome
+              Available now on the App Store for iPhone and on Google Play for
+              Android
             </p>
           </div>
           <GoodPartsPreview />
@@ -73,7 +74,7 @@ export default function Home() {
             <AppIdentity
               name="Simple Rituals"
               icon="/icons/simple-rituals-icon.png"
-              status="Coming soon"
+              status="Live"
             />
             <h2>
               Make room for
@@ -92,8 +93,7 @@ export default function Home() {
               Explore Simple Rituals <Arrow />
             </Link>
             <p className="quiet-note">
-              Morning will be free. Unlock the full day with a one-time
-              purchase.
+              Morning is free. Unlock the full day with a one-time purchase.
             </p>
           </div>
         </section>

@@ -83,9 +83,9 @@ export default function SimpleRitualsPage() {
           </h2>
           <div>
             <p>
-              At launch, the morning window will be free. A single lifetime
-              purchase will unlock afternoon and evening. No recurring
-              subscription for the full-day unlock.
+              The morning window is free. A single lifetime purchase unlocks
+              afternoon and evening. No recurring subscription for the
+              full-day unlock.
             </p>
             <p>
               Start without an account, then optionally link one to make your
@@ -97,7 +97,7 @@ export default function SimpleRitualsPage() {
           <h2>Make space for reflection, too.</h2>
           <p>
             A daily ritual can be a few minutes of listening to yourself.
-            GoodParts, our flagship voice journal, is being built for that
+            GoodParts, our flagship voice journal, is made for that
             conversation.
           </p>
           <Link href="/apps/good-parts" className="text-link">

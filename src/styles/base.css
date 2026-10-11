@@ -161,20 +161,32 @@ h3 {
 .action-primary:hover {
   opacity: 0.85;
 }
+.action-secondary {
+  display: inline-flex;
+  min-height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid var(--edge-strong);
+  border-radius: 12px;
+  padding: 13px 23px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  transition: border-color 180ms ease;
+}
+.action-secondary:hover {
+  border-color: var(--ink);
+}
 .action-primary svg,
+.action-secondary svg,
 .text-link svg {
   flex: none;
 }
-.beta-action > p {
-  max-width: 330px;
-  margin-top: 12px;
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
-.beta-action > p a {
-  text-decoration: underline;
-  overflow-wrap: anywhere;
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .text-link {
   display: inline-flex;
@@ -597,7 +609,7 @@ h3 {
   letter-spacing: -0.03em;
   margin: 30px 0 24px;
 }
-.feature-copy .beta-action,
+.feature-copy .store-actions,
 .feature-copy > .action-primary {
   margin-top: 28px;
 }
@@ -624,7 +636,11 @@ h3 {
   max-width: 660px;
   margin-top: 20px;
 }
-.beta-section .beta-action,
+.beta-section > p a {
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+.beta-section .store-actions,
 .beta-section > .text-link {
   margin-top: 24px;
 }
