@@ -22,8 +22,8 @@ Self-hosted DM Serif Display regular for headings; DM Sans 400/500/700 for body 
 
 ## Components and behavior
 
-ProductMarketing shares product identity, beta actions, legal links and community sections. ProductPreview recreates the supplied app screens in HTML/CSS, using theme-aware surfaces without the store posters’ backgrounds or marketing headlines. Previews are noninteractive and clearly labeled as sample content. Native details/summary handles mobile navigation with Escape-to-close and focus return. Links have visible focus; reduced-motion preferences disable decorative motion.
+ProductMarketing shares product identity, store actions, legal links and community sections. ProductPreview recreates the supplied app screens in HTML/CSS, using theme-aware surfaces without the store posters’ backgrounds or marketing headlines. Previews are noninteractive and clearly labeled as sample content. Native details/summary handles mobile navigation with Escape-to-close and focus return. Links have visible focus; reduced-motion preferences disable decorative motion.
 
 ## Content
 
-GoodParts comes first, followed by Simple Rituals, CardioEngine and community work. Do not imply GoodParts or Simple Rituals can currently be downloaded. Beta enquiries open the visitor’s email app; no mailing list or checkout exists. Preserve legal text and truthful processing disclosures.
+GoodParts comes first on the homepage, followed by Simple Rituals and community work. CardioEngine stays in the app directory, footer and its own pages, not the homepage. GoodParts and Simple Rituals link to their store listings; no mailing list or web checkout exists. Preserve legal text and truthful processing disclosures.

@@ -12,7 +12,7 @@ Existing Next.js 15 application with TypeScript, Tailwind CSS, and Framer Motion
 
 ## Users
 
-People looking for grounded tools for self-discovery, mindfulness, routines, and fitness. The primary website job is to introduce GoodParts and invite beta enquiries.
+People looking for grounded tools for self-discovery, mindfulness, routines, and fitness. The primary website job is to introduce GoodParts and send visitors to its store listings.
 
 ## Product Purpose
 
@@ -24,7 +24,7 @@ The company builds reflective, human-centered apps. It does not offer consulting
 
 ## Operating Context
 
-Visitors discover GoodParts, then complementary apps and community work. The site works on desktop and mobile in light and dark themes. GoodParts and Simple Rituals are not publicly available. Beta access is requested by email, not a signup system or preorder.
+Visitors discover GoodParts, then complementary apps and community work. The site works on desktop and mobile in light and dark themes. GoodParts is live on the App Store and Google Play; Simple Rituals is live on the App Store. Downloads go through those store listings.
 
 ## Capabilities and Constraints
 

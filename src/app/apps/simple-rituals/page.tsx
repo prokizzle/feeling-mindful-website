@@ -3,9 +3,13 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
 import { RitualsPreview } from '@/components/ProductPreview'
-import { AppIdentity, Arrow, ProductLegal } from '@/components/ProductMarketing'
-
-const appStoreUrl = 'https://apps.apple.com/us/app/simple-rituals/id6762166301'
+import {
+  AppIdentity,
+  Arrow,
+  ProductLegal,
+  StoreActions,
+} from '@/components/ProductMarketing'
+import { SIMPLE_RITUALS_STORE_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
   title: 'Simple Rituals — Find your daily rhythm',
@@ -34,16 +38,9 @@ export default function SimpleRitualsPage() {
               gentle structure to your morning, afternoon, and evening, with
               room for plans to change.
             </p>
-            <a
-              className="action-primary"
-              href={appStoreUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Download on the App Store <Arrow />
-            </a>
+            <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
             <p className="quiet-note">
-              Available now on the App Store.
+              Free to start. Unlock the full day with a one-time purchase.
             </p>
           </div>
           <RitualsPreview />

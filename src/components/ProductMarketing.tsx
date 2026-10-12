@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 
 export function Arrow() {
   return (
@@ -18,25 +17,33 @@ export function Arrow() {
   )
 }
 
-export function StoreActions() {
+export function StoreActions({
+  appStoreUrl,
+  playUrl,
+}: {
+  appStoreUrl: string
+  playUrl?: string
+}) {
   return (
     <div className="store-actions">
       <a
-        href={GOODPARTS_APP_STORE_URL}
+        href={appStoreUrl}
         className="action-primary"
         target="_blank"
         rel="noreferrer"
       >
         Download on the App Store <Arrow />
       </a>
-      <a
-        href={GOODPARTS_PLAY_URL}
-        className="action-secondary"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Get it on Google Play <Arrow />
-      </a>
+      {playUrl && (
+        <a
+          href={playUrl}
+          className="action-secondary"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Get it on Google Play <Arrow />
+        </a>
+      )}
     </div>
   )
 }
@@ -102,34 +109,34 @@ export function CommunityProjects() {
       </div>
       <div className="community-projects">
         <a href="https://playaos.app">
-          <h3>
-            PlayaOS <Arrow />
-          </h3>
+          <h3>PlayaOS</h3>
           <p>
             Software for the work of running a camp: bringing members, planning,
             and administration together.
           </p>
-          <span>Visit PlayaOS</span>
+          <span>
+            Visit PlayaOS <Arrow />
+          </span>
         </a>
         <a href="https://wafflecamp.com">
-          <h3>
-            Waffles &amp; House <Arrow />
-          </h3>
+          <h3>Waffles &amp; House</h3>
           <p>
             A website and published mobile app for our Burning Man camp. A place
             for campmates to prepare, participate, and stay connected.
           </p>
-          <span>Explore the camp &amp; app</span>
+          <span>
+            Explore the camp &amp; app <Arrow />
+          </span>
         </a>
         <a href="https://brcpickleballclub.com">
-          <h3>
-            BRC Pickleball Club <Arrow />
-          </h3>
+          <h3>BRC Pickleball Club</h3>
           <p>
             The website I built for the camp I joined at Burning Man in 2026. A
             home for the camp’s plans, practical details, and community.
           </p>
-          <span>Visit the camp website</span>
+          <span>
+            Visit the camp website <Arrow />
+          </span>
         </a>
       </div>
       <p className="community-note">

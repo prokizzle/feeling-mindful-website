@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
 import { Arrow, StoreActions } from '@/components/ProductMarketing'
+import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
@@ -41,7 +42,10 @@ export default function Contact() {
             <p>
               It’s on the App Store for iPhone and on Google Play for Android.
             </p>
-            <StoreActions />
+            <StoreActions
+              appStoreUrl={GOODPARTS_APP_STORE_URL}
+              playUrl={GOODPARTS_PLAY_URL}
+            />
           </section>
         </section>
       </Container>

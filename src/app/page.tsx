@@ -1,8 +1,12 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
+import {
+  GOODPARTS_APP_STORE_URL,
+  GOODPARTS_PLAY_URL,
+  SIMPLE_RITUALS_STORE_URL,
+} from '@/lib/apps'
 import { ContactSection } from '@/components/ContactSection'
 import { GoodPartsPreview, RitualsPreview } from '@/components/ProductPreview'
 import {
@@ -38,7 +42,10 @@ export default function Home() {
               what connects over time.
             </p>
             <div className="hero-actions">
-              <StoreActions />
+              <StoreActions
+                appStoreUrl={GOODPARTS_APP_STORE_URL}
+                playUrl={GOODPARTS_PLAY_URL}
+              />
               <a className="text-link" href="https://goodparts.ai">
                 Visit goodparts.ai <Arrow />
               </a>
@@ -89,6 +96,7 @@ export default function Home() {
               Choose your priorities. Make time for a small ritual. Postpone
               when you need to. There is always room to begin again.
             </p>
+            <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
             <Link href="/apps/simple-rituals" className="text-link">
               Explore Simple Rituals <Arrow />
             </Link>
@@ -97,28 +105,9 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="cardio-feature">
-          <Image
-            src="/icons/cardioengine-icon.png"
-            width={72}
-            height={72}
-            alt=""
-          />
-          <div>
-            <h2>CardioEngine</h2>
-            <p>
-              My first published app. Heart-rate zones and live workout guidance
-              for iPhone and Apple Watch.
-            </p>
-            <span className="availability">Available now</span>
-          </div>
-          <Link href="/apps/cardioengine" className="text-link">
-            Find your pace <Arrow />
-          </Link>
-        </section>
         <CommunityProjects />
         <section className="founder-note">
-          <h2>Made with a personal purpose.</h2>
+          <h2 className="sr-only">Made with a personal purpose.</h2>
           <p>
             I’m Nick, the founder of Feeling Mindful Labs. GoodParts is my main
             focus. Alongside it, I’m building tools for daily life and giving

@@ -27,6 +27,11 @@
   --grid-line: rgba(32, 38, 29, 1);
   --grad-a: var(--color-sage-600);
   --grad-b: var(--color-dawn-600);
+  --clay: #80582f;
+  --on-clay: #fbfaf7;
+  --selection: #c4956a;
+  --on-selection: #2e3b2a;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
 
@@ -45,6 +50,8 @@
   --grid-line: rgba(255, 255, 255, 1);
   --grad-a: var(--color-sage-400);
   --grad-b: var(--color-dawn-400);
+  --selection: #c4ad88;
+  --on-selection: #1a1e18;
   color-scheme: dark;
 }
 
