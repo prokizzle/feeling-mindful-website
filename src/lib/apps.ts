@@ -17,6 +17,8 @@ export const SUPPORT_URL = '/support'
 export const GOODPARTS_APP_STORE_URL = 'https://apps.apple.com/app/id6757692886'
 export const GOODPARTS_PLAY_URL =
   'https://play.google.com/store/apps/details?id=com.feelingmindful.goodparts'
+export const SIMPLE_RITUALS_STORE_URL =
+  'https://apps.apple.com/us/app/simple-rituals/id6762166301'
 export const CARDIOENGINE_STORE_URL = 'https://apps.apple.com/app/id6761030036'
 
 export const apps: AppInfo[] = [

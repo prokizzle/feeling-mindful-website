@@ -8,6 +8,7 @@ import {
   ProductLegal,
   StoreActions,
 } from '@/components/ProductMarketing'
+import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
   title: 'GoodParts — Get to know every part of you',
@@ -37,7 +38,10 @@ export default function GoodPartsPage() {
               patterns into view.
             </p>
             <div className="hero-actions">
-              <StoreActions />
+              <StoreActions
+                appStoreUrl={GOODPARTS_APP_STORE_URL}
+                playUrl={GOODPARTS_PLAY_URL}
+              />
               <a className="text-link" href="https://goodparts.ai">
                 Visit goodparts.ai
               </a>
@@ -81,7 +85,10 @@ export default function GoodPartsPage() {
             Android. Questions or feedback? Write to Nick at{' '}
             <a href="mailto:nick@feelingmindful.com">nick@feelingmindful.com</a>.
           </p>
-          <StoreActions />
+          <StoreActions
+            appStoreUrl={GOODPARTS_APP_STORE_URL}
+            playUrl={GOODPARTS_PLAY_URL}
+          />
         </section>
         <p className="quiet-note">
           GoodParts is for personal reflection, not diagnosis, treatment, or
