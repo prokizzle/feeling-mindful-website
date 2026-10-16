@@ -11,8 +11,9 @@ import { RootLayout } from '@/components/RootLayout'
  * BecomingOne app (apps/becomingone in the goodparts monorepo) rather than copied across:
  * - Apple Health and Health Connect: write-only, one mindful-session sample (start and end) per
  *   finished session; nothing is read.
- * - Reflections and moods: Firestore users/{uid}/reflections (Firebase builds) or Supabase.
- * - Session records: Supabase builds (none released yet).
+ * - Reflections and moods: Firestore users/{uid}/reflections (released Firebase builds). Supabase
+ *   builds (none released yet) keep them, and session records, only on the phone (BOI-42,
+ *   becomingone decision 020); Supabase holds the anonymous account, the catalog and the audio.
  * - No analytics SDK, no AI or server-side processing of content.
  * - Sentry: content scrubbed, no replay, a 5% trace sample.
  * - Expo: update checks.
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     'How Becoming One collects and uses consumer health data, who receives it, and your privacy rights under Washington law.',
 }
 
-const LAST_UPDATED = 'October 11, 2026'
+const LAST_UPDATED = 'October 15, 2026'
 const CONTACT_EMAIL = 'privacy@feelingmindful.com'
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=Becoming%20One%20privacy%20request`
 
@@ -65,10 +66,10 @@ export default function BecomingOneConsumerHealthPrivacy() {
                 show your progress, unlock courses and suggest what to play next.
               </li>
               <li>
-                In app versions that use Supabase, a record of each meditation you finish: which one,
-                how long, and when. It can reveal that you use a mental-wellbeing service. We keep it
-                as a record of your practice, move it to your account when you sign in, and use it to
-                tell whether an account is still in use.
+                In app versions that use Supabase (none released yet), a record of each meditation you
+                finish: which one, how long, and when. It can reveal that you use a mental-wellbeing
+                service. The app keeps it only on your phone, as a record of your practice, and does
+                not send it to us.
               </li>
               <li>
                 Mindful minutes. If you allow it, when you finish a session the app writes one
@@ -104,8 +105,10 @@ export default function BecomingOneConsumerHealthPrivacy() {
               </li>
               <li>
                 <strong>Supabase</strong>: in app versions that use Supabase (none released yet),
-                sign-in accounts, meditation audio,
-                your reflections, and records of the meditations you finish.
+                your anonymous account, which records the IP address and device and app information
+                it was used from; the meditation catalog and audio the app plays; and logs of the
+                requests the app makes. It does not receive your reflections or meditation history,
+                which stay on your phone.
               </li>
               <li>
                 <strong>Sentry</strong>: each time the app opens, a short app-start record with a
@@ -173,13 +176,13 @@ export default function BecomingOneConsumerHealthPrivacy() {
               Firebase account. Your reflections are kept in Firebase until you ask us to remove them;
               there is no automatic time limit yet. Deleting a Feeling Mindful account, for example
               from GoodParts’ Settings, does not remove data held in Firebase. In app versions that
-              use Supabase, Becoming One signs you in with a Feeling Mindful account that our other
-              apps can share, and deleting that account also deletes the reflections and meditation
-              records Becoming One saved to it. If you continue without signing in there, your account
-              is anonymous. We delete an anonymous account, with the reflections and meditation records
-              saved to it, after 12 months without use. We keep it longer only while it has an active
-              subscription, an open privacy request or a sign-in still in progress, or while we have
-              placed a recorded hold on it, such as on a test account. Opening the app, or signing in, keeps it.
+              use Supabase, Becoming One has no sign-in. It uses an anonymous account that is never shared with our other apps, and keeps your reflections and meditation
+              history only on your phone. Delete my data in the app’s Settings deletes that account and
+              removes your practice data from your phone. We delete an anonymous account and everything
+              saved to it after 12 months without use, the same way as deleting it yourself with Delete my
+              data, including asking our service providers to delete their copies, where they hold any. We
+              keep it longer only while a privacy request or appeal of yours is still open, or while we have
+              set it aside on purpose. Opening the app keeps it.
             </p>
             <p>
               We respond without undue delay and within 45 days of receiving your request;
