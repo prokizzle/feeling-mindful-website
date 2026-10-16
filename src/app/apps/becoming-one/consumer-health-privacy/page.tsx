@@ -11,8 +11,9 @@ import { RootLayout } from '@/components/RootLayout'
  * BecomingOne app (apps/becomingone in the goodparts monorepo) rather than copied across:
  * - Apple Health and Health Connect: write-only, one mindful-session sample (start and end) per
  *   finished session; nothing is read.
- * - Reflections and moods: Firestore users/{uid}/reflections (Firebase builds) or Supabase.
- * - Session records: Supabase builds (none released yet).
+ * - Reflections and moods: Firestore users/{uid}/reflections (released Firebase builds). Supabase
+ *   builds (none released yet) keep them, and session records, only on the phone (BOI-42,
+ *   becomingone decision 020); Supabase holds the anonymous account, the catalog and the audio.
  * - No analytics SDK, no AI or server-side processing of content.
  * - Sentry: content scrubbed, no replay, a 5% trace sample.
  * - Expo: update checks.
@@ -65,10 +66,10 @@ export default function BecomingOneConsumerHealthPrivacy() {
                 show your progress, unlock courses and suggest what to play next.
               </li>
               <li>
-                In app versions that use Supabase, a record of each meditation you finish: which one,
-                how long, and when. It can reveal that you use a mental-wellbeing service. We keep it
-                as a record of your practice, move it to your account when you sign in, and use it to
-                tell whether an account is still in use.
+                In app versions that use Supabase (none released yet), a record of each meditation you
+                finish: which one, how long, and when. It can reveal that you use a mental-wellbeing
+                service. The app keeps it only on your phone, as a record of your practice, and does
+                not send it to us.
               </li>
               <li>
                 Mindful minutes. If you allow it, when you finish a session the app writes one
@@ -104,8 +105,10 @@ export default function BecomingOneConsumerHealthPrivacy() {
               </li>
               <li>
                 <strong>Supabase</strong>: in app versions that use Supabase (none released yet),
-                sign-in accounts, meditation audio,
-                your reflections, and records of the meditations you finish.
+                your anonymous account, which records the IP address and device and app information
+                it was used from; the meditation catalog and audio the app plays; and logs of the
+                requests the app makes. It does not receive your reflections or meditation history,
+                which stay on your phone.
               </li>
               <li>
                 <strong>Sentry</strong>: each time the app opens, a short app-start record with a
