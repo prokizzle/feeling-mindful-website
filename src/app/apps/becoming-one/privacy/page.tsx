@@ -22,12 +22,12 @@ export default function BecomingOnePrivacy() {
         'An app-start record with a random installation ID each time the app opens, crash reports and error details with device and app information when something goes wrong, and performance traces from a sample of app sessions (Sentry)',
       ]}
       thirdPartyServices={[
-        'Google Sign-In — authentication. GoodParts and BecomingOne use the same Google sign-in setup. If you sign in with Google in both apps, Google can tell that the same Google account uses both. To sign you in, the app asks Google only for your name, email address and profile picture. In app versions that use Firebase, Google Cloud also stores some app data, including your saved reflections, as listed in this section.',
-        'Apple Sign-In — authentication',
-        'Google Firebase — in app versions that use Firebase: sign-in accounts, meditation audio, and your saved reflections with the meditation, moods and time of each. This data stays in Firebase even if a later version of the app uses Supabase instead; contact us at privacy@feelingmindful.com for a copy or to have it removed.',
-        'Supabase — in app versions that use Supabase (none released yet): your anonymous account, which records the IP address and device and app information it was used from; the meditation catalog and audio the app plays; and logs of the requests the app makes. It does not receive your reflections or meditation history, which stay on your phone.',
-        'Expo (EAS Update) — app update checks, which include a random installation ID and your IP address',
-        'Sentry — an app-start record each time the app opens, crash reports and error details, and performance traces from a sample of sessions',
+        'Google Sign-In: authentication. GoodParts and BecomingOne use the same Google sign-in setup. If you sign in with Google in both apps, Google can tell that the same Google account uses both. To sign you in, the app asks Google only for your name, email address and profile picture. In app versions that use Firebase, Google Cloud also stores some app data, including your saved reflections, as listed in this section.',
+        'Apple Sign-In: authentication',
+        'Google Firebase: in app versions that use Firebase, sign-in accounts, meditation audio, and your saved reflections with the meditation, moods and time of each. This data stays in Firebase even if a later version of the app uses Supabase instead; contact us at privacy@feelingmindful.com for a copy or to have it removed.',
+        'Supabase: in app versions that use Supabase (none released yet), your anonymous account, which records the IP address and device and app information it was used from; the meditation catalog and audio the app plays; and logs of the requests the app makes. It does not receive your reflections or meditation history, which stay on your phone.',
+        'Expo (EAS Update): app update checks, which include a random installation ID and your IP address',
+        'Sentry: an app-start record each time the app opens, crash reports and error details, and performance traces from a sample of sessions',
       ]}
       devicePermissions={['Apple Health / Health Connect: writing mindful sessions (optional)']}
       dataUse={[
