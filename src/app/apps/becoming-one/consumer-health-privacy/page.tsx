@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'How Becoming One collects and uses consumer health data, who receives it, and your privacy rights under Washington law.',
 }
 
-const LAST_UPDATED = 'October 11, 2026'
+const LAST_UPDATED = 'October 15, 2026'
 const CONTACT_EMAIL = 'privacy@feelingmindful.com'
 const MAILTO = `mailto:${CONTACT_EMAIL}?subject=Becoming%20One%20privacy%20request`
 
@@ -173,13 +173,13 @@ export default function BecomingOneConsumerHealthPrivacy() {
               Firebase account. Your reflections are kept in Firebase until you ask us to remove them;
               there is no automatic time limit yet. Deleting a Feeling Mindful account, for example
               from GoodParts’ Settings, does not remove data held in Firebase. In app versions that
-              use Supabase, Becoming One signs you in with a Feeling Mindful account that our other
-              apps can share, and deleting that account also deletes the reflections and meditation
-              records Becoming One saved to it. If you continue without signing in there, your account
-              is anonymous. We delete an anonymous account, with the reflections and meditation records
-              saved to it, after 12 months without use. We keep it longer only while it has an active
-              subscription, an open privacy request or a sign-in still in progress, or while we have
-              placed a recorded hold on it, such as on a test account. Opening the app, or signing in, keeps it.
+              use Supabase, Becoming One has no sign-in. It uses an anonymous account that is never shared with our other apps, and keeps your reflections and meditation
+              history only on your phone. Delete my data in the app’s Settings deletes that account and
+              removes your practice data from your phone. We delete an anonymous account and everything
+              saved to it after 12 months without use, the same way as deleting it yourself with Delete my
+              data, including asking our service providers to delete their copies, where they hold any. We
+              keep it longer only while a privacy request or appeal of yours is still open, or while we have
+              set it aside on purpose. Opening the app keeps it.
             </p>
             <p>
               We respond without undue delay and within 45 days of receiving your request;
