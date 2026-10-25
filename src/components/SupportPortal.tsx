@@ -5,7 +5,12 @@ import { type FormEvent, useMemo, useState } from 'react'
 
 import { Container } from '@/components/Container'
 import { apps } from '@/lib/apps'
-import { supportCategories } from '@/lib/support'
+import {
+  isRightsRequest,
+  PRIVACY_INBOX,
+  type SupportCategory,
+  supportCategories,
+} from '@/lib/support'
 
 const faqs = [
   {
@@ -21,7 +26,7 @@ const faqs = [
   {
     question: 'How do I protect or export my data?',
     answer:
-      'Your app settings show the export and privacy controls available for that product. For an account copy or deletion, select Delete my data below.',
+      'Your app settings show the export and privacy controls available for that product. For a copy of your data, select Get a copy of my data below; to delete it, select Delete my data.',
   },
   {
     question: 'Can I suggest a feature?',
@@ -297,6 +302,12 @@ export function SupportPortal({
                     placeholder="What happened, what did you expect, and what have you tried?"
                     className="mt-2 w-full resize-y rounded-xl border border-edge-strong bg-raised px-4 py-3 text-ink outline-none placeholder:text-ink-faint focus:border-sage-500 focus:ring-4 focus:ring-sage-200/30"
                   />
+                  {isRightsRequest(category as SupportCategory) && (
+                    <span className="mt-2 block text-xs leading-5 text-ink-faint">
+                      Privacy requests go only to {PRIVACY_INBOX}, not to our
+                      support queue. We reply from that address.
+                    </span>
+                  )}
                 </label>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field
