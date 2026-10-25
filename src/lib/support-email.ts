@@ -182,6 +182,7 @@ export async function sendSupportEmail({
   issueId,
   idempotencyKey,
   inReplyTo,
+  replyTo,
 }: {
   to: string
   subject: string
@@ -189,6 +190,8 @@ export async function sendSupportEmail({
   issueId: string
   idempotencyKey: string
   inReplyTo?: string
+  // Replies go to the Linear relay unless set; rights requests answer from the privacy inbox.
+  replyTo?: string
 }) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { data, error } = await resend.emails.send(
@@ -197,7 +200,7 @@ export async function sendSupportEmail({
       to,
       subject,
       text,
-      replyTo: replyAddress(issueId),
+      replyTo: replyTo ?? replyAddress(issueId),
       headers: inReplyTo
         ? { 'In-Reply-To': inReplyTo, References: inReplyTo }
         : undefined,

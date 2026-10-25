@@ -20,7 +20,7 @@ export default function DataDeletionPage() {
           </h1>
           <p className="mt-6 text-ink-muted">
             You have the right to request deletion of your personal data. Select the app
-            below to submit a deletion request. We&apos;ll process it within 30 days.
+            below to submit a deletion request. We&apos;ll respond within 45 days of receiving it.
           </p>
           <p className="mt-4 text-sm text-ink-faint">
             This deletes the data your account holds in our app databases, including your profile,
@@ -140,15 +140,19 @@ export default function DataDeletionPage() {
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">1.</span>
                 <span>
-                If you never signed in with Apple or Google, your account has no
-                email address. GoodParts and Simple Rituals let you delete it
-                inside the app. Becoming One does not yet, so email{' '}
+                The quickest way is inside the app, because the app already knows
+                your account: GoodParts and Simple Rituals let you delete your data
+                in Settings. If you write to us about GoodParts instead, we&apos;ll
+                ask you to confirm the request from inside the app: Make a privacy
+                request under Settings › Privacy &amp; data gives you a reference to
+                send us. Becoming One can&apos;t delete your data in the app yet, so
+                email{' '}
                 <a href="mailto:privacy@feelingmindful.com" className="text-ink-muted underline hover:text-ink">
                   privacy@feelingmindful.com
                 </a>{' '}
-                and we will work with you to find your account. For linked
-                accounts, we’ll check that your email address matches an account
-                in our system.
+                and we&apos;ll work with you to find your account. We never ask for
+                your password, a sign-in code, a screenshot or your account ID.
+                Please never send us your journal entries.
                 </span>
               </li>
               <li className="flex gap-3">
@@ -157,7 +161,9 @@ export default function DataDeletionPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">3.</span>
-                We act on deletion requests within 30 days. Your data in our app
+                We respond within 45 days of receiving your request, even if
+                confirming it is you takes longer. If we need more time, we&apos;ll
+                tell you why within those 45 days and take at most 45 more. Your data in our app
                 databases is deleted, except a record of your request and our
                 answer, any other records the app’s privacy policy says we keep,
                 and, where an app keeps them, records of the consents you gave or
@@ -166,9 +172,7 @@ export default function DataDeletionPage() {
                 how long, email privacy@feelingmindful.com to ask. Copies in
                 providers’ backups, logs and crash reports are deleted on the
                 schedules, or under the provider policies, described in each app’s
-                privacy policy. If you live in Washington State, the deadlines in
-                the app’s Consumer Health Data Privacy Policy also apply: up to 45
-                days, which we may extend once by another 45.
+                privacy policy.
               </li>
               <li className="flex gap-3">
                 <span className="text-ink-faint font-medium">4.</span>
