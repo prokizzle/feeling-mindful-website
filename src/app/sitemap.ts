@@ -4,6 +4,8 @@ const BASE_URL = 'https://feelingmindful.com'
 
 // Hidden app pages and /the-collective stay live at their URLs but are
 // intentionally excluded here while those products are unannounced.
+// GoodParts' privacy and terms live on goodparts.ai; the /apps/good-parts copies only redirect
+// there, so they are left out too.
 const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: '/', priority: 1.0 },
   { path: '/apps', priority: 0.9 },
@@ -15,8 +17,6 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: '/privacy', priority: 0.3 },
   { path: '/terms', priority: 0.3 },
   { path: '/data-deletion', priority: 0.3 },
-  { path: '/apps/good-parts/privacy', priority: 0.3 },
-  { path: '/apps/good-parts/terms', priority: 0.3 },
   { path: '/apps/becoming-one/privacy', priority: 0.3 },
   { path: '/apps/simple-rituals/privacy', priority: 0.3 },
   { path: '/apps/simple-rituals/terms', priority: 0.3 },
