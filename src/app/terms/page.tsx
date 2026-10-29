@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 const APP_TERMS = [
-  { name: 'Good Parts', href: '/apps/good-parts/terms' },
+  { name: 'Good Parts', href: 'https://goodparts.ai/terms' },
   { name: 'Simple Rituals', href: '/apps/simple-rituals/terms' },
 ]
 
