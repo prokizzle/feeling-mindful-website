@@ -10,7 +10,7 @@ export default function SimpleRitualsPrivacy() {
   return (
     <PrivacyPolicy
       appName="Simple Rituals"
-      lastUpdated="2026-10-01"
+      lastUpdated="2026-10-30"
       dataCollected={[
         'A pseudonymous user ID created by Firebase Authentication so your data can be stored and retrieved',
         'Your email address if you choose to link your account using Sign in with Apple or Google',
@@ -61,6 +61,12 @@ export default function SimpleRitualsPrivacy() {
         Our service providers (Firebase, Sentry, RevenueCat, and Expo) receive
         your IP address and device and app information when the app connects to
         them, and use it for security and diagnostics.
+      </p>
+      <p>
+        Sharing an account does not combine your data. Simple Rituals uses only
+        what you saved in Simple Rituals and does not read your GoodParts journal.
+        If we ever build a feature that uses data from one of our apps in another,
+        we will ask you in the app first, and it will use nothing until you agree.
       </p>
     </PrivacyPolicy>
   )
