@@ -11,29 +11,14 @@ import rehypeUnwrapImages from 'rehype-unwrap-images'
 import shiki from 'shiki'
 import { unifiedConditional } from 'unified-conditional'
 
-import { resolvePosthogHosts } from './src/lib/analytics/posthog-hosts.mjs'
-
-const posthogHosts = resolvePosthogHosts(process.env.NEXT_PUBLIC_POSTHOG_HOST)
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  // PostHog's API paths end in a slash (/e/, /flags/); a redirect would
-  // drop the request body.
+  // The /ingest analytics relay lives in src/middleware.ts, not here: an
+  // external rewrite would forward every request header, cookies included.
+  // PostHog's API paths end in a slash (/e/, /flags/), and a redirect would
+  // drop the request body, so the trailing-slash redirect is off.
   skipTrailingSlashRedirect: true,
-  async rewrites() {
-    // Same-origin analytics proxy. /ingest/static must come first.
-    return [
-      {
-        source: '/ingest/static/:path*',
-        destination: `${posthogHosts.assets}/static/:path*`,
-      },
-      {
-        source: '/ingest/:path*',
-        destination: `${posthogHosts.ingest}/:path*`,
-      },
-    ]
-  },
   async redirects() {
     return [
       // Restores the trailing-slash redirect that skipTrailingSlashRedirect

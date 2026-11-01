@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { sanitizeEvent } from './events'
+import { sanitizeEvent } from './scrub'
 import { resolvePosthogHosts } from './posthog-hosts.mjs'
 import {
   POSTHOG_CONFIG,

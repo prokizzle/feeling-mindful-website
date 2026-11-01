@@ -1,6 +1,7 @@
 import type { PostHogConfig } from 'posthog-js'
 
-import { classifyClick, sanitizeEvent, type WebEvent } from './events'
+import { classifyClick, type WebEvent } from './events'
+import { sanitizeEvent } from './scrub'
 import { resolvePosthogHosts } from './posthog-hosts.mjs'
 
 /** Same-origin proxy path; next.config.mjs rewrites it to PostHog. */
