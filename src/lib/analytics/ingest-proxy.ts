@@ -32,8 +32,10 @@ export function isIngestPath(pathname: string): boolean {
 }
 
 /**
- * The PostHog URL an /ingest request goes to: /ingest/static/* to the assets
- * host, the rest to the ingest host. Null for any other path.
+ * The PostHog URL an /ingest request goes to. The SDK's scripts (/static/*)
+ * and remote config (/array/*) come from the assets host, as in PostHog's
+ * proxy guide; everything else goes to the ingest host. Null for any other
+ * path.
  */
 export function ingestUpstream(
   pathname: string,
@@ -42,7 +44,8 @@ export function ingestUpstream(
 ): string | null {
   if (!isIngestPath(pathname)) return null
   const rest = pathname.slice(INGEST_PATH.length) || '/'
-  const target = rest.startsWith('/static/') ? hosts.assets : hosts.ingest
+  const fromAssets = rest.startsWith('/static/') || rest.startsWith('/array/')
+  const target = fromAssets ? hosts.assets : hosts.ingest
   return `${target}${rest}${search}`
 }
 

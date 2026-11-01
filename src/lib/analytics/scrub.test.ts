@@ -104,6 +104,9 @@ describe('isAllowedPropertyKey', () => {
     ['$initial_utm_source', true],
     ['utm_campaign', true],
     ['cta', true],
+    ['token', true],
+    ['distinct_id', true],
+    ['title', true],
     ['$fbc', false],
     ['$fbp', false],
     ['$initial_gclid', false],
@@ -151,6 +154,23 @@ describe('sanitizeEvent', () => {
       utm_source: 's',
       cta: 'sample-cta',
       $geoip_disable: true,
+    })
+  })
+
+  it('keeps the SDK keys ingestion requires', () => {
+    // posthog-core.js adds these without a `$`; without token and
+    // distinct_id, ingestion rejects every event.
+    const result = sanitizeEvent(
+      event({
+        token: 'phc_sample',
+        distinct_id: '$posthog_cookieless',
+        title: 'Sample page',
+      }),
+    )
+    expect(result?.properties).toMatchObject({
+      token: 'phc_sample',
+      distinct_id: '$posthog_cookieless',
+      title: 'Sample page',
     })
   })
 

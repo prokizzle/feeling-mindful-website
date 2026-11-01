@@ -30,6 +30,12 @@ describe('ingestUpstream', () => {
     )
   })
 
+  it('sends remote config to the assets host', () => {
+    expect(
+      ingestUpstream('/ingest/array/phc_sample/config.js', '', HOSTS),
+    ).toBe('https://us-assets.i.posthog.com/array/phc_sample/config.js')
+  })
+
   it('sends everything else to the ingest host, keeping the query', () => {
     expect(ingestUpstream('/ingest/e/', '?ver=1', HOSTS)).toBe(
       'https://us.i.posthog.com/e/?ver=1',

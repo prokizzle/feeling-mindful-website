@@ -27,6 +27,13 @@ const INITIAL_PAGE_KEYS = new Set([
   'pathname',
 ])
 
+/**
+ * The SDK's own keys without a `$` (posthog-core.js): ingestion rejects an
+ * event without `token` and `distinct_id` (the cookieless sentinel here), and
+ * `title` is the page's document title.
+ */
+const SDK_PLAIN_KEYS = new Set(['token', 'distinct_id', 'title'])
+
 /** Ad click and browser ids the SDK derives from URLs or ad cookies. */
 const DROPPED_SDK_KEYS = new Set(['$fbc', '$fbp'])
 
@@ -142,7 +149,7 @@ export function isAllowedPropertyKey(key: string): boolean {
     return UTM.test(rest) || INITIAL_PAGE_KEYS.has(rest)
   }
   if (key.startsWith('$')) return true
-  return UTM.test(key) || NAMED_EVENT_KEYS.has(key)
+  return UTM.test(key) || NAMED_EVENT_KEYS.has(key) || SDK_PLAIN_KEYS.has(key)
 }
 
 type Properties = Record<string, unknown>
