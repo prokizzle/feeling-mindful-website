@@ -1,10 +1,11 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { ctaAttributes } from './events'
+import { sanitizeEvent } from './events'
 import { resolvePosthogHosts } from './posthog-hosts.mjs'
 import {
   POSTHOG_CONFIG,
+  clickLocation,
   readPosthogKey,
   startAnalytics,
   type AnalyticsClient,
@@ -17,8 +18,8 @@ function fakeClient() {
   }
 }
 
-function freshDocument() {
-  return document.implementation.createHTMLDocument('test')
+function render(html: string) {
+  document.body.innerHTML = html
 }
 
 describe('readPosthogKey', () => {
@@ -32,16 +33,24 @@ describe('readPosthogKey', () => {
 })
 
 describe('POSTHOG_CONFIG', () => {
-  it('is cookieless, profile-free, and never records sessions', () => {
+  it('is cookieless, profile-free, and turns off everything but analytics', () => {
     expect(POSTHOG_CONFIG).toMatchObject({
       api_host: '/ingest',
+      ui_host: 'https://us.posthog.com',
       cookieless_mode: 'always',
       persistence: 'memory',
       person_profiles: 'never',
-      disable_session_recording: true,
-      autocapture: true,
       capture_pageview: 'history_change',
+      autocapture: true,
       capture_heatmaps: true,
+      disable_session_recording: true,
+      disable_surveys: true,
+      disable_web_experiments: true,
+      advanced_disable_flags: true,
+      capture_exceptions: false,
+      capture_performance: false,
+      capture_dead_clicks: false,
+      before_send: sanitizeEvent,
     })
   })
 })
@@ -70,11 +79,31 @@ describe('resolvePosthogHosts', () => {
   })
 })
 
+describe('clickLocation', () => {
+  it('prefers an explicit data-analytics-location', () => {
+    render(
+      '<section id="hero"><div data-analytics-location="pricing"><a id="t" href="/">x</a></div></section>',
+    )
+    expect(clickLocation(document.getElementById('t')!)).toBe('pricing')
+  })
+
+  it('uses the nearest section id', () => {
+    render('<section id="download"><a id="t" href="/">x</a></section>')
+    expect(clickLocation(document.getElementById('t')!)).toBe('download')
+  })
+
+  it('falls back to the landmark, then to page', () => {
+    render('<footer><a id="t" href="/">x</a></footer><a id="u" href="/">y</a>')
+    expect(clickLocation(document.getElementById('t')!)).toBe('footer')
+    expect(clickLocation(document.getElementById('u')!)).toBe('page')
+  })
+})
+
 describe('startAnalytics', () => {
   let doc: Document
 
   beforeEach(() => {
-    doc = freshDocument()
+    doc = document.implementation.createHTMLDocument('test')
   })
 
   it('does nothing without a key', () => {
@@ -93,36 +122,48 @@ describe('startAnalytics', () => {
     expect(client.init).toHaveBeenCalledWith('phc_sample', POSTHOG_CONFIG)
   })
 
-  it('captures a named event when a tagged link (or its child) is clicked', () => {
+  it('captures app_store_clicked from a click inside a store link', () => {
     const client = fakeClient()
     startAnalytics(client, 'phc_sample', doc)
+    doc.body.innerHTML =
+      '<section id="hero"><a href="https://apps.apple.com/app/id6757692886"><span id="t">Get</span></a></section>'
 
-    const link = doc.createElement('a')
-    link.href = 'https://other.example/x'
-    for (const [name, value] of Object.entries(ctaAttributes('sample-cta'))) {
-      link.setAttribute(name, value)
-    }
-    const label = doc.createElement('span')
-    link.append(label)
-    doc.body.append(link)
-
-    label.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    doc
+      .getElementById('t')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }))
 
     expect(client.capture).toHaveBeenCalledWith(
-      'cta_clicked',
-      { cta: 'sample-cta', destination: 'other.example' },
+      'app_store_clicked',
+      { app: 'goodparts', store: 'ios', location: 'hero' },
       { transport: 'sendBeacon' },
     )
   })
 
-  it('ignores clicks on untagged elements', () => {
+  it('captures cta_clicked for a button-styled link', () => {
     const client = fakeClient()
     startAnalytics(client, 'phc_sample', doc)
+    doc.body.innerHTML =
+      '<main><a id="t" class="action-primary" href="https://other.example/x">Go</a></main>'
 
-    const link = doc.createElement('a')
-    link.href = '/plain'
-    doc.body.append(link)
-    link.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    doc
+      .getElementById('t')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+    expect(client.capture).toHaveBeenCalledWith(
+      'cta_clicked',
+      { cta: 'main:other.example', destination: 'other.example' },
+      { transport: 'sendBeacon' },
+    )
+  })
+
+  it('ignores ordinary links', () => {
+    const client = fakeClient()
+    startAnalytics(client, 'phc_sample', doc)
+    doc.body.innerHTML = '<a id="t" href="/plain">x</a>'
+
+    doc
+      .getElementById('t')!
+      .dispatchEvent(new MouseEvent('click', { bubbles: true }))
 
     expect(client.capture).not.toHaveBeenCalled()
   })

@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { appStoreAttributes, type AppId } from '@/lib/analytics/events'
-
 export function Arrow() {
   return (
     <svg
@@ -20,14 +18,9 @@ export function Arrow() {
 }
 
 export function StoreActions({
-  app,
-  location,
   appStoreUrl,
   playUrl,
 }: {
-  app: AppId
-  /** The id of the section the buttons sit in, reported with each click. */
-  location: string
   appStoreUrl: string
   playUrl?: string
 }) {
@@ -38,7 +31,6 @@ export function StoreActions({
         className="action-primary"
         target="_blank"
         rel="noreferrer"
-        {...appStoreAttributes(app, 'ios', location)}
       >
         Download on the App Store <Arrow />
       </a>
@@ -48,7 +40,6 @@ export function StoreActions({
           className="action-secondary"
           target="_blank"
           rel="noreferrer"
-          {...appStoreAttributes(app, 'android', location)}
         >
           Get it on Google Play <Arrow />
         </a>

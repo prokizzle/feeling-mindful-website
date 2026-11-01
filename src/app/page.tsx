@@ -7,7 +7,6 @@ import {
   GOODPARTS_PLAY_URL,
   SIMPLE_RITUALS_STORE_URL,
 } from '@/lib/apps'
-import { ctaAttributes } from '@/lib/analytics/events'
 import { ContactSection } from '@/components/ContactSection'
 import { GoodPartsPreview, RitualsPreview } from '@/components/ProductPreview'
 import {
@@ -44,15 +43,13 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <StoreActions
-                app="goodparts"
-                location="hero"
                 appStoreUrl={GOODPARTS_APP_STORE_URL}
                 playUrl={GOODPARTS_PLAY_URL}
               />
               <a
                 className="text-link"
                 href="https://goodparts.ai"
-                {...ctaAttributes('home-hero-goodparts-site')}
+                data-cta="home-hero-goodparts-site"
               >
                 Visit goodparts.ai <Arrow />
               </a>
@@ -103,15 +100,11 @@ export default function Home() {
               Choose your priorities. Make time for a small ritual. Postpone
               when you need to. There is always room to begin again.
             </p>
-            <StoreActions
-              app="simplerituals"
-              location="simple-rituals"
-              appStoreUrl={SIMPLE_RITUALS_STORE_URL}
-            />
+            <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
             <Link
               href="/apps/simple-rituals"
               className="text-link"
-              {...ctaAttributes('home-explore-simple-rituals')}
+              data-cta="home-explore-simple-rituals"
             >
               Explore Simple Rituals <Arrow />
             </Link>

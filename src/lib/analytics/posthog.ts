@@ -1,15 +1,19 @@
 import type { PostHogConfig } from 'posthog-js'
 
-import { eventFromLink, type TrackedEvent } from './events'
+import { classifyClick, sanitizeEvent, type WebEvent } from './events'
 import { resolvePosthogHosts } from './posthog-hosts.mjs'
 
 /** Same-origin proxy path; next.config.mjs rewrites it to PostHog. */
 export const INGEST_PATH = '/ingest'
 
+/** Link classes this site uses for button-styled calls to action. */
+const CTA_CLASSES = ['action-primary', 'action-secondary'] as const
+const LANDMARKS = ['header', 'footer', 'nav', 'main'] as const
+
 /**
  * Cookieless, no-banner configuration. Nothing is written to cookies,
  * localStorage, or sessionStorage; PostHog derives a daily, salted visitor
- * hash server-side (project setting cookieless_server_hash_mode).
+ * hash server-side. Everything beyond pageviews, clicks, and heatmaps is off.
  */
 export const POSTHOG_CONFIG: Partial<PostHogConfig> = {
   api_host: INGEST_PATH,
@@ -18,10 +22,18 @@ export const POSTHOG_CONFIG: Partial<PostHogConfig> = {
   cookieless_mode: 'always',
   persistence: 'memory',
   person_profiles: 'never',
-  disable_session_recording: true,
-  autocapture: true,
   capture_pageview: 'history_change',
+  capture_pageleave: 'if_capture_pageview',
+  autocapture: true,
   capture_heatmaps: true,
+  disable_session_recording: true,
+  disable_surveys: true,
+  disable_web_experiments: true,
+  advanced_disable_flags: true,
+  capture_exceptions: false,
+  capture_performance: false,
+  capture_dead_clicks: false,
+  before_send: sanitizeEvent,
 }
 
 /** The subset of the posthog-js client this module calls. */
@@ -41,14 +53,30 @@ export function readPosthogKey(
   return key ? key : null
 }
 
-function captureEvent(client: AnalyticsClient, event: TrackedEvent) {
-  // sendBeacon survives the page unloading on same-tab outbound links.
-  client.capture(event.name, event.properties, { transport: 'sendBeacon' })
+/** An explicit marker, else the nearest section id, else the landmark. */
+export function clickLocation(element: Element): string {
+  const marked = element
+    .closest('[data-analytics-location]')
+    ?.getAttribute('data-analytics-location')
+  if (marked) return marked
+  const section = element.closest('section[id]')?.id
+  if (section) return section
+  return LANDMARKS.find((tag) => element.closest(tag)) ?? 'page'
 }
 
-function trackedLinkFrom(target: EventTarget | null): HTMLAnchorElement | null {
+function eventForClick(target: EventTarget | null): WebEvent | null {
   if (!(target instanceof Element)) return null
-  return target.closest<HTMLAnchorElement>('a[data-track]')
+  const link = target.closest('a[href]')
+  if (!link) return null
+  const ctaId = link.getAttribute('data-cta')
+  return classifyClick({
+    href: link.getAttribute('href') ?? '',
+    pageOrigin: window.location.origin,
+    isCta:
+      ctaId !== null || CTA_CLASSES.some((c) => link.classList.contains(c)),
+    ctaId,
+    location: clickLocation(link),
+  })
 }
 
 /**
@@ -69,14 +97,13 @@ export function startAnalytics(
   doc.addEventListener(
     'click',
     (clickEvent) => {
-      const link = trackedLinkFrom(clickEvent.target)
-      if (!link) return
-      const event = eventFromLink({
-        dataset: { ...link.dataset },
-        href: link.href,
-        currentOrigin: window.location.origin,
-      })
-      if (event) captureEvent(client, event)
+      const event = eventForClick(clickEvent.target)
+      // sendBeacon survives the page unloading on same-tab outbound links.
+      if (event) {
+        client.capture(event.name, event.properties, {
+          transport: 'sendBeacon',
+        })
+      }
     },
     { capture: true },
   )

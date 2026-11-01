@@ -1,7 +1,5 @@
 import { type Metadata } from 'next'
 import Link from 'next/link'
-
-import { ctaAttributes } from '@/lib/analytics/events'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
 export const metadata: Metadata = {
@@ -19,14 +17,13 @@ export default function ServicePage() {
             is on apps.
           </h1>
           <p className="lead">
-            Feeling Mindful Labs does not offer consulting or development
-            services. I’m focused on building GoodParts and the apps in our
-            family.
+            Feeling Mindful Labs does not offer consulting or development services.
+            I’m focused on building GoodParts and the apps in our family.
           </p>
           <Link
             className="action-primary"
             href="/apps/good-parts"
-            {...ctaAttributes('services-refactor-meet-goodparts')}
+            data-cta="services-refactor-meet-goodparts"
           >
             Meet GoodParts
           </Link>

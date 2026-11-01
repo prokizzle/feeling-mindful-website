@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
 import { Arrow, StoreActions } from '@/components/ProductMarketing'
-import { ctaAttributes } from '@/lib/analytics/events'
 import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 export const metadata: Metadata = {
   title: 'Contact',
@@ -17,8 +16,8 @@ export default function Contact() {
         <section className="text-page">
           <h1>Let’s talk.</h1>
           <p className="lead">
-            I’m Nick, the founder of Feeling Mindful Labs. For questions about
-            the apps, feedback, or a simple hello, you can reach me directly.
+            I’m Nick, the founder of Feeling Mindful Labs. For questions about the
+            apps, feedback, or a simple hello, you can reach me directly.
           </p>
           <a
             className="text-link contact-address"
@@ -36,7 +35,7 @@ export default function Contact() {
               <Link
                 className="action-primary"
                 href="/support"
-                {...ctaAttributes('contact-app-support')}
+                data-cta="contact-app-support"
               >
                 Get app support <Arrow />
               </Link>
@@ -48,8 +47,6 @@ export default function Contact() {
               It’s on the App Store for iPhone and on Google Play for Android.
             </p>
             <StoreActions
-              app="goodparts"
-              location="goodparts"
               appStoreUrl={GOODPARTS_APP_STORE_URL}
               playUrl={GOODPARTS_PLAY_URL}
             />

@@ -8,7 +8,6 @@ import {
   ProductLegal,
   StoreActions,
 } from '@/components/ProductMarketing'
-import { ctaAttributes } from '@/lib/analytics/events'
 import { GOODPARTS_APP_STORE_URL, GOODPARTS_PLAY_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
@@ -40,15 +39,13 @@ export default function GoodPartsPage() {
             </p>
             <div className="hero-actions">
               <StoreActions
-                app="goodparts"
-                location="hero"
                 appStoreUrl={GOODPARTS_APP_STORE_URL}
                 playUrl={GOODPARTS_PLAY_URL}
               />
               <a
                 className="text-link"
                 href="https://goodparts.ai"
-                {...ctaAttributes('goodparts-hero-goodparts-site')}
+                data-cta="goodparts-hero-goodparts-site"
               >
                 Visit goodparts.ai
               </a>
@@ -90,12 +87,9 @@ export default function GoodPartsPage() {
           <p>
             GoodParts is on the App Store for iPhone and on Google Play for
             Android. Questions or feedback? Write to Nick at{' '}
-            <a href="mailto:nick@feelingmindful.com">nick@feelingmindful.com</a>
-            .
+            <a href="mailto:nick@feelingmindful.com">nick@feelingmindful.com</a>.
           </p>
           <StoreActions
-            app="goodparts"
-            location="download"
             appStoreUrl={GOODPARTS_APP_STORE_URL}
             playUrl={GOODPARTS_PLAY_URL}
           />

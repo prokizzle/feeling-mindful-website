@@ -9,7 +9,6 @@ import {
   ProductLegal,
   StoreActions,
 } from '@/components/ProductMarketing'
-import { ctaAttributes } from '@/lib/analytics/events'
 import { SIMPLE_RITUALS_STORE_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
@@ -39,11 +38,7 @@ export default function SimpleRitualsPage() {
               gentle structure to your morning, afternoon, and evening, with
               room for plans to change.
             </p>
-            <StoreActions
-              app="simplerituals"
-              location="hero"
-              appStoreUrl={SIMPLE_RITUALS_STORE_URL}
-            />
+            <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
             <p className="quiet-note">
               Free to start. Unlock the full day with a one-time purchase.
             </p>
@@ -86,8 +81,8 @@ export default function SimpleRitualsPage() {
           <div>
             <p>
               The morning window is free. A single lifetime purchase unlocks
-              afternoon and evening. No recurring subscription for the full-day
-              unlock.
+              afternoon and evening. No recurring subscription for the
+              full-day unlock.
             </p>
             <p>
               Start without an account, then optionally link one to make your
@@ -105,7 +100,7 @@ export default function SimpleRitualsPage() {
           <Link
             href="/apps/good-parts"
             className="text-link"
-            {...ctaAttributes('simple-rituals-meet-goodparts')}
+            data-cta="simple-rituals-meet-goodparts"
           >
             Meet GoodParts <Arrow />
           </Link>

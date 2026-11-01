@@ -1,111 +1,128 @@
-/**
- * Named website analytics events. The names and property shapes are shared
- * with goodparts.ai so both sites report into the same PostHog project
- * ("Websites", split by $host) with identical semantics.
- *
- * Links opt in through data attributes, so server components stay server
- * components: a single delegated click listener (see instrumentation-client)
- * reads the attributes and captures the event.
- */
-
-export const APP_IDS = [
-  'goodparts',
-  'simplerituals',
-  'cardioengine',
-  'becomingone',
-  'cutengine',
-] as const
-export type AppId = (typeof APP_IDS)[number]
-
-export const STORES = ['ios', 'android'] as const
-export type Store = (typeof STORES)[number]
-
-export type TrackedEvent =
-  | {
-      name: 'app_store_clicked'
-      properties: { app: AppId; store: Store; location: string }
-    }
-  | {
-      name: 'cta_clicked'
-      properties: { cta: string; destination: string }
-    }
-
-/** Data attributes a link carries to opt into a named event. */
-export type TrackingAttributes = Record<`data-${string}`, string>
-
-const STABLE_ID = /^[a-z0-9][a-z0-9-]{0,63}$/
-
-function isOneOf<T extends string>(
-  values: readonly T[],
-  value: string | undefined,
-): value is T {
-  return value !== undefined && (values as readonly string[]).includes(value)
-}
-
-export function appStoreAttributes(
-  app: AppId,
-  store: Store,
-  location: string,
-): TrackingAttributes {
-  return {
-    'data-track': 'app_store_clicked',
-    'data-track-app': app,
-    'data-track-store': store,
-    'data-track-location': location,
-  }
-}
-
-export function ctaAttributes(cta: string): TrackingAttributes {
-  return { 'data-track': 'cta_clicked', 'data-track-cta': cta }
-}
+import type { CaptureResult } from 'posthog-js'
 
 /**
- * Where a link goes, reduced to what the event needs: the path for
- * same-site links, the host for everything else. Query strings and
- * fragments are dropped so no user-entered values leak into properties.
+ * Cookieless website analytics: pure helpers, testable without a browser.
+ * Event names, properties, and sanitising rules match goodparts.ai
+ * (goodparts-oe4) so both sites read the same in the shared PostHog
+ * "Websites" project, split by $host.
  */
-export function destinationFor(href: string, currentOrigin: string): string {
-  try {
-    const url = new URL(href, currentOrigin)
-    return url.origin === currentOrigin ? url.pathname : url.host
-  } catch {
-    return ''
-  }
+
+// ---- Named events ----------------------------------------------------------
+
+export type Store = 'ios' | 'android'
+export type AppStoreClicked = { app: string; store: Store; location: string }
+export type CtaClicked = { cta: string; destination: string }
+export type WebEvent =
+  | { name: 'app_store_clicked'; properties: AppStoreClicked }
+  | { name: 'cta_clicked'; properties: CtaClicked }
+
+/** Store listings, by the identifier in their URL. Others report "other". */
+const APPS_BY_STORE_ID: Readonly<Record<string, string>> = {
+  '6757692886': 'goodparts',
+  'com.feelingmindful.goodparts': 'goodparts',
+  '6762166301': 'simplerituals',
+  '6761030036': 'cardioengine',
 }
 
-export interface TrackedLinkSnapshot {
-  dataset: Readonly<Record<string, string | undefined>>
-  href: string
-  currentOrigin: string
-}
-
-/**
- * Turns a clicked element's data attributes into a named event, or null when
- * the attributes are missing or malformed (a bad attribute never throws and
- * never sends a half-formed event).
- */
-export function eventFromLink({
-  dataset,
-  href,
-  currentOrigin,
-}: TrackedLinkSnapshot): TrackedEvent | null {
-  if (dataset.track === 'app_store_clicked') {
-    const {
-      trackApp: app,
-      trackStore: store,
-      trackLocation: location,
-    } = dataset
-    if (!isOneOf(APP_IDS, app) || !isOneOf(STORES, store)) return null
-    if (!location || !STABLE_ID.test(location)) return null
-    return { name: 'app_store_clicked', properties: { app, store, location } }
+function storeLink(url: URL): { app: string; store: Store } | null {
+  if (url.hostname === 'apps.apple.com') {
+    const id = /\/id(\d+)/.exec(url.pathname)?.[1] ?? ''
+    return { app: APPS_BY_STORE_ID[id] ?? 'other', store: 'ios' }
   }
-
-  if (dataset.track === 'cta_clicked') {
-    const cta = dataset.trackCta
-    const destination = destinationFor(href, currentOrigin)
-    if (!cta || !STABLE_ID.test(cta) || !destination) return null
-    return { name: 'cta_clicked', properties: { cta, destination } }
+  if (
+    url.hostname === 'play.google.com' &&
+    url.pathname.startsWith('/store/apps')
+  ) {
+    const id = url.searchParams.get('id') ?? ''
+    return { app: APPS_BY_STORE_ID[id] ?? 'other', store: 'android' }
   }
-
   return null
+}
+
+export type ClickedLink = {
+  href: string
+  pageOrigin: string
+  /** Button-styled link, or one that names its CTA with data-cta. */
+  isCta: boolean
+  ctaId?: string | null
+  location: string
+}
+
+/**
+ * The named event a link click sends, if any. A store link anywhere is
+ * `app_store_clicked`; any other CTA link is `cta_clicked`. The destination
+ * is a same-site path or another host, never a query string. Without an
+ * explicit data-cta, the id is `<location>:<destination>`.
+ */
+export function classifyClick(link: ClickedLink): WebEvent | null {
+  let url: URL
+  try {
+    url = new URL(link.href, link.pageOrigin)
+  } catch {
+    return null
+  }
+  const store = storeLink(url)
+  if (store) {
+    return {
+      name: 'app_store_clicked',
+      properties: { ...store, location: link.location },
+    }
+  }
+  if (!link.isCta || !/^https?:$/.test(url.protocol)) return null
+  const destination = url.origin === link.pageOrigin ? url.pathname : url.host
+  const cta = link.ctaId?.trim() || `${link.location}:${destination}`
+  return { name: 'cta_clicked', properties: { cta, destination } }
+}
+
+// ---- Outgoing event sanitising ---------------------------------------------
+
+/** Keeps only utm_* parameters and drops the fragment. */
+export function sanitizePageUrl(url: unknown): string | undefined {
+  if (typeof url !== 'string') return undefined
+  try {
+    const parsed = new URL(url)
+    const kept = [...parsed.searchParams].filter(([key]) =>
+      key.toLowerCase().startsWith('utm_'),
+    )
+    const query = new URLSearchParams(kept).toString()
+    return `${parsed.origin}${parsed.pathname}${query ? `?${query}` : ''}`
+  } catch {
+    return undefined
+  }
+}
+
+/** Keeps the referrer's origin and path. PostHog sends "$direct" for none. */
+export function sanitizeReferrer(referrer: unknown): unknown {
+  if (typeof referrer !== 'string' || !/^https?:\/\//.test(referrer)) {
+    return referrer
+  }
+  try {
+    const parsed = new URL(referrer)
+    return `${parsed.origin}${parsed.pathname}`
+  } catch {
+    return undefined
+  }
+}
+
+const URL_PROPERTIES = ['$current_url', '$initial_current_url'] as const
+const REFERRER_PROPERTIES = ['$referrer', '$initial_referrer'] as const
+
+/** The last check before an event leaves the browser (before_send). */
+export function sanitizeEvent(
+  event: CaptureResult | null,
+): CaptureResult | null {
+  if (!event) return null
+  const properties = { ...event.properties }
+  for (const key of URL_PROPERTIES) {
+    if (key in properties) properties[key] = sanitizePageUrl(properties[key])
+  }
+  for (const key of REFERRER_PROPERTIES) {
+    if (key in properties) {
+      properties[key] = sanitizeReferrer(properties[key])
+    }
+  }
+  // The policy promises no IP-based location lookup; enforce it per event
+  // rather than relying on the project setting alone.
+  properties.$geoip_disable = true
+  return { ...event, properties }
 }

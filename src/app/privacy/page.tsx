@@ -159,40 +159,40 @@ export default function PrivacyPage() {
 
             <h2>Website Analytics</h2>
             <p>
-              We use PostHog to understand, in aggregate, how people find and
-              use feelingmindful.com, so we can improve it. Our website
-              analytics are cookieless: they do not set cookies or store
-              anything on your device, and we do not show a cookie banner
-              because there are no analytics cookies to accept.
+              We use PostHog to count visits to feelingmindful.com and to see
+              which pages lead people to our apps. For each page you visit, we
+              collect:
             </p>
-            <p>When you visit the website, we collect:</p>
             <ul>
               <li>
-                the pages you view, including the page address and any
-                campaign (UTM) parameters in it;
-              </li>
-              <li>the referring page or site that brought you here;</li>
-              <li>
-                your browser, operating system, device type, and screen size;
+                its address, keeping only campaign parameters such as
+                utm_source;
               </li>
               <li>
-                clicks on links and buttons (including which app store button
-                or call to action you choose), and click and scroll positions
-                used to build aggregate heatmaps.
+                the address of the page that linked you here, without its
+                query;
+              </li>
+              <li>
+                browser and device details: browser, operating system, device
+                type, screen size, language, and time zone;
+              </li>
+              <li>when you leave the page;</li>
+              <li>
+                the links and buttons you click and where on the page you click
+                and scroll, including which App Store or Google Play button you
+                used.
               </li>
             </ul>
             <p>
-              To count visits without cookies, PostHog&apos;s servers combine
-              your IP address and browser details with a secret value that
-              changes every day and keep only the resulting hash. Your IP
-              address is used for that calculation and is then discarded, not
-              stored. The daily change means your visits cannot be linked from
-              one day to the next, and we do not build a profile of you.
-            </p>
-            <p>
-              We do not record your screen or sessions, we do not collect what
-              you type into forms through analytics, and we do not use website
-              analytics for advertising or share it with advertisers.
+              Website analytics set no cookies and store nothing on your device.
+              They use no account or analytics ID, and they never record your
+              session. To count a visitor once a day without cookies, PostHog
+              combines your IP address and browser details into a hash that
+              changes every day. Our PostHog project then discards the IP
+              address, and the website turns off PostHog&apos;s IP-based
+              location lookup. PostHog processes this data in the United
+              States. We never use it for advertising or share it with ad
+              networks.
             </p>
 
             <h2>Cookies</h2>

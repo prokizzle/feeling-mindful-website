@@ -2,7 +2,6 @@ import { type Metadata } from 'next'
 import { Container } from '@/components/Container'
 import { RootLayout } from '@/components/RootLayout'
 import { AppIdentity, Arrow, ProductLegal } from '@/components/ProductMarketing'
-import { appStoreAttributes } from '@/lib/analytics/events'
 import { CARDIOENGINE_STORE_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
@@ -31,11 +30,7 @@ export default function CardioEnginePage() {
             Watch. Connect your watch or Bluetooth heart-rate monitor and follow
             your effort as you move.
           </p>
-          <a
-            href={CARDIOENGINE_STORE_URL}
-            className="action-primary"
-            {...appStoreAttributes('cardioengine', 'ios', 'hero')}
-          >
+          <a href={CARDIOENGINE_STORE_URL} className="action-primary">
             View on the App Store <Arrow />
           </a>
           <div className="product-steps">
