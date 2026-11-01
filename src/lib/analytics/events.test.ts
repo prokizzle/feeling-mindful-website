@@ -1,13 +1,6 @@
-import type { CaptureResult } from 'posthog-js'
 import { describe, expect, it } from 'vitest'
 
-import {
-  classifyClick,
-  sanitizeEvent,
-  sanitizePageUrl,
-  sanitizeReferrer,
-  type ClickedLink,
-} from './events'
+import { classifyClick, type ClickedLink } from './events'
 
 const ORIGIN = 'https://site.example'
 
@@ -86,65 +79,5 @@ describe('classifyClick: cta_clicked', () => {
 
   it('ignores an unparseable href', () => {
     expect(classifyClick(click({ href: 'http://', isCta: true }))).toBeNull()
-  })
-})
-
-describe('sanitizePageUrl', () => {
-  it('keeps only utm_* parameters and drops the fragment', () => {
-    expect(
-      sanitizePageUrl(`${ORIGIN}/a?utm_source=x&email=e&UTM_Medium=y#frag`),
-    ).toBe(`${ORIGIN}/a?utm_source=x&UTM_Medium=y`)
-  })
-
-  it('drops non-strings and unparseable values', () => {
-    expect(sanitizePageUrl(42)).toBeUndefined()
-    expect(sanitizePageUrl('not a url')).toBeUndefined()
-  })
-})
-
-describe('sanitizeReferrer', () => {
-  it('keeps origin and path', () => {
-    expect(sanitizeReferrer('https://ref.example/p?q=secret#f')).toBe(
-      'https://ref.example/p',
-    )
-  })
-
-  it('passes $direct through', () => {
-    expect(sanitizeReferrer('$direct')).toBe('$direct')
-  })
-})
-
-describe('sanitizeEvent', () => {
-  it('trims URLs and referrers and disables geoip', () => {
-    const event = {
-      event: '$pageview',
-      properties: {
-        $current_url: `${ORIGIN}/a?utm_campaign=c&token=t`,
-        $initial_current_url: `${ORIGIN}/b?token=t`,
-        $referrer: 'https://ref.example/p?q=1',
-        $initial_referrer: '$direct',
-        other: 'kept',
-      },
-    } as unknown as CaptureResult
-
-    expect(sanitizeEvent(event)?.properties).toEqual({
-      $current_url: `${ORIGIN}/a?utm_campaign=c`,
-      $initial_current_url: `${ORIGIN}/b`,
-      $referrer: 'https://ref.example/p',
-      $initial_referrer: '$direct',
-      other: 'kept',
-      $geoip_disable: true,
-    })
-  })
-
-  it('does not mutate the original event', () => {
-    const properties = { $current_url: `${ORIGIN}/?token=t` }
-    const event = { event: 'x', properties } as unknown as CaptureResult
-    sanitizeEvent(event)
-    expect(properties.$current_url).toBe(`${ORIGIN}/?token=t`)
-  })
-
-  it('passes null through', () => {
-    expect(sanitizeEvent(null)).toBeNull()
   })
 })

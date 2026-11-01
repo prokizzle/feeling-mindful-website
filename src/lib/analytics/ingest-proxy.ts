@@ -1,0 +1,57 @@
+/**
+ * The same-origin PostHog relay. It runs in middleware rather than as a
+ * next.config rewrite, because an external rewrite forwards every request
+ * header (Cookie, Authorization, Referer) to PostHog. Only the headers below
+ * are forwarded. Mirrors goodparts.ai's ingest-proxy (goodparts-oe4).
+ */
+
+export const INGEST_PATH = '/ingest'
+
+export const FORWARDED_HEADERS: readonly string[] = [
+  'accept',
+  'accept-encoding',
+  'accept-language',
+  'content-encoding',
+  'content-length',
+  'content-type',
+  'origin',
+  'user-agent',
+  // PostHog counts a cookieless visitor from the client IP; the project
+  // discards it afterwards.
+  'x-forwarded-for',
+  'x-real-ip',
+]
+
+export interface IngestHosts {
+  ingest: string
+  assets: string
+}
+
+export function isIngestPath(pathname: string): boolean {
+  return pathname === INGEST_PATH || pathname.startsWith(`${INGEST_PATH}/`)
+}
+
+/**
+ * The PostHog URL an /ingest request goes to: /ingest/static/* to the assets
+ * host, the rest to the ingest host. Null for any other path.
+ */
+export function ingestUpstream(
+  pathname: string,
+  search: string,
+  hosts: IngestHosts,
+): string | null {
+  if (!isIngestPath(pathname)) return null
+  const rest = pathname.slice(INGEST_PATH.length) || '/'
+  const target = rest.startsWith('/static/') ? hosts.assets : hosts.ingest
+  return `${target}${rest}${search}`
+}
+
+/** A copy of `headers` holding only the allowlisted names. */
+export function forwardedHeaders(headers: Headers): Headers {
+  const kept = new Headers()
+  for (const name of FORWARDED_HEADERS) {
+    const value = headers.get(name)
+    if (value !== null) kept.set(name, value)
+  }
+  return kept
+}

@@ -1,5 +1,3 @@
-import type { CaptureResult } from 'posthog-js'
-
 /**
  * Cookieless website analytics: pure helpers, testable without a browser.
  * Event names, properties, and sanitising rules match goodparts.ai
@@ -72,57 +70,4 @@ export function classifyClick(link: ClickedLink): WebEvent | null {
   const destination = url.origin === link.pageOrigin ? url.pathname : url.host
   const cta = link.ctaId?.trim() || `${link.location}:${destination}`
   return { name: 'cta_clicked', properties: { cta, destination } }
-}
-
-// ---- Outgoing event sanitising ---------------------------------------------
-
-/** Keeps only utm_* parameters and drops the fragment. */
-export function sanitizePageUrl(url: unknown): string | undefined {
-  if (typeof url !== 'string') return undefined
-  try {
-    const parsed = new URL(url)
-    const kept = [...parsed.searchParams].filter(([key]) =>
-      key.toLowerCase().startsWith('utm_'),
-    )
-    const query = new URLSearchParams(kept).toString()
-    return `${parsed.origin}${parsed.pathname}${query ? `?${query}` : ''}`
-  } catch {
-    return undefined
-  }
-}
-
-/** Keeps the referrer's origin and path. PostHog sends "$direct" for none. */
-export function sanitizeReferrer(referrer: unknown): unknown {
-  if (typeof referrer !== 'string' || !/^https?:\/\//.test(referrer)) {
-    return referrer
-  }
-  try {
-    const parsed = new URL(referrer)
-    return `${parsed.origin}${parsed.pathname}`
-  } catch {
-    return undefined
-  }
-}
-
-const URL_PROPERTIES = ['$current_url', '$initial_current_url'] as const
-const REFERRER_PROPERTIES = ['$referrer', '$initial_referrer'] as const
-
-/** The last check before an event leaves the browser (before_send). */
-export function sanitizeEvent(
-  event: CaptureResult | null,
-): CaptureResult | null {
-  if (!event) return null
-  const properties = { ...event.properties }
-  for (const key of URL_PROPERTIES) {
-    if (key in properties) properties[key] = sanitizePageUrl(properties[key])
-  }
-  for (const key of REFERRER_PROPERTIES) {
-    if (key in properties) {
-      properties[key] = sanitizeReferrer(properties[key])
-    }
-  }
-  // The policy promises no IP-based location lookup; enforce it per event
-  // rather than relying on the project setting alone.
-  properties.$geoip_disable = true
-  return { ...event, properties }
 }
