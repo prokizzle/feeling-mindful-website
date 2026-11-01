@@ -20,7 +20,11 @@ export default function ServicePage() {
             Feeling Mindful Labs does not offer consulting or development services.
             I’m focused on building GoodParts and the apps in our family.
           </p>
-          <Link className="action-primary" href="/apps/good-parts">
+          <Link
+            className="action-primary"
+            href="/apps/good-parts"
+            data-cta="services-hermes-meet-goodparts"
+          >
             Meet GoodParts
           </Link>
           <p className="quiet-note">

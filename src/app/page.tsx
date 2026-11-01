@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <RootLayout>
       <Container>
-        <section className="flagship-hero">
+        <section className="flagship-hero" id="hero">
           <div className="hero-copy">
             <h1>
               Get to know
@@ -46,7 +46,11 @@ export default function Home() {
                 appStoreUrl={GOODPARTS_APP_STORE_URL}
                 playUrl={GOODPARTS_PLAY_URL}
               />
-              <a className="text-link" href="https://goodparts.ai">
+              <a
+                className="text-link"
+                href="https://goodparts.ai"
+                data-cta="home-hero-goodparts-site"
+              >
                 Visit goodparts.ai <Arrow />
               </a>
             </div>
@@ -97,7 +101,11 @@ export default function Home() {
               when you need to. There is always room to begin again.
             </p>
             <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
-            <Link href="/apps/simple-rituals" className="text-link">
+            <Link
+              href="/apps/simple-rituals"
+              className="text-link"
+              data-cta="home-explore-simple-rituals"
+            >
               Explore Simple Rituals <Arrow />
             </Link>
             <p className="quiet-note">

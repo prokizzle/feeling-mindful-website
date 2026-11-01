@@ -21,7 +21,7 @@ export default function SimpleRitualsPage() {
   return (
     <RootLayout>
       <Container>
-        <section className="product-hero">
+        <section className="product-hero" id="hero">
           <div className="feature-copy">
             <AppIdentity
               name="Simple Rituals"
@@ -90,14 +90,18 @@ export default function SimpleRitualsPage() {
             </p>
           </div>
         </section>
-        <section className="beta-section">
+        <section className="beta-section" id="goodparts">
           <h2>Make space for reflection, too.</h2>
           <p>
             A daily ritual can be a few minutes of listening to yourself.
             GoodParts, our flagship voice journal, is made for that
             conversation.
           </p>
-          <Link href="/apps/good-parts" className="text-link">
+          <Link
+            href="/apps/good-parts"
+            className="text-link"
+            data-cta="simple-rituals-meet-goodparts"
+          >
             Meet GoodParts <Arrow />
           </Link>
         </section>

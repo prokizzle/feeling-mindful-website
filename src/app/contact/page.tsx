@@ -32,12 +32,16 @@ export default function Contact() {
                 For an app issue, the support portal helps you send the details
                 I need to look into it.
               </p>
-              <Link className="action-primary" href="/support">
+              <Link
+                className="action-primary"
+                href="/support"
+                data-cta="contact-app-support"
+              >
                 Get app support <Arrow />
               </Link>
             </div>
           </div>
-          <section className="beta-section">
+          <section className="beta-section" id="goodparts">
             <h2>Curious about GoodParts?</h2>
             <p>
               It’s on the App Store for iPhone and on Google Play for Android.

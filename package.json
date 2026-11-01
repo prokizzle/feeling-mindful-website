@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "check:support": "node --experimental-strip-types scripts/check-support.mts"
+    "check:support": "node --experimental-strip-types scripts/check-support.mts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -26,6 +28,7 @@
     "framer-motion": "^12.23.11",
     "geist": "^1.7.0",
     "next": "^15",
+    "posthog-js": "^1.444.0",
     "react": "^19",
     "react-dom": "^19",
     "recma-import-images": "0.0.3",
@@ -45,8 +48,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15",
+    "jsdom": "^29.1.1",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
-    "sharp": "0.34.3"
+    "sharp": "0.34.3",
+    "vitest": "^3.2.7"
   }
 }

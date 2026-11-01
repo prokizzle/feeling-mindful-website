@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           <article className="prose max-w-3xl mx-auto">
             <h1>Privacy Policy</h1>
             <p className="lead">
-              <strong>Last updated: July 4, 2026</strong>
+              <strong>Last updated: November 1, 2026</strong>
             </p>
             <p>
               Feeling Mindful Labs LLC (&quot;Feeling Mindful Labs,&quot;
@@ -129,6 +129,10 @@ export default function PrivacyPage() {
                 for certain apps
               </li>
               <li>
+                <strong>PostHog</strong> (United States) — cookieless website
+                analytics, described below
+              </li>
+              <li>
                 <strong>Sentry</strong> — crash reporting and error monitoring
               </li>
               <li>
@@ -153,11 +157,48 @@ export default function PrivacyPage() {
               and we do not share it with data brokers.
             </p>
 
+            <h2>Website Analytics</h2>
+            <p>
+              We use PostHog to count visits to feelingmindful.com and to see
+              which pages lead people to our apps. For each page you visit, we
+              collect:
+            </p>
+            <ul>
+              <li>
+                its address, keeping only campaign parameters such as
+                utm_source;
+              </li>
+              <li>
+                the address of the page that linked you here, without its
+                query;
+              </li>
+              <li>
+                browser and device details: browser, operating system, device
+                type, screen size, language, and time zone;
+              </li>
+              <li>when you leave the page;</li>
+              <li>
+                the links and buttons you click and where on the page you click
+                and scroll, including which App Store or Google Play button you
+                used.
+              </li>
+            </ul>
+            <p>
+              Website analytics set no cookies and store nothing on your device.
+              They use no account or analytics ID, and they never record your
+              session. To count a visitor once a day without cookies, PostHog
+              combines your IP address and browser details into a hash that
+              changes every day. Our PostHog project then discards the IP
+              address, and the website turns off PostHog&apos;s IP-based
+              location lookup. PostHog processes this data in the United
+              States. We never use it for advertising or share it with ad
+              networks.
+            </p>
+
             <h2>Cookies</h2>
             <p>
-              Our website uses only the cookies necessary for it to function
-              and for anonymous, aggregate analytics. We do not use cross-site
-              tracking or advertising cookies.
+              Our website does not use analytics, cross-site tracking, or
+              advertising cookies.
             </p>
 
             <h2>Data Retention</h2>

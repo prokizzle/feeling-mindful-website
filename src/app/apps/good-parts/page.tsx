@@ -20,7 +20,7 @@ export default function GoodPartsPage() {
   return (
     <RootLayout>
       <Container>
-        <section className="product-hero">
+        <section className="product-hero" id="hero">
           <div className="feature-copy">
             <AppIdentity
               name="GoodParts"
@@ -42,7 +42,11 @@ export default function GoodPartsPage() {
                 appStoreUrl={GOODPARTS_APP_STORE_URL}
                 playUrl={GOODPARTS_PLAY_URL}
               />
-              <a className="text-link" href="https://goodparts.ai">
+              <a
+                className="text-link"
+                href="https://goodparts.ai"
+                data-cta="goodparts-hero-goodparts-site"
+              >
                 Visit goodparts.ai
               </a>
             </div>
@@ -78,7 +82,7 @@ export default function GoodPartsPage() {
             </p>
           </div>
         </section>
-        <section className="beta-section">
+        <section className="beta-section" id="download">
           <h2>Get GoodParts.</h2>
           <p>
             GoodParts is on the App Store for iPhone and on Google Play for

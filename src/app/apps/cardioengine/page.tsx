@@ -14,7 +14,7 @@ export default function CardioEnginePage() {
   return (
     <RootLayout>
       <Container>
-        <section className="text-page">
+        <section className="text-page" id="hero">
           <AppIdentity
             name="CardioEngine"
             icon="/icons/cardioengine-icon.png"
