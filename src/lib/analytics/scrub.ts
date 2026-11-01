@@ -18,13 +18,27 @@ const NAMED_EVENT_KEYS = new Set([
   'destination',
 ])
 
-/** `$initial_*` properties that describe the page, not a campaign or click id. */
-const INITIAL_PAGE_KEYS = new Set([
+/**
+ * The SDK copies the first page's properties under two prefixes: `$initial_*`
+ * and, per session, `$session_entry_*` (session-props.js; `$current_url`
+ * becomes `$session_entry_url`). Only the page fields and utm_* survive under
+ * either; click ids such as `$session_entry_gclid` do not.
+ */
+const ENTRY_PREFIXES = ['$initial_', '$session_entry_'] as const
+const ENTRY_PAGE_KEYS = new Set([
   'current_url',
+  'url',
   'referrer',
   'referring_domain',
   'host',
   'pathname',
+])
+
+/** URL-valued properties trimmed to origin and path (no utm_*). */
+const REFERRER_KEYS = new Set([
+  '$referrer',
+  '$initial_referrer',
+  '$session_entry_referrer',
 ])
 
 /**
@@ -144,9 +158,10 @@ export function sanitizeElementsChain(chain: unknown): unknown {
 /** Whether a property may leave the browser at all, judged by its key. */
 export function isAllowedPropertyKey(key: string): boolean {
   if (DROPPED_SDK_KEYS.has(key)) return false
-  if (key.startsWith('$initial_')) {
-    const rest = key.slice('$initial_'.length)
-    return UTM.test(rest) || INITIAL_PAGE_KEYS.has(rest)
+  const prefix = ENTRY_PREFIXES.find((candidate) => key.startsWith(candidate))
+  if (prefix) {
+    const rest = key.slice(prefix.length)
+    return UTM.test(rest) || ENTRY_PAGE_KEYS.has(rest)
   }
   if (key.startsWith('$')) return true
   return UTM.test(key) || NAMED_EVENT_KEYS.has(key) || SDK_PLAIN_KEYS.has(key)
@@ -154,11 +169,12 @@ export function isAllowedPropertyKey(key: string): boolean {
 
 type Properties = Record<string, unknown>
 
+function isAbsoluteHttpUrl(value: unknown): value is string {
+  return typeof value === 'string' && /^https?:\/\//i.test(value)
+}
+
+/** Properties with their own structure or rule; the generic URL pass skips them. */
 const SANITIZERS: ReadonlyArray<[string, (value: unknown) => unknown]> = [
-  ['$current_url', sanitizePageUrl],
-  ['$initial_current_url', sanitizePageUrl],
-  ['$referrer', sanitizeReferrer],
-  ['$initial_referrer', sanitizeReferrer],
   ['$external_click_url', (v) => (typeof v === 'string' ? sanitizeHref(v) : v)],
   ['$heatmap_data', sanitizeHeatmapData],
   ['$elements', sanitizeElements],
@@ -182,6 +198,15 @@ export function sanitizeEvent(
   const properties: Properties = { ...kept }
   for (const [key, sanitize] of SANITIZERS) {
     if (key in properties) properties[key] = sanitize(properties[key])
+  }
+  const structured = new Set(SANITIZERS.map(([key]) => key))
+  // Every other top-level URL, whatever its key, so a property a later SDK
+  // version adds is trimmed too.
+  for (const [key, value] of Object.entries(properties)) {
+    if (structured.has(key) || !isAbsoluteHttpUrl(value)) continue
+    properties[key] = REFERRER_KEYS.has(key)
+      ? sanitizeReferrer(value)
+      : sanitizePageUrl(value)
   }
   // The policy promises no IP-based location lookup; enforce it per event
   // rather than relying on the project setting alone.
