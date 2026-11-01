@@ -9,6 +9,7 @@ import {
   ProductLegal,
   StoreActions,
 } from '@/components/ProductMarketing'
+import { ctaAttributes } from '@/lib/analytics/events'
 import { SIMPLE_RITUALS_STORE_URL } from '@/lib/apps'
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function SimpleRitualsPage() {
   return (
     <RootLayout>
       <Container>
-        <section className="product-hero">
+        <section className="product-hero" id="hero">
           <div className="feature-copy">
             <AppIdentity
               name="Simple Rituals"
@@ -38,7 +39,11 @@ export default function SimpleRitualsPage() {
               gentle structure to your morning, afternoon, and evening, with
               room for plans to change.
             </p>
-            <StoreActions appStoreUrl={SIMPLE_RITUALS_STORE_URL} />
+            <StoreActions
+              app="simplerituals"
+              location="hero"
+              appStoreUrl={SIMPLE_RITUALS_STORE_URL}
+            />
             <p className="quiet-note">
               Free to start. Unlock the full day with a one-time purchase.
             </p>
@@ -81,8 +86,8 @@ export default function SimpleRitualsPage() {
           <div>
             <p>
               The morning window is free. A single lifetime purchase unlocks
-              afternoon and evening. No recurring subscription for the
-              full-day unlock.
+              afternoon and evening. No recurring subscription for the full-day
+              unlock.
             </p>
             <p>
               Start without an account, then optionally link one to make your
@@ -90,14 +95,18 @@ export default function SimpleRitualsPage() {
             </p>
           </div>
         </section>
-        <section className="beta-section">
+        <section className="beta-section" id="goodparts">
           <h2>Make space for reflection, too.</h2>
           <p>
             A daily ritual can be a few minutes of listening to yourself.
             GoodParts, our flagship voice journal, is made for that
             conversation.
           </p>
-          <Link href="/apps/good-parts" className="text-link">
+          <Link
+            href="/apps/good-parts"
+            className="text-link"
+            {...ctaAttributes('simple-rituals-meet-goodparts')}
+          >
             Meet GoodParts <Arrow />
           </Link>
         </section>
