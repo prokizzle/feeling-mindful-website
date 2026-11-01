@@ -107,6 +107,15 @@ describe('isAllowedPropertyKey', () => {
     ['token', true],
     ['distinct_id', true],
     ['title', true],
+    ['$session_entry_url', true],
+    ['$session_entry_referrer', true],
+    ['$session_entry_referring_domain', true],
+    ['$session_entry_pathname', true],
+    ['$session_entry_host', true],
+    ['$session_entry_utm_source', true],
+    ['$session_entry_gclid', false],
+    ['$session_entry_fbclid', false],
+    ['$session_entry_msclkid', false],
     ['$fbc', false],
     ['$fbp', false],
     ['$initial_gclid', false],
@@ -154,6 +163,45 @@ describe('sanitizeEvent', () => {
       utm_source: 's',
       cta: 'sample-cta',
       $geoip_disable: true,
+    })
+  })
+
+  it('gates and trims $session_entry_* like $initial_*', () => {
+    const result = sanitizeEvent(
+      event({
+        $session_entry_url: `${ORIGIN}/a?utm_source=s&gclid=g#f`,
+        $session_entry_referrer: 'https://ref.example/p?utm_source=s&q=1',
+        $session_entry_referring_domain: 'ref.example',
+        $session_entry_pathname: '/a',
+        $session_entry_utm_source: 's',
+        $session_entry_gclid: 'g',
+        $session_entry_fbclid: 'f',
+      }),
+    )
+
+    expect(result?.properties).toEqual({
+      $session_entry_url: `${ORIGIN}/a?utm_source=s`,
+      $session_entry_referrer: 'https://ref.example/p',
+      $session_entry_referring_domain: 'ref.example',
+      $session_entry_pathname: '/a',
+      $session_entry_utm_source: 's',
+      $geoip_disable: true,
+    })
+  })
+
+  it('trims any top-level URL property, whatever its key', () => {
+    const result = sanitizeEvent(
+      event({
+        $future_page_url: `${ORIGIN}/x?utm_term=t&token=secret`,
+        $prev_pageview_pathname: '/plain/path',
+        $referring_domain: 'ref.example',
+      }),
+    )
+
+    expect(result?.properties).toMatchObject({
+      $future_page_url: `${ORIGIN}/x?utm_term=t`,
+      $prev_pageview_pathname: '/plain/path',
+      $referring_domain: 'ref.example',
     })
   })
 
