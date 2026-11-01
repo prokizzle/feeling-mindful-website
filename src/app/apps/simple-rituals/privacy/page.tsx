@@ -10,7 +10,7 @@ export default function SimpleRitualsPrivacy() {
   return (
     <PrivacyPolicy
       appName="Simple Rituals"
-      lastUpdated="2026-10-01"
+      lastUpdated="2026-11-01"
       dataCollected={[
         'A pseudonymous user ID created by Firebase Authentication so your data can be stored and retrieved',
         'Your email address if you choose to link your account using Sign in with Apple or Google',
@@ -19,6 +19,7 @@ export default function SimpleRitualsPrivacy() {
         'Purchase history, product identifiers, transaction status, and Pro entitlement status',
         'Crash reports, error details, app and device information, and performance measurements',
         'App update checks: the app version (runtime version and installed update), platform, update channel, and a random installation ID',
+        'Anonymous product-usage events, such as opening the app, finishing a setup step, marking a ritual done, opening a reminder, or viewing the Pro offer, with a random installation ID that is not linked to your account. They never include ritual names or anything you type',
       ]}
       dataStoredOnDevice={[
         'Notification preferences and the schedule used for local reminder notifications',
@@ -29,12 +30,14 @@ export default function SimpleRitualsPrivacy() {
         'To validate purchases, restore Pro access, prevent purchase fraud, and understand purchase performance',
         'To diagnose crashes, errors, and performance problems and improve app reliability',
         'To check for and deliver app updates',
+        'To understand, in aggregate, which parts of the app people use and where they stop, so we can improve it',
         'To respond to support, privacy, and deletion requests',
       ]}
       thirdPartyServices={[
         'Google Firebase Authentication and Cloud Firestore — anonymous or linked account authentication and cloud storage',
         'RevenueCat — in-app purchase validation, entitlement management, purchase analytics, and restoration',
-        'Sentry — crash reporting, error monitoring, and performance diagnostics',
+        'Sentry — crash reporting, error monitoring, and performance diagnostics, plus records of purchase steps (Pro offer shown, purchase or restore started, completed, cancelled, or failed) that carry no account or ritual details',
+        'PostHog (United States) — anonymous product-usage analytics. Events carry a random installation ID, never your account or user ID, and never ritual names or text. PostHog is set to discard your IP address and not to derive a location from it',
         'Apple App Store and StoreKit — payment processing and purchase records on iOS',
         'Google Play Billing — payment processing and purchase records on Android',
         'Expo EAS Update — app update delivery. Each update check sends the app version, platform, update channel, and a random installation ID, and Expo receives your IP address with each request',
@@ -43,7 +46,7 @@ export default function SimpleRitualsPrivacy() {
       devicePermissions={[
         'Notifications — to schedule ritual reminders locally on your device',
       ]}
-      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete account in the app or when we complete a verified deletion request for a linked account. Apple, Google, Firebase, RevenueCat, Sentry, and Expo may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
+      retentionDescription="We retain cloud-hosted ritual, completion, account, and purchase-entitlement data while you use Simple Rituals. Ritual and completion data is deleted when you use Delete account in the app or when we complete a verified deletion request for a linked account. Apple, Google, Firebase, RevenueCat, Sentry, PostHog, and Expo may retain limited transaction, security, backup, or diagnostic records according to their policies and legal obligations."
       deletionDescription={
         <>
           Anonymous accounts have no email. Delete your rituals, completion
@@ -60,7 +63,8 @@ export default function SimpleRitualsPrivacy() {
       <p>
         Our service providers (Firebase, Sentry, RevenueCat, and Expo) receive
         your IP address and device and app information when the app connects to
-        them, and use it for security and diagnostics.
+        them, and use it for security and diagnostics. PostHog also receives your
+        IP address with each request, and is set to discard it rather than store it.
       </p>
     </PrivacyPolicy>
   )
