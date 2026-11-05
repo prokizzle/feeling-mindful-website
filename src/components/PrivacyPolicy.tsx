@@ -38,6 +38,11 @@ interface PrivacyPolicyProps {
    * purposes, so "solely" would be false.
    */
   dataSharingDescription?: string
+  /**
+   * Replaces the default under-13 paragraph under Children's Privacy. The Roster sets it
+   * (goodparts-lng1): it is for adults 18 and older.
+   */
+  childrensPrivacyDescription?: string
 }
 
 const COMPANY_NAME = 'Feeling Mindful Labs'
@@ -65,6 +70,7 @@ export function PrivacyPolicy({
   canonicalUrl,
   implicitConsent = true,
   dataSharingDescription,
+  childrensPrivacyDescription,
 }: PrivacyPolicyProps) {
   return (
     <RootLayout>
@@ -223,9 +229,13 @@ export function PrivacyPolicy({
 
           <h2>Children&apos;s Privacy</h2>
           <p>
-            {appName} is not intended for children under 13. We do not knowingly collect personal
-            information from children under 13. If you believe a child has provided us with personal
-            data, please contact us and we will remove it.
+            {childrensPrivacyDescription ?? (
+              <>
+                {appName} is not intended for children under 13. We do not knowingly collect personal
+                information from children under 13. If you believe a child has provided us with personal
+                data, please contact us and we will remove it.
+              </>
+            )}
           </p>
 
           {mentalHealthDisclaimer && (

@@ -44,6 +44,8 @@ export default function RosterPrivacy() {
         'Apple App Store and StoreKit — payment processing and purchase records',
         'Expo EAS Update — app update delivery. Each update check sends the app version, platform, update channel, and a random installation ID, and Expo receives your IP address with each request',
       ]}
+      implicitConsent={false}
+      childrensPrivacyDescription="The Roster is for adults 18 and older."
       dataSharingDescription="We share data with the service providers listed above to operate The Roster Journal. Under their own terms, Sentry may use non-identifying service data to improve its products, and Expo may keep and use de-identified or aggregated data."
       retentionDescription="Your notes, roster, and episodes stay on your phone until you delete them. They are left out of iCloud backups, so they are not copied to a new phone and cannot be restored from a backup. We have no server that holds them. RevenueCat keeps your purchase record, and Sentry, PostHog, and Expo keep their diagnostic and usage records, under their own retention periods. Apple keeps your subscription and payment records."
       deletionDescription={

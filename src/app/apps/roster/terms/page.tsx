@@ -90,8 +90,7 @@ export default function RosterTermsPage() {
 
             <h2>Changes</h2>
             <p>
-              We may update these terms. Continued use of the app constitutes
-              acceptance of updated terms.
+              We may update these terms.
             </p>
 
             <h2>Contact</h2>
