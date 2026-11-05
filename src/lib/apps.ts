@@ -54,6 +54,19 @@ export const apps: AppInfo[] = [
     icon: '/icons/simple-rituals-icon.png',
     bgGlow: 'bg-sage-400/20',
   },
+  {
+    // Hidden until 1.0 is on the App Store (goodparts-lng1): /support?app=roster works now.
+    // The icon is the app's scaffold placeholder; swap it with the final store icon.
+    name: 'The Roster Journal',
+    slug: 'roster',
+    hidden: true,
+    description:
+      'A private journal for your dating life. Your notes become a cast of nicknames and a weekly episode.',
+    status: 'Coming Soon',
+    domain: 'mindfulness',
+    icon: '/icons/roster-icon.png',
+    bgGlow: 'bg-sand-400/20',
+  },
   // Fitness suite
   {
     name: 'CutEngine',
